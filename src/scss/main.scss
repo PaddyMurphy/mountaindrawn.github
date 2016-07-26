@@ -2,13 +2,53 @@
 @import 'utilities';
 
 body {
-  background-color: $color-teal-base;
+	margin: 0;
 }
 
-.foo {
-  @include absolute(0, 0, auto, auto);
+h1, h2, h3, h4 {
+	color: white;
+	font-family: 'Playfair Display', serif;
+    font-weight: 400;
 }
 
-.Tour {
-  display: flex;
+.main {
+	background: url('../images/kayak-devilsriver.jpg') 50% 50% no-repeat;
+	background-size: cover;
+	min-height: 500px;
+}
+
+.header-main {
+	//background-color: $color-light;
+	display: flex;
+	height: $header-height;
+	flex-direction: row;
+	align-items: stretch;
+	width: 100%;
+}
+
+.header-side {
+	background-color: $color-light;
+	flex: 1;
+}
+
+.mountains-svg {
+	align-self: flex-end;
+	box-sizing: content-box;
+	// borders to fill gap
+	border-left: 4vw solid $color-light;
+	border-top: calc(#{$header-height} - #{$logo-height}) solid $color-light;
+}
+
+.front-range {
+	fill: $color-light;
+}
+
+.far-mountains {
+	fill: #B9B2B2;
+}
+
+
+.test-1 {
+	background-size: cover;
+	min-height: 500px;
 }
