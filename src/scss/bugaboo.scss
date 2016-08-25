@@ -19,10 +19,17 @@ body.bugaboo {
 }
 
 h1 {
+	color: $bugaboo-dark;
 	text-align: center;
 }
 
 .mountains-wrapper {
+	background-image:
+	    radial-gradient(
+	      circle closest-side,
+	      yellow,
+	      transparent
+	    );
 	margin: 0 auto;
 }
 
