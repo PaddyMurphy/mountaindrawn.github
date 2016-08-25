@@ -1,0 +1,214 @@
+@import 'variables';
+@import 'utilities';
+@import 'common';
+
+// BUGABOO
+
+// TODO:
+// organize mountains by class name
+// [rainier, bugaboo, baker]
+
+// darker neutral scheme
+$bugaboo-light: #E5DED9;
+$bugaboo-shade-30: #C1B8AE;
+$bugaboo-shade-60: #7D7771;
+$bugaboo-dark: #3E3D3D;
+
+body.bugaboo {
+	background-color: #D3EF4F;
+}
+
+h1 {
+	text-align: center;
+}
+
+.mountains-wrapper {
+	margin: 0 auto;
+}
+
+// tiles read left to right and back
+.bugaboo .shard-wrap {
+	&:nth-child(1) {
+		.shard {
+			background-color: $bugaboo-shade-30;
+			clip-path: polygon( 33.800% 61.000%, 38.200% 73.667%, 14.000% 90.333% );
+		}
+	}
+	&:nth-child(2) {
+		.shard {
+			background-color: $bugaboo-shade-60;
+			clip-path: polygon( 38.200% 73.333%, 23.400% 89.000%, 13.800% 90.667% );
+		}
+	}
+	&:nth-child(3) {
+		.shard {
+			background-color: $bugaboo-shade-30;
+			clip-path: polygon( 22.800% 89.000%, 55.600% 56.333%, 40.200% 89.333% );
+		}
+	}
+	&:nth-child(4) {
+		.shard {
+			background-color: $bugaboo-shade-60;
+			clip-path: polygon( 55.200% 56.667%, 40.000% 89.333%, 61.000% 60.333% );
+		}
+	}
+	&:nth-child(5) {
+		.shard {
+			background-color: $bugaboo-dark;
+			clip-path: polygon( 60.800% 60.333%, 40.000% 89.333%, 61.200% 83.667% );
+		}
+	}
+	&:nth-child(6) {
+		.shard {
+			background-color: $bugaboo-shade-60;
+			clip-path: polygon( 60.600% 60.333%, 61.000% 83.667%, 87.600% 98.000% );
+		}
+	}
+	&:nth-child(7) {
+		.shard {
+			background-color: $bugaboo-shade-30;
+			clip-path: polygon( 73.000% 77.667%, 78.000% 72.667%, 87.200% 97.333% );
+		}
+	}
+	&:nth-child(8) {
+		.shard {
+			background-color: $bugaboo-light;
+			clip-path: polygon( 60.800% 60.333%, 73.200% 77.667%, 78.200% 72.667% );
+		}
+	}
+	&:nth-child(9) {
+		.shard {
+			background-color: $bugaboo-shade-60;
+			clip-path: polygon( 55.400% 56.667%, 38.000% 74.000%, 50.800% 28.667%  );
+		}
+	}
+	&:nth-child(10) {
+		.shard {
+			background-color: $bugaboo-dark;
+			clip-path: polygon( 38.000% 73.667%, 44.600% 51.000%, 39.200% 42.333% );
+		}
+	}
+	&:nth-child(11) {
+		.shard {
+			background-color: $bugaboo-shade-60;
+			clip-path: polygon( 38.200% 73.333%, 39.200% 49.000%, 33.000% 62.000% );
+		}
+	}
+	&:nth-child(12) {
+		.shard {
+			background-color: $bugaboo-shade-30;
+			clip-path: polygon( 55.400% 58.300%, 48.200% 16.000%, 53.200% 21.333% );
+		}
+	}
+	&:nth-child(13) {
+		.shard {
+			background-color: $bugaboo-dark;
+			clip-path: polygon( 53.200% 22.333%, 55.200% 56.333%, 55.400% 22.333% );
+		}
+	}
+	&:nth-child(14) {
+		.shard {
+			background-color: $bugaboo-shade-30;
+			clip-path: polygon( 55.200% 57.333%, 55.200% 23.667%, 60.600% 60.000% );
+		}
+	}
+	&:nth-child(15) {
+		.shard {
+			background-color: $bugaboo-light;
+			clip-path: polygon( 55.200% 24.333%, 60.800% 60.667%, 70.000% 52.000% );
+		}
+	}
+	&:nth-child(16) {
+		.shard {
+			background-color: $bugaboo-shade-30;
+			clip-path: polygon( 60.400% 60.333%, 70.000% 52.000%, 73.200% 69.000% );
+		}
+	}
+	&:nth-child(17) {
+		.shard {
+			background-color: $bugaboo-dark;
+			clip-path: polygon( 44.200% 23.333%, 50.680% 29.000%, 44.400% 51.333%  );
+		}
+	}
+	&:nth-child(18) {
+		.shard {
+			background-color: $bugaboo-shade-60;
+			clip-path: polygon( 40.000% 44.000%, 44.600% 51.000%, 44.400% 23.667% );
+		}
+	}
+	&:nth-child(19) {
+		.shard {
+			background-color: $bugaboo-shade-60;
+			clip-path: polygon( 44.200% 23.667%, 46.200% 25.333%, 45.400% 14.333% );
+		}
+	}
+	&:nth-child(20) {
+		.shard {
+			background-color: $bugaboo-light;
+			clip-path: polygon( 45.000% 11.000%, 46.200% 25.667%, 47.400% 15.333% );
+		}
+	}
+	&:nth-child(21) {
+		.shard {
+			background-color: $bugaboo-shade-30;
+			clip-path: polygon( 47.000% 14.667%, 46.400% 25.333%, 50.800% 29.333% );
+		}
+	}
+	&:nth-child(22) {
+		.shard {
+			background-color: $bugaboo-dark;
+			clip-path: polygon( 47.200% 15.000%, 50.600% 29.333%, 49.600% 16.000% );
+		}
+	}
+	&:nth-child(23) {
+		// snow
+		animation: drift 7s 2s ease infinite;
+		z-index: 0;
+		.shard {
+			background-color: #fff;
+			clip-path: polygon( 45.000% 11.667%, 45.600% 14.000%, 45.600% 13.333%  );
+		}
+	}
+	&:nth-child(24) {
+		// snow
+		animation: drift 4s 3s ease infinite;
+		z-index: 0;
+		.shard {
+			background-color: #fff;
+			clip-path: polygon( 46.400% 14.333%, 45.600% 16.000%, 46.600% 16.667% );
+		}
+	}
+	&:nth-child(25) {
+		// snow
+		animation: drift 6s 3s ease infinite;
+		z-index: 0;
+		.shard {
+			background-color: #fff;
+			clip-path: polygon( 45.800% 15.000%, 46.600% 16.000%, 46.000% 16.667% );
+		}
+	}
+} // END .shard-wrap
+
+// TODO: figure out scaling and rotating? 100% widths
+
+// animate snow
+@keyframes drift {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-180px);
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

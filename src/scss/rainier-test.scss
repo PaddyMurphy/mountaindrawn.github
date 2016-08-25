@@ -1,11 +1,6 @@
+// rainer
 @import 'variables';
 @import 'utilities';
-@import 'common';
-
-// TODO:
-// organize mountains by class name
-// [rainier, hood, baker]
-
 // bright blue scheme
 // $rainier-light: #00DFFC;
 // $rainier-shade-30: #00B4CC;
@@ -13,10 +8,10 @@
 // $rainier-dark: #005F6B;
 
 // light neutral scheme
-$rainier-light: #F7F9FE;
-$rainier-shade-30: #ECF1F2;
-$rainier-shade-60: #DCE8EB;
-$rainier-dark: #CBDBE0;
+// $rainier-light: #F7F9FE;
+// $rainier-shade-30: #ECF1F2;
+// $rainier-shade-60: #DCE8EB;
+// $rainier-dark: #CBDBE0;
 
 // darker neutral scheme
 $rainier-light: #E4EBF0;
@@ -24,7 +19,84 @@ $rainier-shade-30: #BDD1DE;
 $rainier-shade-60: #8AB3CF;
 $rainier-dark: #4180AB;
 
-// rainer
+$mountains-width: 528px;
+$mountains-height: 147px;
+
+html, body {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+body {
+	font-family: 'Open Sans Condensed', sans-serif;
+	margin: 0;
+}
+
+h1, h2, h3, h4 {
+	color: black;
+	font-family: 'Amatic SC', serif;
+	font-weight: 700;
+}
+
+.container {
+	margin: 0 auto;
+}
+
+header {
+	margin: 10px 0 0;
+	position: absolute;
+	width: 100%;
+	top: 0;
+}
+
+.logo {
+	margin: 0;
+	position: absolute;
+	top: calc(#{$default-padding} / 2);
+	left: $default-padding;
+}
+
+// trace image
+.polygon-wrap {
+	margin: 100px 0 20px;
+	width: $mountains-width;
+	height: $mountains-height;
+}
+
+.mountains-wrapper {
+	width: $mountains-width;
+	height: $mountains-height;
+	position: absolute;
+}
+
+.mountains {
+	width: $mountains-width;
+	height: $mountains-height;
+	position: absolute;
+}
+
+.shard-wrap {
+	transition: 0.3s;
+	// width: 100%;
+	// height: 100%;
+	z-index: 2;
+}
+
+.shard {
+	background-color: pink;
+	background-image: url("../images/transparent.png");
+	background-position: center center;
+	background-repeat: repeat;
+	clip-path: polygon(50% 50%, 50% 50%, 50% 50%);
+	transition: 0.3s;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
 // tiles read left to right and back
 .rainier .shard-wrap {
 	&:nth-child(1) {
@@ -178,4 +250,3 @@ $rainier-dark: #4180AB;
 		}
 	}
 } // END .shard-wrap
-

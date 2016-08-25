@@ -1,6 +1,5 @@
 // mountaindrawn
 (function () {
-	var mountains = ['rainier', 'hood'];
-
+	var mountains = ['rainier', 'bugaboo'];
 
 }());
