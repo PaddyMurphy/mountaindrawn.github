@@ -1,6 +1,6 @@
+// mountaindrawn
 (function () {
-  var doc = document.documentElement;
+	var mountains = ['rainier', 'hood'];
 
-  doc.classList.remove('no-js');
-  doc.classList.add('js');
+
 }());

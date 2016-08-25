@@ -1,0 +1,249 @@
+@import 'variables';
+@import 'utilities';
+
+// TODO:
+// organize mountains by class name
+// [rainier, hood, baker]
+
+// bright blue scheme
+// $rainier-light: #00DFFC;
+// $rainier-shade-30: #00B4CC;
+// $rainier-shade-60: #008C9E;
+// $rainier-dark: #005F6B;
+
+// neutral scheme
+$rainier-light: #F7F9FE;
+$rainier-shade-30: #ECF1F2;
+$rainier-shade-60: #DCE8EB;
+$rainier-dark: #CBDBE0;
+
+html, body {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+body {
+	font-family: 'Open Sans Condensed', sans-serif;
+	margin: 0;
+}
+
+h1, h2, h3, h4 {
+	color: black;
+	font-family: 'Amatic SC', serif;
+	font-weight: 700;
+}
+
+.container {
+	margin: 0 auto;
+}
+
+header {
+	margin: 10px 0 0;
+	position: absolute;
+	width: 100%;
+	top: 0;
+}
+
+.logo {
+	margin: 0;
+	position: absolute;
+	top: calc(#{$default-padding} / 2);
+	left: $default-padding;
+}
+
+// trace image
+.polygon-wrap {
+	margin: 100px 0 20px;
+	width: $mountains-width;
+	height: $mountains-height;
+}
+
+.mountains-wrapper {
+	width: $mountains-width;
+	height: $mountains-height;
+	position: absolute;
+}
+
+.mountains {
+	width: $mountains-width;
+	height: $mountains-height;
+	position: absolute;
+}
+
+.shard-wrap {
+	transition: 0.3s;
+	// width: 100%;
+	// height: 100%;
+	z-index: 2;
+}
+
+.shard {
+	background-color: pink;
+	background-image: url("../images/transparent.png");
+	background-position: center center;
+	background-repeat: repeat;
+	clip-path: polygon(50% 50%, 50% 50%, 50% 50%);
+	transition: 0.3s;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+// rainer
+// tiles read left to right and back
+.rainier .shard-wrap {
+	&:nth-child(1) {
+		.shard {
+			background-color: $rainier-shade-60;
+			clip-path: polygon( 0.568% 78.912%, 14.394% 93.197%, 19.318% 51.020% );
+		}
+	}
+	&:nth-child(2) {
+		.shard {
+			background-color: $rainier-shade-30;
+			clip-path: polygon( 18.750% 51.701%, 13.636% 92.517%, 29.167% 52.381% );
+		}
+	}
+	&:nth-child(3) {
+		.shard {
+			background-color: $rainier-dark;
+			clip-path: polygon( 29.167% 52.381%, 34.659% 94.558%, 13.826% 92.517% );
+		}
+	}
+	&:nth-child(4) {
+		.shard {
+			background-color: $rainier-shade-60;
+			clip-path: polygon( 29.167% 52.381%, 34.470% 94.558%, 44.508% 68.707% );
+		}
+	}
+	&:nth-child(5) {
+		.shard {
+			background-color: $rainier-shade-30;
+			clip-path: polygon( 34.280% 95.238%, 44.697% 68.707%, 59.470% 95.918% );
+		}
+	}
+	&:nth-child(6) {
+		.shard {
+			background-color: $rainier-shade-60;
+			clip-path: polygon( 45.644% 24.490%, 45.076% 70.748%, 59.659% 96.599% );
+		}
+	}
+	&:nth-child(7) {
+		.shard {
+			background-color: $rainier-light;
+			clip-path: polygon( 59.280% 95.918%, 45.644% 26.531%, 57.008% 36.054% );
+		}
+	}
+	&:nth-child(8) {
+		.shard {
+			background-color: $rainier-shade-30;
+			clip-path: polygon( 58.144% 75.510%, 59.280% 96.599%, 85.985% 100.000% );
+		}
+	}
+	&:nth-child(9) {
+		.shard {
+			background-color: $rainier-shade-60;
+			clip-path: polygon( 58.523% 76.871%, 86.364% 100.000%, 68.561% 53.061% );
+		}
+	}
+	&:nth-child(10) {
+		.shard {
+			background-color: $rainier-shade-30;
+			clip-path: polygon( 71.970% 62.585%, 86.174% 100.000%, 93.939% 72.789% );
+		}
+	}
+	&:nth-child(11) {
+		.shard {
+			background-color: $rainier-shade-60;
+			clip-path: polygon( 86.553% 99.320%, 93.939% 72.109%, 100.000% 89.116% );
+		}
+	}
+	&:nth-child(12) {
+		.shard {
+			background-color: $rainier-light;
+			clip-path: polygon( 90.152% 71.429%, 72.159% 62.585%, 70.265% 36.054% );
+		}
+	}
+	&:nth-child(13) {
+		.shard {
+			background-color: $rainier-shade-30;
+			clip-path: polygon( 72.538% 62.585%, 70.455% 36.054%, 57.197% 17.687% );
+		}
+	}
+	&:nth-child(14) {
+		.shard {
+			background-color: $rainier-shade-60;
+			clip-path: polygon( 72.538% 63.265%, 53.409% 5.442%, 51.326% 14.286% );
+		}
+	}
+	&:nth-child(15) {
+		.shard {
+			background-color: $rainier-shade-30;
+			clip-path: polygon( 63.068% 41.497%, 68.561% 54.422%, 58.333% 78.231% );
+		}
+	}
+	&:nth-child(16) {
+		.shard {
+			background-color: $rainier-shade-60;
+			clip-path: polygon( 56.629% 36.054%, 58.144% 77.551%, 63.447% 42.177% );
+		}
+	}
+	&:nth-child(17) {
+		.shard {
+			background-color: $rainier-dark;
+			clip-path: polygon( 44.886% 25.850%, 51.515% 13.605%, 64.394% 44.218%  );
+		}
+	}
+	&:nth-child(18) {
+		.shard {
+			background-color: $rainier-dark;
+			clip-path: polygon( 28.788% 53.061%, 45.833% 25.170%, 45.076% 70.068% );
+		}
+	}
+	&:nth-child(19) {
+		.shard {
+			background-color: $rainier-shade-60;
+			clip-path: polygon( 29.167% 54.422%, 51.326% 15.646%, 42.045% -0.680% );
+		}
+	}
+	&:nth-child(20) {
+		.shard {
+			background-color: $rainier-shade-30;
+			clip-path: polygon( 29.167% 54.422%, 35.795% 25.850%, 26.326% 23.810% );
+		}
+	}
+	&:nth-child(21) {
+		.shard {
+			background-color: $rainier-shade-60;
+			clip-path: polygon( 18.750% 52.381%, 26.326% 23.810%, 29.167% 52.381% );
+		}
+	}
+	&:nth-child(22) {
+		.shard {
+			background-color: $rainier-light;
+			clip-path: polygon( 25.947% 23.129%, 35.985% 26.531%, 42.045% 0.000% );
+		}
+	}
+	&:nth-child(23) {
+		.shard {
+			background-color: $rainier-light;
+			clip-path: polygon( 42.045% 0.680%, 51.515% 16.327%, 53.220% 5.442% );
+		}
+	}
+	&:nth-child(24) {
+		.shard {
+			background-color: $rainier-light;
+			clip-path: polygon( 53.220% 5.442%, 57.576% 18.367%, 60.417% 4.762% );
+		}
+	}
+	&:nth-child(25) {
+		.shard {
+			background-color: $rainier-shade-60;
+			clip-path: polygon( 57.386% 18.367%, 60.227% 6.122%, 69.697% 35.374% );
+		}
+	}
+} // END .shard-wrap
+
