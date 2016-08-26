@@ -14,6 +14,18 @@ $bugaboo-shade-30: #C1B8AE;
 $bugaboo-shade-60: #7D7771;
 $bugaboo-dark: #3E3D3D;
 
+// darker neutral scheme
+// $bugaboo-light: #E4EBF0;
+// $bugaboo-shade-30: #BDD1DE;
+// $bugaboo-shade-60: #8AB3CF;
+// $bugaboo-dark: #4180AB;
+
+// light neutral scheme
+// $bugaboo-light: #F7F9FE;
+// $bugaboo-shade-30: #ECF1F2;
+// $bugaboo-shade-60: #DCE8EB;
+// $bugaboo-dark: #CBDBE0;
+
 body.bugaboo {
 	background-color: #D3EF4F;
 }
@@ -163,7 +175,7 @@ h1 {
 	}
 	&:nth-child(22) {
 		.shard {
-			background-color: $bugaboo-dark;
+			background-color: $bugaboo-shade-60;
 			clip-path: polygon( 47.200% 15.000%, 50.600% 29.333%, 49.600% 16.000% );
 		}
 	}
@@ -194,28 +206,100 @@ h1 {
 			clip-path: polygon( 45.800% 15.000%, 46.600% 16.000%, 46.000% 16.667% );
 		}
 	}
+	&:nth-child(26) {
+		// person
+		animation: hike 13s 2s forwards;
+		.shard {
+			background-color: #4180AB;
+			clip-path: polygon( 30.400% 93.333%, 31.200% 97.667%, 31.600% 93.333% );
+		}
+	}
+	&:nth-child(27) {
+		// person
+		animation: hike 13s 2400ms forwards;
+		.shard {
+			background-color: #ef4f4f;
+			clip-path: polygon( 34.200% 91.000%, 34.600% 96.667%, 34.800% 91.667% );
+		}
+	}
+	&:nth-child(28) {
+		// person
+		animation: hike 13s 2600ms forwards;
+		.shard {
+			background-color: #259224;
+			clip-path: polygon( 31.400% 93.667%, 32.600% 93.667%, 32.000% 98.667% );
+		}
+	}
+	&:nth-child(29) {
+		// rock
+		animation: rockfall 1200ms 12s ease-out forwards;
+		.shard {
+			animation: colorRocks 150ms 12s forwards;
+			background-color: $bugaboo-shade-60;
+			clip-path: polygon( 48.800% 20.000%, 49.400% 22.667%, 49.800% 20.667% );
+		}
+	}
+	&:nth-child(30) {
+		// rock
+		animation: rockfall 1300ms 12.2s ease-out forwards;
+		.shard {
+			animation: colorRocks 150ms 12s forwards;
+			background-color: $bugaboo-shade-60;
+			clip-path: polygon( 49.000% 20.333%, 49.800% 20.333%, 49.200% 21.000% );
+		}
+	}
+	//
 } // END .shard-wrap
 
 // TODO: figure out scaling and rotating? 100% widths
 
+// hike path along mountain
+@keyframes hike {
+	0% {
+		transform: translate(0, 0);
+	}
+	33% {
+		transform: translate(95px, -100px);
+	}
+	66% {
+		transform: translate(120px, -185px);
+	}
+	100% {
+		transform: translate(85px, -225px);
+	}
+}
+
+// rock fall
+@keyframes rockfall {
+	0% {
+		transform: translate(0, 0) rotateZ(0);
+	}
+	50% {
+		transform: translate(75px, 100px) rotateZ(10deg);
+	}
+	100% {
+		transform: translate(85px, 205px) rotateZ(20deg);
+	}
+}
+
 // animate snow
 @keyframes drift {
   0% {
-    transform: translateX(0);
+    transform: translateX(0) rotateZ(0);
     opacity: 1;
   }
   100% {
-    transform: translateX(-180px);
+    transform: translateX(-220px) translateY(-50px) rotateZ(40deg);
     opacity: 0;
   }
 }
 
-@keyframes spin {
+@keyframes colorRocks {
   0% {
-    transform: rotate(0);
+    background-color: $bugaboo-shade-60;
   }
   100% {
-    transform: rotate(360deg);
+    background-color: $bugaboo-dark;
   }
 }
 
