@@ -62,7 +62,7 @@ h1 {
 	&:nth-child(3) {
 		.shard {
 			background-color: $bugaboo-shade-30;
-			clip-path: polygon( 22.800% 89.000%, 55.600% 56.333%, 40.200% 89.333% );
+			clip-path: polygon(21.9% 89.2%, 55.6% 56.333%, 40.2% 89.333%);
 		}
 	}
 	&:nth-child(4) {
@@ -92,7 +92,7 @@ h1 {
 	&:nth-child(8) {
 		.shard {
 			background-color: $bugaboo-light;
-			clip-path: polygon( 60.800% 60.333%, 73.200% 77.667%, 78.200% 72.667% );
+			clip-path: polygon(60.6% 60.333%, 73% 77.667%, 78.2% 72.667%);
 		}
 	}
 	&:nth-child(9) {
@@ -104,7 +104,7 @@ h1 {
 	&:nth-child(10) {
 		.shard {
 			background-color: $bugaboo-dark;
-			clip-path: polygon( 38.000% 73.667%, 44.600% 51.000%, 39.200% 42.333% );
+			clip-path: polygon( 38.100% 73.667%, 44.600% 51.000%, 39.200% 42.333% );
 		}
 	}
 	&:nth-child(11) {
@@ -224,6 +224,7 @@ h1 {
 	}
 	&:nth-child(28) {
 		// person
+		//transform-origin: 90% 50%;
 		animation: hike 13s 2600ms forwards;
 		.shard {
 			background-color: #259224;
@@ -256,16 +257,16 @@ h1 {
 // hike path along mountain
 @keyframes hike {
 	0% {
-		transform: translate(0, 0);
+		transform: translate(0, 0) scale(1);
 	}
 	33% {
-		transform: translate(95px, -100px);
+		transform: translate(95px, -80px) scale(0.8);
 	}
 	66% {
-		transform: translate(120px, -185px);
+		transform: translate(100px, -120px) scale(0.6);
 	}
 	100% {
-		transform: translate(85px, -225px);
+		transform: translate(20px, -150px) scale(0.4);
 	}
 }
 
