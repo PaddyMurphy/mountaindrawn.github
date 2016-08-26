@@ -233,18 +233,18 @@ h1 {
 	}
 	&:nth-child(29) {
 		// rock
-		animation: rockfall 1200ms 12s ease-out forwards;
+		animation: rockfall 1200ms 13s ease-out forwards;
 		.shard {
-			animation: colorRocks 150ms 12s forwards;
+			animation: colorRocks 150ms 13s forwards;
 			background-color: $bugaboo-shade-60;
 			clip-path: polygon( 48.800% 20.000%, 49.400% 22.667%, 49.800% 20.667% );
 		}
 	}
 	&:nth-child(30) {
 		// rock
-		animation: rockfall 1300ms 12.2s ease-out forwards;
+		animation: rockfall 1300ms 13.2s ease-out forwards;
 		.shard {
-			animation: colorRocks 150ms 12s forwards;
+			animation: colorRocks 150ms 13s forwards;
 			background-color: $bugaboo-shade-60;
 			clip-path: polygon( 49.000% 20.333%, 49.800% 20.333%, 49.200% 21.000% );
 		}
@@ -260,13 +260,13 @@ h1 {
 		transform: translate(0, 0) scale(1);
 	}
 	33% {
-		transform: translate(95px, -80px) scale(0.8);
+		transform: translate(20%, -30%) scale(0.8);
 	}
 	66% {
-		transform: translate(100px, -120px) scale(0.6);
+		transform: translate(20%, -40%) scale(0.6);
 	}
 	100% {
-		transform: translate(20px, -150px) scale(0.4);
+		transform: translate(5%, -50%) scale(0.4);
 	}
 }
 
@@ -276,10 +276,10 @@ h1 {
 		transform: translate(0, 0) rotateZ(0);
 	}
 	50% {
-		transform: translate(75px, 100px) rotateZ(10deg);
+		transform: translate(2%, 20%) rotateZ(10deg);
 	}
 	100% {
-		transform: translate(85px, 205px) rotateZ(20deg);
+		transform: translate(10%, 63%) rotateZ(20deg);
 	}
 }
 
@@ -290,7 +290,7 @@ h1 {
     opacity: 1;
   }
   100% {
-    transform: translateX(-220px) translateY(-50px) rotateZ(40deg);
+    transform: translateX(-65%) translateY(-20%) rotateZ(40deg);
     opacity: 0;
   }
 }
