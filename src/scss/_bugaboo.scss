@@ -22,7 +22,7 @@ $bugaboo-dark: #3E3D3D;
 // $bugaboo-shade-60: #DCE8EB;
 // $bugaboo-dark: #CBDBE0;
 
-.bugaboo {
+body[data-mountain="bugaboo"] {
 	background-color: #D2F13E;
 
 	h1 {
