@@ -6,17 +6,17 @@ $(function() {
 
     var currentMountain, newMountain;
 
-    $( "body" ).on( "click", ".nav-arrow", function(e) {
+    $('body').on('click', '.nav-arrow', function(e) {
     	e.preventDefault();
     	currentMountain = mountainList.indexOf($('body').attr('data-mountain'));
 
     	if(e.currentTarget.classList.contains('nav-right')) {
-    		// start at beginning again
+    		// start at beginning again if at end
     		newMountain = (currentMountain === (length - 1)) ? 0 : (currentMountain + 1);
     		navigate(newMountain);
     		setTitle(mountainList[newMountain]);
     	} else {
-    		// start at end again
+    		// start at end again if at beginning
     		newMountain = (currentMountain === 0) ? (length - 1) : (currentMountain - 1);
     		navigate(newMountain);
     		setTitle(mountainList[newMountain]);
@@ -25,8 +25,6 @@ $(function() {
 
     function navigate(newMountain) {
 		$('body').attr('data-mountain', mountainList[newMountain]);
-
-    	console.log(currentMountain = mountainList.indexOf($('body').attr('data-mountain')));
     }
 
     function setTitle(title) {

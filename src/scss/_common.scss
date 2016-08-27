@@ -13,14 +13,14 @@ body {
 	transition: background-color $transition-speed;
 }
 
-h1, h2, h3, h4 {
-	color: black;
+.logo, h1, h2, h3, h4 {
+	color: rgba(0,0,0,0.8);
 	font-family: 'Amatic SC', serif;
 	font-weight: 700;
 }
 
 .container {
-	height: 66vh;
+	height: 85vh;
 	margin: 0 auto;
 }
 
@@ -32,17 +32,26 @@ header {
 }
 
 .logo {
+	color: rgba(0,0,0,0.5);
+    font-size: 27px;
 	margin: 0;
 	position: absolute;
 	top: calc(#{$default-padding} / 2);
 	left: $default-padding;
 }
 
+.title {
+	margin: ($default-padding * 2) 0 $default-padding;
+}
+
 .title-nav {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	margin: $default-padding 0;
-	position: relative;
+	position: absolute;
+	top: $default-padding;
+	right: $default-padding;
+	width: 140px;
 	z-index: 99;
 }
 
@@ -50,8 +59,23 @@ header {
 	display: block;
 	width: 56px;
 	height: 49px;
+	position: relative;
+	transition: 0.25s;
 }
 
+.nav-right {
+	&:hover {
+		transform: translateX(5px);
+	}
+}
+
+.nav-left {
+	&:hover {
+		transform: translateX(-5px);
+	}
+}
+
+// svg
 .arrow-right {
 	transform: scale(-1, 1);
 }
@@ -64,10 +88,6 @@ header {
 }
 #arrow-bottom {
 	opacity: 0.4;
-}
-
-.title {
-	margin: 0 $default-padding;
 }
 
 // trace image
