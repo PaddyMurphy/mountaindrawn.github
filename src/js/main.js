@@ -1,8 +1,11 @@
+var mountainData = mountainData || {};
+
 // mountaindrawn
 $(function() {
     var dataMountain = $('body').attr('data-mountain');
     var mountainList = ['bugaboo', 'tetons', 'rainier', 'glacier-peak'];
     var length = mountainList.length;
+    var nLength = length - 1; // normalized length
 
     var currentMountain, newMountain;
 
@@ -12,12 +15,12 @@ $(function() {
 
     	if(e.currentTarget.classList.contains('nav-right')) {
     		// start at beginning again if at end
-    		newMountain = (currentMountain === (length - 1)) ? 0 : (currentMountain + 1);
+    		newMountain = (currentMountain === nLength) ? 0 : (currentMountain + 1);
     		navigate(newMountain);
     		setTitle(mountainList[newMountain]);
     	} else {
     		// start at end again if at beginning
-    		newMountain = (currentMountain === 0) ? (length - 1) : (currentMountain - 1);
+    		newMountain = (currentMountain === 0) ? nLength : (currentMountain - 1);
     		navigate(newMountain);
     		setTitle(mountainList[newMountain]);
     	}
@@ -34,11 +37,4 @@ $(function() {
     function formatTitle(title) {
     	return title = title.replace('-', ' ');
     }
-
-    // function setMountain(mountain) {
-    // TODO: works once?
-    // 	$('body').attr('data-mountain', mountain);
-    // 	return false;
-    // }
-
 });
