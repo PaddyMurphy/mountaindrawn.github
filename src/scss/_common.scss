@@ -10,6 +10,7 @@ html, body {
 body {
 	font-family: 'Open Sans Condensed', sans-serif;
 	margin: 0;
+	transition: background-color $transition-speed;
 }
 
 h1, h2, h3, h4 {
@@ -19,6 +20,7 @@ h1, h2, h3, h4 {
 }
 
 .container {
+	height: 66vh;
 	margin: 0 auto;
 }
 
@@ -36,9 +38,41 @@ header {
 	left: $default-padding;
 }
 
+.title-nav {
+	display: flex;
+	justify-content: center;
+	margin: $default-padding 0;
+	position: relative;
+	z-index: 99;
+}
+
+.nav-arrow {
+	display: block;
+	width: 56px;
+	height: 49px;
+}
+
+.arrow-right {
+	transform: scale(-1, 1);
+}
+
+// svg
+#arrow-top,
+#arrow-bottom {
+	fill: #000;
+	opacity: 0.3;
+}
+#arrow-bottom {
+	opacity: 0.4;
+}
+
+.title {
+	margin: 0 $default-padding;
+}
+
 // trace image
 .polygon-wrap {
-	margin: 100px 0 20px;
+	margin: 100px 0 20px 100px;
 	width: $mountains-width;
 	height: $mountains-height;
 }
@@ -46,6 +80,7 @@ header {
 .mountains-wrapper {
 	width: $mountains-width;
 	height: $mountains-height;
+	margin: 0 auto;
 }
 
 .mountains {
@@ -55,7 +90,7 @@ header {
 }
 
 .shard-wrap {
-	transition: 0.3s;
+	transition: $transition-speed $transition-type;
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -64,12 +99,37 @@ header {
 
 .shard {
 	//background-color: pink;
-	background-image: url("../images/transparent.png");
-	background-position: center center;
-	background-repeat: repeat;
-	clip-path: polygon(50% 50%, 50% 50%, 50% 50%);
-	transition: 0.3s;
+	//background-image: url("../images/transparent.png");
+	//background-position: center center;
+	//background-repeat: repeat;
+	//clip-path: polygon(50% 50%, 50% 50%, 50% 50%);
+	transition: $transition-speed $transition-type;
 	width: 100%;
 	height: 100%;
 	position: absolute;
+}
+
+.content {
+	background-color: rgba(0,0,0,0.08);
+	margin-top: 20px;
+	padding: $default-padding;
+}
+
+.left-arrow {
+
+}
+
+.photos {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.photo {
+	max-width: 250px;
+
+	> img {
+		width: 100%;
+		height: 100%;
+	}
 }

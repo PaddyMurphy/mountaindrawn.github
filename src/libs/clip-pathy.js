@@ -32,8 +32,8 @@ $('body').on('click', function (e) {
 		nodescss = nodescss + normalisedX + '% ' + normalisedY + '%, ';
 	} else
 	if (nodecount == 3) {
-		nodescss = '-webkit-clip-path: polygon( ' + nodescss;
-		nodescss = nodescss + normalisedX + '% ' + normalisedY + '% );';
+		//nodescss = '-webkit-clip-path: polygon( ' + nodescss;
+		nodescss = nodescss + normalisedX + '% ' + normalisedY + '%';
 		alert(nodescss);
 		// reset
 		nodecount = 0;
