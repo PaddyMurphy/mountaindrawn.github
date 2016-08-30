@@ -3,7 +3,7 @@ var mountainData = mountainData || {};
 // mountaindrawn
 $(function() {
     var dataMountain = $('body').attr('data-mountain');
-    var mountainList = ['bugaboo', 'tetons', 'rainier', 'glacier-peak'];
+    var mountainList = ['bugaboo', 'tetons', 'blanca-traverse', 'rainier', 'glacier-peak'];
     var length = mountainList.length;
     var nLength = length - 1; // normalized length
 

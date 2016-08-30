@@ -9,6 +9,11 @@ var mountainData = {
 		"elevation": "13,776 ft",
 		"description": "Exum Ridge route"
 	},
+	"blanca-traverse": {
+		"title": "Little Bear - Blanca Traverse",
+		"elevation": "14,344 ft",
+		"description": "Ridge route"
+	},
 	"rainier": {
 		"title": "Mt Rainier",
 		"elevation": "14,416",
