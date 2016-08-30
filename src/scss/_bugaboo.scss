@@ -205,7 +205,7 @@ body[data-mountain="bugaboo"] {
 		}
 		&:nth-child(26) {
 			// person
-			animation: hike 13s 2s forwards;
+			animation: hike 13s 5s forwards;
 			.shard {
 				background-color: #4180AB;
 				clip-path: polygon( 30.400% 93.333%, 31.200% 97.667%, 31.600% 93.333% );
@@ -213,7 +213,7 @@ body[data-mountain="bugaboo"] {
 		}
 		&:nth-child(27) {
 			// person
-			animation: hike 13s 2400ms forwards;
+			animation: hike 13s 5.4s forwards;
 			.shard {
 				background-color: #ef4f4f;
 				clip-path: polygon( 34.200% 91.000%, 34.600% 96.667%, 34.800% 91.667% );
@@ -221,8 +221,7 @@ body[data-mountain="bugaboo"] {
 		}
 		&:nth-child(28) {
 			// person
-			//transform-origin: 90% 50%;
-			animation: hike 13s 2600ms forwards;
+			animation: hike 13s 5.6s forwards;
 			.shard {
 				background-color: #259224;
 				clip-path: polygon( 31.400% 93.667%, 32.600% 93.667%, 32.000% 98.667% );
