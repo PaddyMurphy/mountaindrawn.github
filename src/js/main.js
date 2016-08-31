@@ -3,14 +3,14 @@ var mountainData = mountainData || {};
 // mountaindrawn
 $(function () {
 	var dataMountain = $('body').attr('data-mountain');
-	var mountainList = ['bugaboo', 'tetons', 'blanca-traverse', 'rainier', 'glacier-peak'];
+	var mountainList = Object.keys(mountainData);
 	var length = mountainList.length;
 	var nLength = length - 1; // normalized length
 
 	var currentMountain, newMountain;
 
 	// events
-	$('body').on('click', '.nav-arrow', navigateControls);
+	$('.nav-arrow').on('click', navigateControls);
 
 	function initialize () {
 		// populate the first mountain
@@ -31,7 +31,6 @@ $(function () {
 		}
 		// change mountain
 		navigate(newMountain);
-		// setTitle(mountainList[newMountain]);
 		setData(mountainList[newMountain]);
 	}
 
@@ -41,16 +40,17 @@ $(function () {
 
 	function setData (newMountain) {
 		var newMountainData = mountainData[newMountain];
-		var template = '<p>Elevation: <%this.elevation%></p>' +
-			'<p><%this.description%></p>';
+		var template = '<p class="data-elevation">elevation <%this.elevation%></p>' +
+			'<p class="data-prominence">prominence <%this.prominence%></p>' +
+			'<p class="data-description"><%this.description%></p>';
 
-		console.log(newMountainData.position);
 		// set title
 		$('.title').text(TemplateEngine('<%this.title%>', newMountainData));
 		// set data
 		$('.data')
 			.html(TemplateEngine(template, newMountainData))
-			.css('transform', 'translate(' + newMountainData.position + ')');
+			.removeClass('transparent')
+			.css({'transform': 'translate(' + newMountainData.position + ')'});
 	}
 
 	initialize();
