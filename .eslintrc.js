@@ -4,6 +4,7 @@ module.exports = {
         "standard"
     ],
     "rules": {
-      semi: [2, "always"]
+    	"indent": ["warn", "tab"],
+     	'semi': [1, "always"]
     }
 };
