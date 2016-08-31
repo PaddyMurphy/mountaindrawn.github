@@ -44,10 +44,13 @@ $(function () {
 		var template = '<p>Elevation: <%this.elevation%></p>' +
 			'<p><%this.description%></p>';
 
+		console.log(newMountainData.position);
 		// set title
 		$('.title').text(TemplateEngine('<%this.title%>', newMountainData));
 		// set data
-		$('.data').html(TemplateEngine(template, newMountainData));
+		$('.data')
+			.html(TemplateEngine(template, newMountainData))
+			.css('transform', 'translate(' + newMountainData.position + ')');
 	}
 
 	initialize();

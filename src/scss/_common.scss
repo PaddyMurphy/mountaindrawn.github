@@ -97,6 +97,20 @@ header {
 	opacity: 0.4;
 }
 
+.data {
+	background-color: rgba(255,255,255,0.2);
+	display: inline-block;
+	position: absolute;
+	transform: translate(60vw, 0);
+	transition: $transition-speed;
+	max-width: 120px;
+	z-index: 5;
+
+	p {
+		margin: 10px;
+	}
+}
+
 // trace image
 .polygon-wrap {
 	margin: 100px 0 20px 100px;
