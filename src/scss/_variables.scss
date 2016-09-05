@@ -12,3 +12,42 @@ $number-shards: 30;
 $transition-speed: 1.5s;
 // http://easings.net/#easeInOutCirc
 $shard-easing: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    &:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+    > .mountains {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+
+// media queries
+@mixin mquery($size) {
+	@if $size == xsmall {
+		@media (min-width: 320px) {
+			@content;
+		}
+	}
+
+	@if $size == small {
+		@media (min-width: 500px) {
+		 	@content;
+		}
+	}
+
+	@else if $size == medium {
+		@media (min-width: 1000px) {
+		 	@content;
+		}
+	}
+}

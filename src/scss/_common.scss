@@ -29,6 +29,13 @@ body {
 .container {
 	height: 85vh;
 	margin: 0 auto;
+
+	// @include mquery(small) {
+	// 	background: rgba(0,0,0,0.2) !important;
+	// }
+	// @include mquery(medium) {
+	// 	background: rgba(0,0,0,0.5) !important;
+	// }
 }
 
 header {
@@ -129,13 +136,17 @@ header {
 // mountain illustrations
 .mountains-wrapper,
 .mountains {
-	width: $mountains-width;
-	height: $mountains-height;
+	// width: $mountains-width;
+	// height: $mountains-height;
 }
 
 .mountains-wrapper {
 	margin: 0 auto;
+	max-height: 100%;
+	max-width: 100%;
 	transition: $transition-speed;
+
+	@include aspect-ratio(5, 3);
 }
 
 .mountains {
