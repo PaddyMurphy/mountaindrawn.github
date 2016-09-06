@@ -55,7 +55,16 @@ header {
 }
 
 .title {
-	margin: ($default-padding * 2) 0 $default-padding;
+	display: none;
+	margin: 0;
+	position: absolute;
+	left: 0;
+	right: 0;
+
+	@include mquery(small) {
+		display: block;
+		transform: translateY(10px);
+	}
 }
 
 .title-nav {
@@ -110,6 +119,7 @@ header {
 	padding: $default-padding;
 	position: absolute;
 	right: $default-padding;
+	top: 100px;
 	transition: $transition-speed $shard-easing;
 	max-width: $data-width;
 	z-index: 5;
@@ -133,26 +143,32 @@ header {
 	height: $mountains-height;
 }
 
-// mountain illustrations
-.mountains-wrapper,
-.mountains {
-	// width: $mountains-width;
-	// height: $mountains-height;
-}
-
 .mountains-wrapper {
+	// NOTE: flex breaks safari
+	// display: flex;
+	// justify-content: center;
 	margin: 0 auto;
-	max-height: 100%;
-	max-width: 100%;
+	padding: 50px 0 0;
+	height: 100%;
+	width: 100%;
 	transition: $transition-speed;
 
-	@include aspect-ratio(5, 3);
+	//@include aspect-ratio(5, 3);
+}
+
+.mountains {
+	margin: 0 auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	transition: -webkit-clip-path $transition-speed;
 }
 
 .shard-wrap {
 	width: 100%;
 	height: 100%;
 	position: absolute;
+	transition: -webkit-clip-path $transition-speed;
 	z-index: 2;
 }
 
@@ -160,10 +176,7 @@ header {
 	width: 100%;
 	height: 100%;
 	position: absolute;
-}
-
-.mountains {
-	position: absolute;
+	transition: -webkit-clip-path $transition-speed;
 }
 
 // stagger duration and delay for each shard

@@ -30,7 +30,7 @@
     "postinstall": "npm run build:all && npm run watch:all"
   },
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
+    "autoprefixer": "^6.4.1",
     "browser-sync": "^2.12.8",
     "eslint": "^2.10.2",
     "eslint-config-standard": "^5.3.1",

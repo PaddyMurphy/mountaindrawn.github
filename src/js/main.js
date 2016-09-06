@@ -11,10 +11,12 @@ $(function () {
 
 	// events
 	$('.nav-arrow').on('click', navigateControls);
+	$(window).on('resize', sizeshards);
 
 	function initialize () {
 		// populate the first mountain
 		setData(dataMountain);
+		sizeshards();
 	}
 
 	// arrow navigation
@@ -50,6 +52,35 @@ $(function () {
 		$('.data')
 			.html(TemplateEngine(template, newMountainData))
 			.removeClass('transparent');
+	}
+
+	function sizeshards() {
+		// NOTE: maintain aspect ration of 5:3
+		// calc height & width
+		// height = new width * (original height / original width)
+		// i.e. (600 / 1000) x 500 = 300
+		// width = new height * (original width / original height)
+
+		var width = document.body.offsetWidth,
+			height = document.body.offsetHeight,
+			maxHeight = document.querySelector('.container').offsetHeight - 50;
+			w = width,
+		    h = Math.round(.60 * w),
+		    ratio = (w / h); // 5:3
+
+		console.log('h: ' + h);
+		console.log('max height: ' + maxHeight);
+
+		if(h > maxHeight) {
+			console.log('maxed');
+			w = maxHeight * ratio;
+			h = maxHeight;
+		}
+
+	    $('.mountains').css({
+            width: w,
+            height: h
+	    });
 	}
 
 	initialize();

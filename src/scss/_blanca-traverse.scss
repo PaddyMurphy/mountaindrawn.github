@@ -14,7 +14,7 @@ body[data-mountain="blanca-traverse"] {
 		text-align: center;
 	}
 
-	.mountains-wrapper {
+	.mountains {
 		background-image:
 		    radial-gradient(
 		      circle closest-side at 58% 40%,
@@ -95,7 +95,7 @@ body[data-mountain="blanca-traverse"] {
 		&:nth-child(9) {
 			.shard {
 				background-color: $shade-30;
-				clip-path: polygon( 58.800% 51.000%, 69.400% 76.000%, 82.400% 78.667% );
+				clip-path: polygon(58.4% 51%, 69.4% 76%, 82.4% 78.667%);
 			}
 		}
 		&:nth-child(10) {
