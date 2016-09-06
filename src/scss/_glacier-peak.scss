@@ -35,6 +35,13 @@ body[data-mountain="glacier-peak"] {
 		}
 	}
 
+	// data box position
+	.data {
+		@include mquery(small) {
+			transform: translate(-11vw, 3vh);
+		}
+	}
+
 	// tiles read left to right and back
 	.shard-wrap {
 		&:nth-child(1) {

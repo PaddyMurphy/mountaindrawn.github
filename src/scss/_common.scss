@@ -109,9 +109,9 @@ header {
 	display: inline-block;
 	padding: $default-padding;
 	position: absolute;
-	transform: translate(60vw, 0);
+	right: $default-padding;
 	transition: $transition-speed $shard-easing;
-	max-width: 150px;
+	max-width: $data-width;
 	z-index: 5;
 
 	p {
@@ -149,10 +149,6 @@ header {
 	@include aspect-ratio(5, 3);
 }
 
-.mountains {
-	position: absolute;
-}
-
 .shard-wrap {
 	width: 100%;
 	height: 100%;
@@ -163,6 +159,10 @@ header {
 .shard {
 	width: 100%;
 	height: 100%;
+	position: absolute;
+}
+
+.mountains {
 	position: absolute;
 }
 

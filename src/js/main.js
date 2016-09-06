@@ -49,8 +49,7 @@ $(function () {
 		// set data
 		$('.data')
 			.html(TemplateEngine(template, newMountainData))
-			.removeClass('transparent')
-			.css({'transform': 'translate(' + newMountainData.position + ')'});
+			.removeClass('transparent');
 	}
 
 	initialize();

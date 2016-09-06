@@ -34,6 +34,12 @@ body[data-mountain="bugaboo"] {
 		      transparent
 		    );
 	}
+	// data box position
+	.data {
+		@include mquery(small) {
+			transform: translate(-7vw, 7vh);
+		}
+	}
 
 	// tiles read left to right and back
 	.shard-wrap {

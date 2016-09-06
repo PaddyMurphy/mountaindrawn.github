@@ -28,6 +28,14 @@ body[data-mountain="blanca-traverse"] {
 			color: #fff;
 		}
 	}
+
+	// data box position
+	.data {
+		@include mquery(small) {
+			transform: translate(-64vw, 1vh);
+		}
+	}
+
 	.shard {
 		background-image: url('../images/img-noise.png');
 	}
