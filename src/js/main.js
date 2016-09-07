@@ -42,7 +42,8 @@ $(function () {
 
 	function setData (newMountain) {
 		var newMountainData = mountainData[newMountain];
-		var template = '<p class="data-elevation">elevation <%this.elevation%></p>' +
+		var template = '<h3 class="data-title"><%this.title%></h3>' +
+			'<p class="data-elevation">elevation <b><%this.elevation%></b></p>' +
 			'<p class="data-prominence">prominence <%this.prominence%></p>' +
 			'<p class="data-description"><%this.description%></p>';
 
@@ -60,27 +61,22 @@ $(function () {
 		// height = new width * (original height / original width)
 		// i.e. (600 / 1000) x 500 = 300
 		// width = new height * (original width / original height)
-
 		var width = document.body.offsetWidth,
 			height = document.body.offsetHeight,
-			maxHeight = document.querySelector('.container').offsetHeight - 50;
+			maxHeight = document.querySelector('.container').offsetHeight - 50,
+			mountains = document.querySelector('.mountains'),
 			w = width,
 		    h = Math.round(.60 * w),
 		    ratio = (w / h); // 5:3
 
-		console.log('h: ' + h);
-		console.log('max height: ' + maxHeight);
-
 		if(h > maxHeight) {
-			console.log('maxed');
+			// console.log('maxed');
 			w = maxHeight * ratio;
 			h = maxHeight;
 		}
 
-	    $('.mountains').css({
-            width: w,
-            height: h
-	    });
+		mountains.style.width = w + 'px';
+		mountains.style.height = h + 'px';
 	}
 
 	initialize();

@@ -116,24 +116,43 @@ header {
 .data {
 	background-color: rgba(255,255,255,0.2);
 	display: inline-block;
+	font-size: 130%;
 	padding: $default-padding;
 	position: absolute;
-	right: $default-padding;
-	top: 100px;
+	top: 320px;
 	transition: $transition-speed $shard-easing;
-	max-width: $data-width;
+	width: 100%;
 	z-index: 5;
+
+	@include mquery(small) {
+		font-size: 100%;
+		right: $default-padding;
+		top: 100px;
+		max-width: $data-width;
+	}
 
 	p {
 		margin: 10px 0 0;
-		&:first-child {
+		&:first-of-type {
 			margin-top: 0;
 		}
 	}
 }
 
-.data-elevation {
+.data-title {
+	margin: 0 0 $default-padding;
 
+	@include mquery(small) {
+		display: none;
+		visibility: hidden;
+	}
+}
+
+.data-elevation {
+	b {
+		font-weight: inherit;
+		white-space: nowrap;
+	}
 }
 
 // trace image
@@ -144,9 +163,6 @@ header {
 }
 
 .mountains-wrapper {
-	// NOTE: flex breaks safari
-	// display: flex;
-	// justify-content: center;
 	margin: 0 auto;
 	padding: 50px 0 0;
 	height: 100%;
@@ -162,6 +178,9 @@ header {
 	left: 0;
 	right: 0;
 	transition: -webkit-clip-path $transition-speed;
+	// default dimensions?
+	// width: $mountains-width;
+	// height: $mountains-height;
 }
 
 .shard-wrap {
