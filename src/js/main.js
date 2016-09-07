@@ -42,7 +42,7 @@ $(function () {
 
 	function setData (newMountain) {
 		var newMountainData = mountainData[newMountain];
-		var template = '<h3 class="data-title"><%this.title%></h3>' +
+		var template = '<h2 class="data-title"><%this.title%></h2>' +
 			'<p class="data-elevation">elevation <b><%this.elevation%></b></p>' +
 			'<p class="data-prominence">prominence <%this.prominence%></p>' +
 			'<p class="data-description"><%this.description%></p>';
