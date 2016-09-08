@@ -2,7 +2,6 @@ var mountainData = mountainData || {};
 
 // mountaindrawn
 $(function() {
-    // var dataMountain = $('body').attr('data-mountain');
     var dataMountain = document.body.dataset.mountain,
         navLeft = document.querySelector('.nav-left'),
         navRight = document.querySelector('.nav-right'),
@@ -25,7 +24,15 @@ $(function() {
         // populate the first mountain
         setData(dataMountain);
         sizeshards();
-        getFlickrImages(dataMountain);
+        // lightbox options
+        lightbox.option({
+            'resizeDuration': 250,
+            'wrapAround': true
+        });
+        // delay image download
+        window.setTimeout(function() {
+        	getFlickrImages(dataMountain);
+        }, 1000);
     }
 
     // arrow navigation
@@ -116,19 +123,17 @@ $(function() {
 	            //loop through the results with the following function
 	            $.each(data.photos.photo, function(i, item) {
 
-	                var photoURL = 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.id + '_' + item.secret;
-	                var square = photoURL + '_q.jpg'; // q = 150sq
-	                var photoMedium = photoURL + '_m.jpg'; // m = 240long
-	                var photoLarge = photoURL + '_b.jpg'; // b = 1024 on longest side,
+	                var photoURL = 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.id + '_' + item.secret,
+	                square = photoURL + '_q.jpg', // q = 150sq
+	                photoLarge = photoURL + '_b.jpg', // b = 1024 on longest side,
 	                // set the photo href for larger views
-	                var photoHref = '//www.flickr.com/photos/' + item.owner + '/' + item.id;
-	                var photo = '<img src="' + square + '" />';
+	                photoHref = '//www.flickr.com/photos/' + item.owner + '/' + item.id,
+	                photo = '<img src="' + square + '" />';
 	                // add photo to the docFrag
-	                $("<a/>").attr("href", photoLarge)
+	                $("<a/>").attr('href', photoLarge)
 	                    .attr('rel', 'prefetch')
 	                    .attr('data-photohref', photoHref)
-	                    .attr('data-largeurl', photoLarge)
-	                    .attr('data-lightbox', 'kayaking')
+	                    .attr('data-lightbox', 'mountaindrawn')
 	                    .appendTo(docFrag).append(photo);
 
 	            }); // END $.each
@@ -142,7 +147,6 @@ $(function() {
 	        .fail(function(msg) {
 	            console.log(msg);
 	        });
-	        //.done(function(data) {}); // END get json
 	    }
 
     initialize();

@@ -1,11 +1,4 @@
-// shared among each illustration
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
+// mountaindrawn
 html, body {
 	position: absolute;
 	width: 100%;
@@ -27,7 +20,7 @@ body {
 }
 
 .container {
-	min-height: 85vh;
+	min-height: 85%;
 	margin: 0 auto;
 	// @include mquery(small) {
 	// 	background: rgba(0,0,0,0.2) !important;
@@ -231,7 +224,7 @@ header {
 
 .svg-camping {
 	position: absolute;
-	right: $default-padding;
+	left: $default-padding;
 	transform: translateY(-61px);
 
 	.svg-group {
@@ -259,15 +252,14 @@ header {
 // Photo album
 .photos-container {
 	flex: 2 0;
+	//height: $photo-height;
 	overflow-x: auto;
 	overflow-y: hidden;
 }
+
 .photos {
 	display: flex;
 	flex-wrap: no-wrap;
-}
-
-.photos {
 
 	a {
 		margin: 0 10px 0 0;
