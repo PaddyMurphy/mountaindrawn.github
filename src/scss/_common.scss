@@ -265,26 +265,16 @@ header {
 .photos {
 	display: flex;
 	flex-wrap: no-wrap;
-	width: $photo-count * $photo-height;
 }
 
-.photo {
-	width: $photo-height;
-	margin: 0 10px;
+.photos {
+
+	a {
+		margin: 0 10px 0 0;
+	}
 
 	> img {
 		width: 100%;
 		height: 100%;
 	}
-}
-
-// helpers
-.hide {
-	display: none;
-}
-.transparent {
-	opacity: 0;
-}
-.opaque {
-	opacity: 1;
 }
