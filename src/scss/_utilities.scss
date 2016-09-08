@@ -9,3 +9,37 @@ html {
 	display: inline-block;
 	width: 100%;
 }
+
+.scroll-indicator {
+	background:
+		linear-gradient(white 30%, hsla(0,0%,100%, 0)),
+		linear-gradient(hsla(0,0%,100%,0) 10px, white 70%) bottom,
+		radial-gradient(at top, rgba(0,0,0,0.2), transparent 70%),
+		radial-gradient(at bottom, rgba(0,0,0,0.2), transparent 70%) bottom;
+	background-repeat:no-repeat;
+	background-size: 100% 20px, 100% 20px, 100% 10px, 100% 10px;
+	background-attachment:local, local, scroll, scroll;
+}
+
+// scrollbars
+::-webkit-scrollbar {
+    width: 0.7em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.2);
+   // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0,0,0,0.4);
+}

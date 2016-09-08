@@ -2,16 +2,20 @@ var mountainData = mountainData || {};
 
 // mountaindrawn
 $(function () {
-	var dataMountain = $('body').attr('data-mountain');
-	var mountainList = Object.keys(mountainData);
-	var length = mountainList.length;
-	var nLength = length - 1; // normalized length
+	// var dataMountain = $('body').attr('data-mountain');
+	var dataMountain = document.body.dataset.mountain,
+		navLeft = document.querySelector('.nav-left'),
+		navRight = document.querySelector('.nav-right'),
+		mountainList = Object.keys(mountainData),
+		length = mountainList.length,
+		nLength = length - 1; // normalized length
 
 	var currentMountain, newMountain;
 
 	// events
-	$('.nav-arrow').on('click', navigateControls);
-	$(window).on('resize', sizeshards);
+	navLeft.addEventListener('click', navigateControls);
+	navRight.addEventListener('click', navigateControls);
+	window.addEventListener('resize', sizeshards);
 
 	function initialize () {
 		// populate the first mountain
@@ -37,22 +41,23 @@ $(function () {
 	}
 
 	function navigate (newMountain) {
-		$('body').attr('data-mountain', mountainList[newMountain]);
+		document.body.dataset.mountain = mountainList[newMountain];
 	}
 
 	function setData (newMountain) {
-		var newMountainData = mountainData[newMountain];
-		var template = '<h2 class="data-title"><%this.title%></h2>' +
+		var newMountainData = mountainData[newMountain],
+			title = document.querySelector('.title'),
+			data = document.querySelector('.data'),
+			template = '<h2 class="data-title"><%this.title%></h2>' +
 			'<p class="data-elevation">elevation <b><%this.elevation%></b></p>' +
 			'<p class="data-prominence">prominence <%this.prominence%></p>' +
 			'<p class="data-description"><%this.description%></p>';
 
 		// set title
-		$('.title').text(TemplateEngine('<%this.title%>', newMountainData));
+		title.innerHTML = TemplateEngine('<%this.title%>', newMountainData);
 		// set data
-		$('.data')
-			.html(TemplateEngine(template, newMountainData))
-			.removeClass('transparent');
+		data.innerHTML = TemplateEngine(template, newMountainData);
+		data.classList.remove('transparent');
 	}
 
 	function sizeshards() {

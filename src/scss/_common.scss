@@ -27,9 +27,8 @@ body {
 }
 
 .container {
-	height: 85vh;
+	min-height: 85vh;
 	margin: 0 auto;
-
 	// @include mquery(small) {
 	// 	background: rgba(0,0,0,0.2) !important;
 	// }
@@ -119,16 +118,15 @@ header {
 	display: inline-block;
 	font-size: 130%;
 	padding: $default-padding;
-	position: absolute;
-	top: 320px;
-	transition: $transition-speed $shard-easing;
 	width: 100%;
 	z-index: 5;
 
 	@include mquery(small) {
 		font-size: 100%;
+		position: absolute;
 		right: $default-padding;
 		top: 100px;
+		transition: $transition-speed $shard-easing;
 		max-width: $data-width;
 	}
 
@@ -176,7 +174,7 @@ header {
 .mountains {
 	margin: 0 auto;
 	overflow: hidden;
-	position: absolute;
+	position: relative;
 	left: 0;
 	right: 0;
 	transition: clip-path $transition-speed;
@@ -219,9 +217,12 @@ header {
 
 // Main content
 .content {
-	background-color: rgba(0,0,0,0.08);
-	margin-top: $default-padding;
+	background-color: rgba(0,0,0,$background-opacity);
 	padding: $default-padding;
+
+	@include mquery(small) {
+		margin-top: 40px;
+	}
 
 	p {
 		margin-top: 0;
@@ -230,18 +231,46 @@ header {
 
 .svg-camping {
 	position: absolute;
-	transform: translateY(-62px);
+	right: $default-padding;
+	transform: translateY(-61px);
+
+	.svg-group {
+		opacity: $background-opacity;
+	}
+	.svg-part {
+		fill: #000;
+	}
+}
+
+.about-container {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.about-block {
+	flex: 1 0;
+}
+
+.about-title {
+	font-size: 26px;
+	margin: 0 0 10px;
 }
 
 // Photo album
+.photos-container {
+	flex: 2 0;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
 .photos {
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
+	flex-wrap: no-wrap;
+	width: $photo-count * $photo-height;
 }
 
 .photo {
-	max-width: 100px;
+	width: $photo-height;
+	margin: 0 10px;
 
 	> img {
 		width: 100%;
