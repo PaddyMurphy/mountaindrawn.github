@@ -141,7 +141,7 @@ $(function() {
 	            //loop through the results with the following function
 	            $.each(data.photos.photo, function(i, item) {
 
-	                var photoURL = 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.id + '_' + item.secret,
+	                var photoURL = '//farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.id + '_' + item.secret,
 	                square = photoURL + '_q.jpg', // q = 150sq
 	                photoLarge = photoURL + '_b.jpg', // b = 1024 on longest side,
 	                // set the photo href for larger views
