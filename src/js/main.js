@@ -9,15 +9,28 @@ $(function() {
         length = mountainList.length,
         nLength = length - 1; // normalized length
 
+    var swipe = document.querySelector('.mountains-wrapper');
+    var mc = new Hammer(swipe);
     var currentMountain, newMountain;
 
     // events
-    navLeft.addEventListener('click', navigateControls);
-    navRight.addEventListener('click', navigateControls);
+    navLeft.addEventListener('click', navigateLeft);
+    navRight.addEventListener('click', navigateRight);
     window.addEventListener('resize', sizeshards);
+    document.onkeydown = checkKey;
+
     // allow lightbox to launch
     $('.photos').on('click', 'a', function(e) {
     	e.preventDefault();
+    });
+
+    // listen to swipe events...
+    mc.on('panleft', function(e) {
+        navigateLeft();
+    });
+
+    mc.on('panRight', function(e) {
+        navigateRight();
     });
 
     function initialize() {
@@ -35,26 +48,26 @@ $(function() {
         }, 1000);
     }
 
-    // arrow navigation
-    function navigateControls(e) {
-        e.preventDefault();
-        currentMountain = mountainList.indexOf($('body').attr('data-mountain'));
+    function navigateRight() {
+    	currentMountain = mountainList.indexOf($('body').attr('data-mountain'));
+    	// start at beginning again if at end
+    	newMountain = (currentMountain === nLength) ? 0 : (currentMountain + 1);
+    	// change mountain
+    	navigate(newMountain);
+    }
 
-        if (e.currentTarget.classList.contains('nav-right')) {
-            // start at beginning again if at end
-            newMountain = (currentMountain === nLength) ? 0 : (currentMountain + 1);
-        } else {
-            // start at end again if at beginning
-            newMountain = (currentMountain === 0) ? nLength : (currentMountain - 1);
-        }
-        // change mountain
-        navigate(newMountain);
-        setData(mountainList[newMountain]);
-        getFlickrImages(mountainList[newMountain]);
+    function navigateLeft() {
+    	currentMountain = mountainList.indexOf($('body').attr('data-mountain'));
+    	// start at end again if at beginning
+    	newMountain = (currentMountain === 0) ? nLength : (currentMountain - 1);
+    	// change mountain
+    	navigate(newMountain);
     }
 
     function navigate(newMountain) {
         document.body.dataset.mountain = mountainList[newMountain];
+        setData(mountainList[newMountain]);
+        getFlickrImages(mountainList[newMountain]);
     }
 
     function setData(newMountain) {
@@ -107,8 +120,6 @@ $(function() {
             images = document.querySelector('.photos'),
             flickrTag =  mountain + '-site';
 
-			console.log(flickrTag);
-
         // get the new ones
         $.getJSON(baseURL +
             '&api_key=' + apiKey +
@@ -147,7 +158,18 @@ $(function() {
 	        .fail(function(msg) {
 	            console.log(msg);
 	        });
+	} // END getFlickrImages
+
+	function checkKey(e) {
+	    if (e.keyCode == '37') {
+	       // left arrow
+	       navigateLeft(e);
 	    }
+	    else if (e.keyCode == '39') {
+	       // right arrow
+	       navigateRight(e);
+	    }
+	}
 
     initialize();
 });
