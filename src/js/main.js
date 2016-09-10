@@ -25,11 +25,11 @@ $(function() {
     });
 
     // listen to swipe events...
-    mc.on('panleft', function(e) {
+    mc.on('swipeleft', function(e) {
         navigateLeft();
     });
 
-    mc.on('panRight', function(e) {
+    mc.on('swipeRight', function(e) {
         navigateRight();
     });
 
