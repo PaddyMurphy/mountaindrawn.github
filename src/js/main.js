@@ -7,6 +7,7 @@ $(function() {
         navRight = document.querySelector('.nav-right'),
         swipe = document.querySelector('.container'),
         mc = new Hammer(swipe),
+        supportsClipPath = false,
         mountainList = Object.keys(mountainData),
         length = mountainList.length,
         nLength = length - 1; // normalized length
@@ -17,8 +18,11 @@ $(function() {
     navLeft.addEventListener('click', navigateLeft);
     navRight.addEventListener('click', navigateRight);
     window.addEventListener('resize', sizeshards);
-    document.onkeydown = checkKey;
+    // delay image download
+    window.addEventListener('load', getFlickrImages(dataMountain));
 
+    // keyboard navigation
+    document.onkeydown = checkKey;
     // allow lightbox to launch
     $('.photos').on('click', 'a', function(e) {
     	e.preventDefault();
@@ -42,10 +46,13 @@ $(function() {
             'resizeDuration': 250,
             'wrapAround': true
         });
-        // delay image download
-        window.setTimeout(function() {
-        	getFlickrImages(dataMountain);
-        }, 1000);
+        // test for clip-path support
+        if ( areClipPathShapesSupported() ) {
+        	supportsClipPath = true;
+        	document.body.classList.remove('no-clip-path');
+        	document.body.classList.add('supports-clip-path');
+        }
+
     }
 
     function navigateRight() {
