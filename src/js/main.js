@@ -5,12 +5,12 @@ $(function() {
     var dataMountain = document.body.dataset.mountain,
         navLeft = document.querySelector('.nav-left'),
         navRight = document.querySelector('.nav-right'),
+        swipe = document.querySelector('.container'),
+        mc = new Hammer(swipe),
         mountainList = Object.keys(mountainData),
         length = mountainList.length,
         nLength = length - 1; // normalized length
 
-    var swipe = document.querySelector('.mountains-wrapper');
-    var mc = new Hammer(swipe);
     var currentMountain, newMountain;
 
     // events
