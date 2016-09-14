@@ -1,3 +1,6 @@
+// TODO: test for clip-path support
+// deliver svg illustrations instead? or png
+
 var mountainData = mountainData || {};
 
 // mountaindrawn
@@ -5,14 +8,13 @@ $(function() {
     var dataMountain = document.body.dataset.mountain,
         navLeft = document.querySelector('.nav-left'),
         navRight = document.querySelector('.nav-right'),
-        swipe = document.querySelector('.container'),
-        mc = new Hammer(swipe),
+        swipeElement = document.querySelector('.container'),
+        touch = new Hammer(swipeElement),
         supportsClipPath = false,
         mountainList = Object.keys(mountainData),
         length = mountainList.length,
-        nLength = length - 1; // normalized length
-
-    var currentMountain, newMountain;
+        nLength = length - 1, // normalized length
+        currentMountain, newMountain;
 
     // events
     navLeft.addEventListener('click', navigateLeft);
@@ -25,15 +27,15 @@ $(function() {
     document.onkeydown = checkKey;
     // allow lightbox to launch
     $('.photos').on('click', 'a', function(e) {
-    	e.preventDefault();
+        e.preventDefault();
     });
 
     // listen to swipe events...
-    mc.on('swipeleft', function(e) {
+    touch.on('swipeleft', function(e) {
         navigateLeft();
     });
 
-    mc.on('swipeRight', function(e) {
+    touch.on('swipeRight', function(e) {
         navigateRight();
     });
 
@@ -47,28 +49,28 @@ $(function() {
             'wrapAround': true
         });
         // test for clip-path support
-        if ( areClipPathShapesSupported() ) {
-        	supportsClipPath = true;
-        	document.body.classList.remove('no-clip-path');
-        	document.body.classList.add('supports-clip-path');
+        if (areClipPathShapesSupported()) {
+            supportsClipPath = true;
+            document.body.classList.remove('no-clip-path');
+            document.body.classList.add('supports-clip-path');
         }
 
     }
 
     function navigateRight() {
-    	currentMountain = mountainList.indexOf($('body').attr('data-mountain'));
-    	// start at beginning again if at end
-    	newMountain = (currentMountain === nLength) ? 0 : (currentMountain + 1);
-    	// change mountain
-    	navigate(newMountain);
+        currentMountain = mountainList.indexOf($('body').attr('data-mountain'));
+        // start at beginning again if at end
+        newMountain = (currentMountain === nLength) ? 0 : (currentMountain + 1);
+        // change mountain
+        navigate(newMountain);
     }
 
     function navigateLeft() {
-    	currentMountain = mountainList.indexOf($('body').attr('data-mountain'));
-    	// start at end again if at beginning
-    	newMountain = (currentMountain === 0) ? nLength : (currentMountain - 1);
-    	// change mountain
-    	navigate(newMountain);
+        currentMountain = mountainList.indexOf($('body').attr('data-mountain'));
+        // start at end again if at beginning
+        newMountain = (currentMountain === 0) ? nLength : (currentMountain - 1);
+        // change mountain
+        navigate(newMountain);
     }
 
     function navigate(newMountain) {
@@ -137,46 +139,47 @@ $(function() {
             '&format=' + 'json' +
             '&jsoncallback=' + '?',
             function(data) {})
-        	.done(function(data) {
-	            //loop through the results with the following function
-	            $.each(data.photos.photo, function(i, item) {
+            .done(function(data) {
+                //loop through the results with the following function
+                $.each(data.photos.photo, function(i, item) {
 
-	                var photoURL = '//farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.id + '_' + item.secret,
-	                square = photoURL + '_q.jpg', // q = 150sq
-	                photoLarge = photoURL + '_b.jpg', // b = 1024 on longest side,
-	                // set the photo href for larger views
-	                photoHref = '//www.flickr.com/photos/' + item.owner + '/' + item.id,
-	                photo = '<img src="' + square + '" />';
-	                // add photo to the docFrag
-	                $("<a/>").attr('href', photoLarge)
-	                    .attr('rel', 'prefetch')
-	                    .attr('data-photohref', photoHref)
-	                    .attr('data-lightbox', 'mountaindrawn')
-	                    .appendTo(docFrag).append(photo);
+                    var photoURL = '//farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.id + '_' + item.secret,
+                    square = photoURL + '_q.jpg', // q = 150sq
+                    photoLarge = photoURL + '_b.jpg', // b = 1024 on longest side,
+                    // set the photo href for larger views
+                    photoHref = '//www.flickr.com/photos/' + item.owner + '/' + item.id,
+                    photo = '<img src="' + square + '" />';
+                    // add photo to the docFrag
+                    $("<a/>").attr('href', photoLarge)
+                        .attr('rel', 'prefetch')
+                        .attr('data-photohref', photoHref)
+                        .attr('data-lightbox', 'mountaindrawn')
+                        .appendTo(docFrag).append(photo);
 
-	            }); // END $.each
+                }); // END $.each
 
-	            // append once
-	            // TODO: why does this insert [object DocumentFragment]
-	            //flowApp.config.images.innerHTML = docFrag;
-	            $(images).html(docFrag);
+                // append once
+                // TODO: why does this insert [object DocumentFragment]
+                //flowApp.config.images.innerHTML = docFrag;
+                $(images).html(docFrag);
 
-	        })
-	        .fail(function(msg) {
-	            console.log(msg);
-	        });
-	} // END getFlickrImages
+            })
+            .fail(function(msg) {
+                // TODO: load something else?
+                console.log(msg);
+            });
+    } // END getFlickrImages
 
-	function checkKey(e) {
-	    if (e.keyCode == '37') {
-	       // left arrow
-	       navigateLeft(e);
-	    }
-	    else if (e.keyCode == '39') {
-	       // right arrow
-	       navigateRight(e);
-	    }
-	}
+    function checkKey(e) {
+        if (e.keyCode == '37') {
+           // left arrow
+           navigateLeft(e);
+        }
+        else if (e.keyCode == '39') {
+           // right arrow
+           navigateRight(e);
+        }
+    }
 
     initialize();
 });

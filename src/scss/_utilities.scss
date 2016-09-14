@@ -1,10 +1,16 @@
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+// html {
+//   box-sizing: border-box;
+// }
+// *, *:before, *:after {
+//   box-sizing: inherit;
+// }
 
+// trace image
+.polygon-wrap {
+	margin: 100px 0 20px 100px;
+	width: $mountains-width;
+	height: $mountains-height;
+}
 
 // helpers
 .hide {
