@@ -34,7 +34,7 @@
     "watch:js": "onchange 'src/js' -- npm run build:js",
     "watch:archived": "onchange 'src/archived' -- npm run build:archived",
     "watch:images": "onchange 'src/images' -- npm run build:images",
-    "watch:all": "npm-run-all -p serve watch:css watch:js watch:images watch:archived",
+    "watch:all": "npm-run-all -p serve watch:css watch:js watch:images",
     "postinstall": "npm run build:all && npm run watch:all"
   },
   "devDependencies": {

@@ -1,9 +1,10 @@
-// html {
-//   box-sizing: border-box;
-// }
-// *, *:before, *:after {
-//   box-sizing: inherit;
-// }
+// TODO: this breaks safari clip-path transform
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
 // trace image
 .polygon-wrap {
