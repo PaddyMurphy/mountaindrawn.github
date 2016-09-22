@@ -18,7 +18,7 @@
     "compress"
   ],
   "scripts": {
-    "clean": "rm -f dist/{css/*,js/*,archived/*,images/*}",
+    "clean": "rm -f dist/{css/*,js/*,archived/*,images/*,svg/*}",
     "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
     "scss": "node-sass --output-style compressed -o dist/css src/scss",
     "lint": "eslint src/js",
@@ -27,14 +27,16 @@
     "serve": "browser-sync start --server --files 'dist/css/*.css, dist/js/*.js, dist/archived/**, **/*.html, !node_modules/**/*.html'",
     "build:css": "npm run scss && npm run autoprefixer",
     "build:js": "npm run lint && npm run uglify",
-    "build:archived": "cp -R src/archived dist/archived",
+    "build:archived": "cp -R src/archived/ dist/archived",
     "build:images": "npm run imagemin",
+    "build:svg": "cp -R src/svg/ dist/svg",
     "build:all": "npm run build:css && npm run build:js && npm run build:images",
     "watch:css": "onchange 'src/scss' -- npm run build:css",
     "watch:js": "onchange 'src/js' -- npm run build:js",
     "watch:archived": "onchange 'src/archived' -- npm run build:archived",
     "watch:images": "onchange 'src/images' -- npm run build:images",
-    "watch:all": "npm-run-all -p serve watch:css watch:js watch:images",
+    "watch:svg": "onchange 'src/svg' -- npm run build:svg",
+    "watch:all": "npm-run-all -p serve watch:css watch:js watch:images watch:svg",
     "postinstall": "npm run build:all && npm run watch:all"
   },
   "devDependencies": {

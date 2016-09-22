@@ -1,0 +1,48 @@
+// no clip path support
+.static-mountains {
+	display: none;
+	visibility: hidden;
+	height: 100%;
+	width: 100%;
+}
+.no-clip-path {
+	.mountains {
+		display: none;
+		visibility: hidden;
+	}
+
+	.static-mountains {
+		display: block;
+		visibility: visible;
+	}
+}
+
+// common to all svgs
+.static-mountain {
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 0;
+	width: 90%;
+	padding-top: 68%;
+}
+
+[data-mountain="bugaboo"] {
+	.static-mountain {
+		background-image: url('../svg/bugaboo.svg');
+		padding-top: 67%;
+	}
+}
+
+[data-mountain="tetons"] {
+	.static-mountain {
+		background-image: url('../svg/tetons.svg');
+		padding-top: 68%;
+	}
+}
+
+[data-mountain="blanca-traverse"] {
+	.static-mountain {
+		background-image: url('../svg/blanca-traverse.svg');
+		padding-top: 50%;
+	}
+}
