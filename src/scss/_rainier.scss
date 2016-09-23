@@ -15,9 +15,8 @@ $rainier-dark: #CBDBE0;
 body[data-mountain="rainier"] {
 	background-color: #ffba36;
 
-	h1 {
+	.title {
 		color: rgba(0,0,0,0.7);
-		text-align: center;
 	}
 
 	.mountains-wrapper {

@@ -1,8 +1,8 @@
 // no clip path support
 .static-mountains {
 	display: none;
-	visibility: hidden;
 	height: 100%;
+	visibility: hidden;
 	width: 100%;
 }
 .no-clip-path {
@@ -22,27 +22,35 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 0;
-	width: 90%;
 	padding-top: 68%;
-}
+	width: 90%;
 
+	// @include mquery(small) {
+	// 	width: 70%;
+	// }
+}
+// maintain aspect ratio
+// padding-top: (svg height / svg width) * width-value;
+.bugaboo,
 [data-mountain="bugaboo"] {
 	.static-mountain {
-		background-image: url('../svg/bugaboo.svg');
+		background-image: url('../images/bugaboo.svg');
 		padding-top: 67%;
 	}
 }
 
+.tetons,
 [data-mountain="tetons"] {
 	.static-mountain {
-		background-image: url('../svg/tetons.svg');
+		background-image: url('../images/tetons.svg');
 		padding-top: 68%;
 	}
 }
 
+.blanca-traverse,
 [data-mountain="blanca-traverse"] {
 	.static-mountain {
-		background-image: url('../svg/blanca-traverse.svg');
+		background-image: url('../images/blanca-traverse.svg');
 		padding-top: 50%;
 	}
 }

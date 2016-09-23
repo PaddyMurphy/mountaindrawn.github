@@ -1,16 +1,14 @@
-// TETONS
-
-$tetons-light: #DBEBB8;
-$tetons-shade-30: #9EB275;
-$tetons-shade-60: #666A2F;
-$tetons-dark: #353E0D;
-
-
-body[data-mountain="tetons"] {
+// riverflow app
+// TODO: replace with river animation
+body[data-mountain="riverflow"] {
 	background-color: #FF8F5A;
 
 	.title {
 		color: $tetons-dark;
+	}
+
+	.data {
+		display: none;
 	}
 
 	.mountains {
@@ -25,13 +23,6 @@ body[data-mountain="tetons"] {
 	.content {
 		h2 {
 			color: #fff;
-		}
-	}
-
-	// data box position
-	.data {
-		@include mquery(small) {
-			transform: translate(-11vw, 3vh);
 		}
 	}
 
@@ -231,5 +222,3 @@ body[data-mountain="tetons"] {
 		}
 	} // END .shard-wrap
 }
-
-

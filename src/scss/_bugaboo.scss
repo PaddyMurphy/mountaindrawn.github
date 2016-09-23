@@ -21,9 +21,8 @@ $bugaboo-dark: #3E3D3D;
 body[data-mountain="bugaboo"] {
 	background-color: #D2F13E;
 
-	h1 {
+	.title {
 		color: $bugaboo-dark;
-		text-align: center;
 	}
 
 	.mountains {
