@@ -23,6 +23,7 @@
 	background-size: cover;
 	height: 0;
 	padding-top: 68%;
+	position: relative;
 	width: 90%;
 
 	// @include mquery(small) {
@@ -31,11 +32,13 @@
 }
 // maintain aspect ratio
 // padding-top: (svg height / svg width) * width-value;
+
+// duplicate classname for svg.html
 .bugaboo,
 [data-mountain="bugaboo"] {
 	.static-mountain {
 		background-image: url('../images/bugaboo.svg');
-		padding-top: 67%;
+		padding-top: 62%;
 	}
 }
 
@@ -43,7 +46,7 @@
 [data-mountain="tetons"] {
 	.static-mountain {
 		background-image: url('../images/tetons.svg');
-		padding-top: 68%;
+		padding-top: 65%;
 	}
 }
 
@@ -51,6 +54,14 @@
 [data-mountain="blanca-traverse"] {
 	.static-mountain {
 		background-image: url('../images/blanca-traverse.svg');
-		padding-top: 50%;
+		padding-top: 55%;
+	}
+}
+
+.glacier-peak,
+[data-mountain="glacier-peak"] {
+	.static-mountain {
+		background-image: url('../images/tetons.svg');
+		padding-top: 68%;
 	}
 }

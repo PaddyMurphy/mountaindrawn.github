@@ -1,29 +1,30 @@
-<svg width="100%" height="100%" id="svg-bugaboo" viewBox="0 0 370 275" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+<svg width="100%" height="100%" viewBox="0 0 500 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g id="mountain" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <polygon id="shard-1" fill="#E5DED9" points="157.355469 16.9257812 168.003906 25.8339844 163.189453 55.0039062"></polygon>
-        <polygon id="shard-2" fill="#C1B8AE" points="178.516602 28.7265625 199.601562 44.6699219 209.662109 150.519043 185.988281 68.6191406"></polygon>
-        <polygon id="shard-3" fill="#C1B8AE" points="168.074219 26.3710938 163.25 56.0703125 186.47168 69.0576172"></polygon>
-        <polygon id="shard-4" fill="#7D7771" points="158.348633 23.6757812 153.217773 51.1621094 163.375977 57.4443359"></polygon>
-        <polygon id="shard-5" fill="#7D7771" points="153.727539 51.2910156 155.03125 135.453125 128.839844 110.918945"></polygon>
-        <polygon id="shard-6" fill="#3E3D3D" points="153.569336 50.8740234 186.111328 68.5996094 154.310547 134.850586"></polygon>
-        <polygon id="shard-7" fill="#7D7771" points="168.172852 26.6708984 179.900391 29.4277344 186.351562 68.7890625"></polygon>
-        <polygon id="shard-8" fill="#7D7771" points="186.247559 67.9799805 209.570312 149.859375 122.525391 201.425781"></polygon>
-        <polygon id="shard-9" fill="#3E3D3D" points="200 48 208.59375 48.5654297 209.762695 151.053711"></polygon>
-        <polygon id="shard-10" fill="#E5DED9" points="209.149414 54.1757812 281.6875 137.693359 236.014648 161.359375"></polygon>
-        <polygon id="shard-11" fill="#C3BAB0" points="208.692383 51.2348633 209.754883 150.134277 236.120117 162.006836"></polygon>
-        <polygon id="shard-12" fill="#C3BAB0" points="280.938477 137.374023 298.348633 188.4375 235.551758 161.62793"></polygon>
-        <polygon id="shard-13" fill="#7D7771" points="210.197266 149.578125 236.265625 161.681641 132.230469 249.066406"></polygon>
-        <polygon id="shard-14" fill="#C3BAB0" points="210.464844 149.318359 45.1347656 247.432617 133.268555 248.608398"></polygon>
-        <polygon id="shard-15" fill="#3E3D3D" points="236.325195 161.431641 132.974609 248.612305 238.625 232.123047"></polygon>
-        <polygon id="shard-16" fill="#7D7771" points="236.381836 161.864258 238.605469 232.345703 369.296875 274.274414"></polygon>
-        <polygon id="shard-17" fill="#E5DED9" points="236.22168 161.652344 322.919922 199.019531 297.277344 213.048828"></polygon>
-        <polygon id="shard-18" fill="#C3BAB0" points="296.907227 213.354492 368.789062 274.123047 322.475586 198.916992"></polygon>
-        <polygon id="shard-19" fill="#3E3D3D" points="154.847656 134.807617 122.870117 201.605469 129.000977 110.211914"></polygon>
-        <polygon id="shard-20" fill="#7D7771" points="128.074219 127.891602 101.791992 164.267578 123.18457 201.041992"></polygon>
-        <polygon id="shard-21" fill="#C3BAB0" points="102.208008 164.166016 0.38671875 253.28125 123.073242 200.449219"></polygon>
-        <polygon id="shard-22" fill="#7D7771" points="123.758789 200.439453 1.21191406 252.661133 46.5986328 247.354492"></polygon>
-        <polygon id="shard-23" fill="#E5DED9" points="129.515625 11.9882812 114.828125 5.19140625 116.810547 11.5996094"></polygon>
-        <polygon id="shard-24" fill="#E5DED9" points="141.675781 7.61523437 149.232422 4.65234375 146.251953 8.85742188"></polygon>
-        <polygon id="shard-25" fill="#C3BAB0" points="47.3652344 0.94921875 39.3261719 4.04101562 54.7734375 5.41210937"></polygon>
+        <polygon id="shard-1" fill="#E5DED9" points="225.355469 35.9257812 236.003906 44.8339844 231.189453 74.0039062"></polygon>
+        <polygon id="shard-2" fill="#C1B8AE" points="246.516602 47.7265625 267.601562 63.6699219 277.662109 169.519043 253.988281 87.6191406"></polygon>
+        <polygon id="shard-3" fill="#C1B8AE" points="236.074219 45.3710938 231.25 75.0703125 254.47168 88.0576172"></polygon>
+        <polygon id="shard-4" fill="#7D7771" points="226.348633 42.6757812 221.217773 70.1621094 231.375977 76.4443359"></polygon>
+        <polygon id="shard-5" fill="#7D7771" points="221.727539 70.2910156 223.03125 154.453125 196.839844 129.918945"></polygon>
+        <polygon id="shard-6" fill="#3E3D3D" points="221.569336 69.8740234 254.111328 87.5996094 222.310547 153.850586"></polygon>
+        <polygon id="shard-7" fill="#7D7771" points="236.172852 45.6708984 247.900391 48.4277344 254.351562 87.7890625"></polygon>
+        <polygon id="shard-8" fill="#7D7771" points="254.247559 86.9799805 277.570312 168.859375 190.525391 220.425781"></polygon>
+        <polygon id="shard-9" fill="#3E3D3D" points="268 67 276.59375 67.5654297 277.762695 170.053711"></polygon>
+        <polygon id="shard-10" fill="#E5DED9" points="277.149414 73.1757812 349.6875 156.693359 304.014648 180.359375"></polygon>
+        <polygon id="shard-11" fill="#C3BAB0" points="276.692383 70.2348633 277.754883 169.134277 304.120117 181.006836"></polygon>
+        <polygon id="shard-12" fill="#C3BAB0" points="348.938477 156.374023 366.348633 207.4375 303.551758 180.62793"></polygon>
+        <polygon id="shard-13" fill="#7D7771" points="278.197266 168.578125 304.265625 180.681641 200.230469 268.066406"></polygon>
+        <polygon id="shard-14" fill="#C3BAB0" points="278.464844 168.318359 113.134766 266.432617 201.268555 267.608398"></polygon>
+        <polygon id="shard-15" fill="#3E3D3D" points="304.325195 180.431641 200.974609 267.612305 306.625 251.123047"></polygon>
+        <polygon id="shard-16" fill="#7D7771" points="304.381836 180.864258 306.605469 251.345703 437.296875 293.274414"></polygon>
+        <polygon id="shard-17" fill="#E5DED9" points="304.22168 180.652344 390.919922 218.019531 365.277344 232.048828"></polygon>
+        <polygon id="shard-18" fill="#C3BAB0" points="364.907227 232.354492 436.789062 293.123047 390.475586 217.916992"></polygon>
+        <polygon id="shard-19" fill="#3E3D3D" points="222.847656 153.807617 190.870117 220.605469 197.000977 129.211914"></polygon>
+        <polygon id="shard-20" fill="#7D7771" points="196.074219 146.891602 169.791992 183.267578 191.18457 220.041992"></polygon>
+        <polygon id="shard-21" fill="#C3BAB0" points="170.208008 183.166016 68.3867188 272.28125 191.073242 219.449219"></polygon>
+        <polygon id="shard-22" fill="#7D7771" points="191.758789 219.439453 69.2119141 271.661133 114.598633 266.354492"></polygon>
+        <polygon id="shard-23" fill="#E5DED9" points="197.515625 30.9882812 182.828125 24.1914062 184.810547 30.5996094"></polygon>
+        <polygon id="shard-24" fill="#E5DED9" points="209.675781 26.6152344 217.232422 23.6523438 214.251953 27.8574219"></polygon>
+        <polygon id="shard-25" fill="#C3BAB0" points="115.365234 19.9492188 107.326172 23.0410156 122.773438 24.4121094"></polygon>
     </g>
 </svg>
