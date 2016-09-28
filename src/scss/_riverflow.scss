@@ -6,11 +6,13 @@
 }
 
 body[data-mountain="riverflow"] {
-	background-color: #7DABDC;
+	background-color: #cdeaff;
 
 	.riverflow-app {
 		display: block;
 		visibility: visible;
+
+		padding: 0 $default-padding;
 	}
 
 	.title {
@@ -28,8 +30,37 @@ body[data-mountain="riverflow"] {
 	}
 
 	.content {
+		margin-top: 160px;
 		h2 {
 			color: #fff;
 		}
+	}
+
+	// app data
+	.flowrate {
+		text-align: center;
+		h2 {
+			font-size: 5em;
+			margin: 0;
+		}
+		abbr {
+			font-size: 50%;
+		}
+	}
+
+	.map-link {
+		padding: 0 0 10px;
+		a {
+			padding: 0 10px 0 0;
+		}
+	}
+
+	.conditions {
+		text-align: center;
+		padding: 0 0 10px;
+	}
+
+	.graph-wrapper {
+		text-align: center;
 	}
 }

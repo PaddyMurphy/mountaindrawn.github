@@ -49,7 +49,8 @@
         totalCount: '',
         latestCfs: '',
         latestTime: '',
-        mapURL: ''
+        mapURL: '',
+        riverLocation: ''
     };
 
     Riverflow.prototype.option = function(options) {
@@ -69,9 +70,9 @@
     	// to this (sanmarcos:luling)
     	var formatted = name;
     	formatted = formatted.toLowerCase();
-    	formatted = formatted.replace(/ /g, "").trim(); // replace spaces
-    	formatted = formatted.replace(/(\r\n|\n|\r)/gm, ""); // remove line breaks
-    	formatted = formatted.replace(/\-(\S*)\-/g, ""); // exclude titles (i.e. --brazosriverbasin--)
+    	formatted = formatted.replace(/ /g, '').trim(); // replace spaces
+    	formatted = formatted.replace(/(\r\n|\n|\r)/gm, ''); // remove line breaks
+    	formatted = formatted.replace(/\-(\S*)\-/g, ''); // exclude titles (i.e. --brazosriverbasin--)
 
     	return formatted;
     };
@@ -79,10 +80,10 @@
     Riverflow.prototype.getUsgsData = function(river) {
     	var self = this;
 
-        var riverLocation = $('#selectRiver').val();
+        riverflow.options.riverLocation = $('#selectRiver').val();
 
         var usgsUrl = riverflow.options.baseURL +
-            riverLocation +
+            riverflow.options.riverLocation +
             riverflow.options.params;
 
     	// fetches usgs instant data, usgs graph service
@@ -106,16 +107,12 @@
     	}
 
     	// make sure the select option has a value
-    	if (!$('#selectRiver').val()) {
+    	if (!riverflow.options.riverLocation) {
     	    return false;
     	}
 
-        // remove all existing data first
-        // $(flowApp.config.conditions).empty();
-
         // display loading until the data is ready
-        // flowApp.config.loading.classList.remove("hidden");
-        // flowApp.config.bodyTag.classList.add("loading");
+        document.body.classList.add('loading');
 
         $.getJSON(usgsUrl, function(data) {})
             .done(function(data) {
@@ -133,40 +130,32 @@
                         riverflow.options.longitude = item.sourceInfo.geoLocation.geogLocation.longitude;
                         riverflow.options.totalCount = item.values.count;
                         latest = item.values[0].value.reverse()[0];
-
                         // set cfs value
                         riverflow.options.latestCfs = latest.value;
                         // set date
                         riverflow.options.latestTime = latest.dateTime;
-                        // git array of values to chart
-                        // NOTE: 7D data returns 2004 datapoints
-                        //       see api to reduce # or filter out nth
-                        // var graphData = item.values[0].value;
-                        // self.displayChart(item.values[0].value);
                     }); // END $.each
 
                     // create map link
-                    riverflow.options.mapURL = riverflow.options.baseMapURL + riverflow.options.latitude + ',+' + riverflow.options.longitude;
-                    // TODO: round decimal and show the flow conditions message
-                    // self.displayConditions(parseInt(self.latestCfs, 10));
-                    // TODO: display the data
+                    riverflow.options.mapURL = riverflow.options.baseMapURL +
+                        riverflow.options.latitude +
+                        ',+' +
+                        riverflow.options.longitude;
+
+                    // round decimal and show the flow conditions message
+                    riverflow.displayConditions(parseInt(riverflow.options.latestCfs, 10));
+                    // display the data
                     riverflow.displayData();
-
                 } // END check if any data is returned
-
-                // debug - show all data
-                // console.log(data.value);
-                // TODO: what was this for? can't wipe out body class
-                // document.getElementsByTagName('body')[0].className = '';
-                // flowApp.config.loading.classList.add('hidden');
-
             })
             .fail(function(msg) {
                 var statusText = msg.statusText;
                 console.warn(statusText);
+            })
+            .always(function() {
+                document.body.classList.remove('loading');
+                riverflow.displayGraph();
             }); // END get json
-
-        return false; // prevent click
     };
 
     Riverflow.prototype.displayData = function() {
@@ -179,10 +168,43 @@
 
         //flowrate
         var flowrateText = '<h2>' + this.options.latestCfs + '<abbr id="flowCfs" title="cubic feet per second">CFS</abbr>' + '</h2>';
-        flowrateText += '<div class="mapLinkLatLong">' + mapLinkLatLong + '</div>';
+        flowrateText += '<div class="map-link">' + mapLinkLatLong + '</div>';
 
         flowrate.innerHTML = flowrateText;
-    }
+    };
+
+    Riverflow.prototype.displayGraph = function() {
+        // display a graph of the flow
+        var graphURL = this.options.baseGraphURL + '&site_no=' + this.options.riverLocation + '&period=' + this.options.graphPeriod;
+        var graphImage = '<img src="' + graphURL + '"id="graph" alt="USGS Water-data graph">';
+
+        document.querySelector('.graph-wrapper').innerHTML = graphImage;
+    };
+
+    Riverflow.prototype.displayConditions = function(flowRate) {
+        var conditionText = '';
+
+        // check the range of the cfs and display the appropriate message
+        if (flowRate === 0) {
+            conditionText = this.options.flow0;
+        } else if ((flowRate > 0) && (flowRate < 50)) {
+            conditionText = this.options.flow1;
+        } else if ((flowRate >= 50) && (flowRate < 100)) {
+            conditionText = this.options.flow2;
+        } else if ((flowRate >= 100) && (flowRate < 300)) {
+            conditionText = this.options.flow3;
+        } else if ((flowRate >= 300) && (flowRate < 600)) {
+            conditionText = this.options.flow4;
+        } else if ((flowRate >= 600) && (flowRate < 2000)) {
+            conditionText = this.options.flow5;
+        } else if (flowRate >= 2000) {
+            conditionText = this.options.flow6;
+        } else {
+            console.error('no flow rate conditions met. flowRate = ' + flowRate);
+        }
+
+        document.querySelector('.conditions').textContent = conditionText;
+    };
 
     return new Riverflow();
 }));
