@@ -20,9 +20,6 @@
 }(this, function($) {
 
     function Riverflow(options) {
-        // var siteName, latitude, longitude, totalCount,
-        //     latestCfs, latestTime, mapURL;
-
         this.init();
         // options
         this.options = $.extend({}, this.constructor.defaults);
@@ -47,6 +44,7 @@
         latitude: '',
         longitude: '',
         totalCount: '',
+        latest: '',
         latestCfs: '',
         latestTime: '',
         mapURL: '',
@@ -78,8 +76,6 @@
     };
 
     Riverflow.prototype.getUsgsData = function(river) {
-    	var self = this;
-
         riverflow.options.riverLocation = $('#selectRiver').val();
 
         var usgsUrl = riverflow.options.baseURL +
@@ -124,16 +120,17 @@
                     console.log('no data...');
                 } else {
                     $.each(data.value.timeSeries, function(i, item) {
+                        // console.log(item.values[0].value);
                         // set the data variables for display
                         riverflow.options.siteName = item.sourceInfo.siteName;
                         riverflow.options.latitude = item.sourceInfo.geoLocation.geogLocation.latitude;
                         riverflow.options.longitude = item.sourceInfo.geoLocation.geogLocation.longitude;
                         riverflow.options.totalCount = item.values.count;
-                        latest = item.values[0].value.reverse()[0];
+                        riverflow.options.latest = item.values[0].value.reverse()[0];
                         // set cfs value
-                        riverflow.options.latestCfs = latest.value;
+                        riverflow.options.latestCfs = riverflow.options.latest.value;
                         // set date
-                        riverflow.options.latestTime = latest.dateTime;
+                        riverflow.options.latestTime = riverflow.options.latest.dateTime;
                     }); // END $.each
 
                     // create map link
@@ -141,7 +138,6 @@
                         riverflow.options.latitude +
                         ',+' +
                         riverflow.options.longitude;
-
                     // round decimal and show the flow conditions message
                     riverflow.displayConditions(parseInt(riverflow.options.latestCfs, 10));
                     // display the data
@@ -173,14 +169,6 @@
         flowrate.innerHTML = flowrateText;
     };
 
-    Riverflow.prototype.displayGraph = function() {
-        // display a graph of the flow
-        var graphURL = this.options.baseGraphURL + '&site_no=' + this.options.riverLocation + '&period=' + this.options.graphPeriod;
-        var graphImage = '<img src="' + graphURL + '"id="graph" alt="USGS Water-data graph">';
-
-        document.querySelector('.graph-wrapper').innerHTML = graphImage;
-    };
-
     Riverflow.prototype.displayConditions = function(flowRate) {
         var conditionText = '';
 
@@ -204,6 +192,14 @@
         }
 
         document.querySelector('.conditions').textContent = conditionText;
+    };
+
+    Riverflow.prototype.displayGraph = function() {
+        // display a graph of the flow
+        var graphURL = this.options.baseGraphURL + '&site_no=' + this.options.riverLocation + '&period=' + this.options.graphPeriod;
+        var graphImage = '<img src="' + graphURL + '"id="graph" alt="USGS Water-data graph">';
+
+        document.querySelector('.graph-wrapper').innerHTML = graphImage;
     };
 
     return new Riverflow();

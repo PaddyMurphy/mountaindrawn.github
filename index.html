@@ -354,8 +354,23 @@
 		</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	</div>
-	<!-- <script src="src/libs/jquery-3.1.0.js"></script> -->
-	<script src="dist/js/app.min.js"></script>
-	<!-- <script src="src/libs/clip-pathy.js"></script> -->
+	<!-- PRODUCTION mode -->
+	<!-- <script src="dist/js/app.min.js"></script> -->
+	<!-- DEV mode -->
+	<script src="src/js/hammer.js"></script>
+	<script src="src/js/hash-router.js"></script>
+	<script src="src/js/js-templating.js"></script>
+	<script src="src/js/lightbox.js"></script>
+	<script src="src/js/main.js"></script>
+	<script src="src/js/mountainData.js"></script>
+	<script src="src/js/riverflow.js"></script>
+	<script src="src/js/test-clip-path.js"></script>
+
+	<script>
+		/* debug mode to swtich to unminified */
+		// test if url === localhost
+		var debug = false;
+	</script>
+
 </body>
 </html>

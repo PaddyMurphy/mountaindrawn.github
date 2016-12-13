@@ -62,5 +62,16 @@ body[data-mountain="riverflow"] {
 
 	.graph-wrapper {
 		text-align: center;
+
+		img {
+			height: auto;
+			image-rendering: pixelated;
+			padding: 0;
+			width: 100%;
+
+			@include mquery(small) {
+				image-rendering: auto;
+			}
+		}
 	}
 }

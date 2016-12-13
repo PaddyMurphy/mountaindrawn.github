@@ -14,6 +14,7 @@ $(function() {
         mountainList = Object.keys(mountainData),
         length = mountainList.length,
         nLength = length - 1, // normalized length
+        route = {},
         currentMountain, newMountain;
 
     // events
@@ -42,6 +43,7 @@ $(function() {
     function initialize() {
         // populate the first mountain
         setData(dataMountain);
+        routes();
         sizeshards();
         // lightbox options
         lightbox.option({
@@ -54,10 +56,10 @@ $(function() {
             document.body.classList.remove('no-clip-path');
             document.body.classList.add('supports-clip-path');
         }
-
     }
 
-    function navigateRight() {
+    function navigateRight(e) {
+        e.preventDefault();
         currentMountain = mountainList.indexOf($('body').attr('data-mountain'));
         // start at beginning again if at end
         newMountain = (currentMountain === nLength) ? 0 : (currentMountain + 1);
@@ -65,7 +67,8 @@ $(function() {
         navigate(newMountain);
     }
 
-    function navigateLeft() {
+    function navigateLeft(e) {
+        e.preventDefault();
         currentMountain = mountainList.indexOf($('body').attr('data-mountain'));
         // start at end again if at beginning
         newMountain = (currentMountain === 0) ? nLength : (currentMountain - 1);
@@ -74,12 +77,17 @@ $(function() {
     }
 
     function navigate(newMountain) {
+        // console.log('navigate: ' + newMountain);
         document.body.dataset.mountain = mountainList[newMountain];
         setData(mountainList[newMountain]);
+        // TODO: set route
+        Router.navigate('#/' + mountainList[newMountain]);
+
         getFlickrImages(mountainList[newMountain]);
     }
 
     function setData(newMountain) {
+        // console.log('setData: ' + newMountain);
         var newMountainData = mountainData[newMountain],
             title = document.querySelector('.title'),
             data = document.querySelector('.data'),
@@ -127,28 +135,28 @@ $(function() {
             baseURL = 'https://api.flickr.com/services/rest/?&method=flickr.photos.search',
             docFrag = document.createDocumentFragment(),
             images = document.querySelector('.photos'),
-            flickrTag =  mountain + '-site';
+            flickrTag = mountain + '-site';
 
         // get the new ones
         $.getJSON(baseURL +
-            '&api_key=' + apiKey +
-            '&tags=' + flickrTag +
-            '&per_page=' + 6 +
-            '&tag_mode=' + 'all' +
-            '&sort=' + 'interestingness-asc' +
-            '&format=' + 'json' +
-            '&jsoncallback=' + '?',
-            function(data) {})
+                '&api_key=' + apiKey +
+                '&tags=' + flickrTag +
+                '&per_page=' + 6 +
+                '&tag_mode=' + 'all' +
+                '&sort=' + 'interestingness-asc' +
+                '&format=' + 'json' +
+                '&jsoncallback=' + '?',
+                function(data) {})
             .done(function(data) {
                 //loop through the results with the following function
                 $.each(data.photos.photo, function(i, item) {
 
                     var photoURL = '//farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.id + '_' + item.secret,
-                    square = photoURL + '_q.jpg', // q = 150sq
-                    photoLarge = photoURL + '_b.jpg', // b = 1024 on longest side,
-                    // set the photo href for larger views
-                    photoHref = '//www.flickr.com/photos/' + item.owner + '/' + item.id,
-                    photo = '<img src="' + square + '" />';
+                        square = photoURL + '_q.jpg', // q = 150sq
+                        photoLarge = photoURL + '_b.jpg', // b = 1024 on longest side,
+                        // set the photo href for larger views
+                        photoHref = '//www.flickr.com/photos/' + item.owner + '/' + item.id,
+                        photo = '<img src="' + square + '" />';
                     // add photo to the docFrag
                     $("<a/>").attr('href', photoLarge)
                         .attr('rel', 'prefetch')
@@ -172,13 +180,33 @@ $(function() {
 
     function checkKey(e) {
         if (e.keyCode == '37') {
-           // left arrow
-           navigateLeft(e);
+            // left arrow
+            navigateLeft(e);
+        } else if (e.keyCode == '39') {
+            // right arrow
+            navigateRight(e);
         }
-        else if (e.keyCode == '39') {
-           // right arrow
-           navigateRight(e);
-        }
+    }
+
+    function routes() {
+        // TODO: complete routing
+        var that = this;
+
+        route = {
+            path: '#/:name',
+            // before: function() {
+            //     console.log(this);
+            // },
+            on: function() {
+                // console.log(this.params.name);
+                // console.log('currentMountain: ' + dataMountain);
+                // if currentMountain is not === name then set dataMountain
+                // only if the url param is empty
+            }
+        };
+
+        Router.add(route);
+        Router.init();
     }
 
     initialize();
