@@ -28,9 +28,9 @@
 
     Riverflow.defaults = {
         apiKey: '6c6069e831fb567b86c7d9b75c82624f',
-        baseGraphURL: 'http://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&parm_cd=00060',
-        baseMapURL: 'http://maps.google.com/?q=',
-        baseURL: 'http://waterservices.usgs.gov/nwis/iv/?format=json&period=P7D&sites=',
+        baseGraphURL: '//waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&parm_cd=00060',
+        baseMapURL: '//maps.google.com/?q=',
+        baseURL: '//waterservices.usgs.gov/nwis/iv/?format=json&period=P7D&sites=',
         flow0: 'Sorry but this river is bone dry. Try a spring fed river like the San Marcos til we get more rain.',
         flow1: 'The river is pretty much just a trickle right. Not much good for floating at the moment but a good rain should bring it up',
         flow2: 'It\'s barely moving but it should be floatable in kayaks or tubes. Be prepared to drag bottom in spots though.',

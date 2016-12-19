@@ -32,12 +32,15 @@ $(function() {
     });
 
     // listen to swipe events...
+    // TODO: fix swipe events
     touch.on('swipeleft', function(e) {
-        navigateLeft();
+        console.log('swipeleft');
+        navigateLeft(e);
     });
 
     touch.on('swipeRight', function(e) {
-        navigateRight();
+        console.log('swipeRight');
+        navigateRight(e);
     });
 
     function initialize() {
@@ -194,11 +197,12 @@ $(function() {
 
         route = {
             path: '#/:name',
-            // before: function() {
-            //     console.log(this);
-            // },
+            before: function() {
+                console.log(this);
+                this.task.done();
+            },
             on: function() {
-                // console.log(this.params.name);
+                console.log(this.params.name);
                 // console.log('currentMountain: ' + dataMountain);
                 // if currentMountain is not === name then set dataMountain
                 // only if the url param is empty
