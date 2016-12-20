@@ -198,7 +198,7 @@ $(function() {
         route = {
             path: '#/:name',
             before: function() {
-                console.log(this);
+                // console.log(this);
                 this.task.done();
             },
             on: function() {

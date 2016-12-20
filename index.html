@@ -8,6 +8,26 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="dist/css/main.css">
 	<link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Open+Sans+Condensed:300" rel="stylesheet">
+
+	<script>
+		// https://www.html5rocks.com/en/tutorials/speed/script-loading/
+		// dynamic script loader
+		// PRODUCTION mode
+		var resources = ["dist/js/app.min.js"];
+		// DEV mode
+		if (window.location.hostname === 'localhost') {
+			resources = ["src/js/jquery-3.1.0.js",
+			"src/js/hammer.js",
+			"src/js/hash-router.js",
+			"src/js/js-templating.js",
+			"src/js/lightbox.js",
+			"src/js/mountainData.js",
+			"src/js/test-clip-path.js",
+			"src/js/main.js",
+			"src/js/riverflow.js"]
+		}
+		!function(e,t,r){function n(){for(;d[0]&&"loaded"==d[0][f];)c=d.shift(),c[o]=!i.parentNode.insertBefore(c,i)}for(var s,a,c,d=[],i=e.scripts[0],o="onreadystatechange",f="readyState";s=r.shift();)a=e.createElement(t),"async"in i?(a.async=!1,e.head.appendChild(a)):i[f]?(d.push(a),a[o]=n):e.write("<"+t+' src="'+s+'" defer></'+t+">"),a.src=s}(document,"script", resources)
+	</script>
 </head>
 <body data-mountain="bugaboo" class="no-clip-path">
 
@@ -352,25 +372,6 @@
 				<div class="photos">loading...</div>
 			</div>
 		</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	</div>
-	<!-- PRODUCTION mode -->
-	<!-- <script src="dist/js/app.min.js"></script> -->
-	<!-- DEV mode -->
-	<script src="src/js/hammer.js"></script>
-	<script src="src/js/hash-router.js"></script>
-	<script src="src/js/js-templating.js"></script>
-	<script src="src/js/lightbox.js"></script>
-	<script src="src/js/main.js"></script>
-	<script src="src/js/mountainData.js"></script>
-	<script src="src/js/riverflow.js"></script>
-	<script src="src/js/test-clip-path.js"></script>
-
-	<script>
-		/* debug mode to swtich to unminified */
-		// test if url === localhost
-		var debug = false;
-	</script>
-
 </body>
 </html>
