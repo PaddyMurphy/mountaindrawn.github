@@ -192,20 +192,15 @@ $(function() {
     }
 
     function routes() {
-        // TODO: complete routing
         var that = this;
 
         route = {
             path: '#/:name',
             before: function() {
-                // console.log(this);
-                this.task.done();
-            },
-            on: function() {
-                console.log(this.params.name);
-                // console.log('currentMountain: ' + dataMountain);
                 // if currentMountain is not === name then set dataMountain
-                // only if the url param is empty
+                if(document.body.dataset.mountain !== this.params.name) {
+                    navigate(mountainList.indexOf(this.params.name));
+                }
             }
         };
 
