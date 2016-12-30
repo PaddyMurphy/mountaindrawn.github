@@ -202,17 +202,15 @@ $(function() {
                     navigate(mountainList.indexOf(this.params.name));
                 }
                 this.task.done();
-            },
-            on: function() {
-                // set default river
-                // if(this.params.name === 'riverflow') {
-
-                // }
             }
         };
 
+        var onRouteNotFound =  function(route) {
+            // suppress notfound error
+        }
+
         Router.add(mainRoute);
-        Router.init();
+        Router.init(null, onRouteNotFound);
     }
 
     initialize();

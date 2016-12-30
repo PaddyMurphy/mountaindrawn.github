@@ -1,9 +1,9 @@
 // NOTE: the navigation cycles through the mountainData keys
 //       in the order presented
 var mountainData = {
-	"riverflow": {
-		"title": "River flow"
-	},
+	// "riverflow": {
+	// 	"title": "River flow"
+	// },
 	"bugaboo": {
 		"title": "Bugaboo Spire",
 		"elevation": "10,512 ft",
