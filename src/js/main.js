@@ -193,18 +193,25 @@ $(function() {
 
     function routes() {
         var that = this;
-
-        route = {
+        // change mountain
+        var mainRoute = {
             path: '#/:name',
             before: function() {
                 // if currentMountain is not === name then set dataMountain
                 if(document.body.dataset.mountain !== this.params.name) {
                     navigate(mountainList.indexOf(this.params.name));
                 }
+                this.task.done();
+            },
+            on: function() {
+                // set default river
+                // if(this.params.name === 'riverflow') {
+
+                // }
             }
         };
 
-        Router.add(route);
+        Router.add(mainRoute);
         Router.init();
     }
 
