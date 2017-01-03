@@ -30,7 +30,7 @@ body[data-mountain="bugaboo"] {
 		    radial-gradient(
 		      circle closest-side,
 		      yellow,
-		      transparent
+		      rgba(255,255,0,0.001) // safari transparent fix
 		    );
 	}
 	// data box position

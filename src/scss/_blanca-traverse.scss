@@ -18,7 +18,7 @@ body[data-mountain="blanca-traverse"] {
 		    radial-gradient(
 		      circle closest-side at 58% 40%,
 		      #FFDE7F,
-		      transparent
+		      rgba(255,222,127,0.001) // safari transparent fix
 		    );
 	}
 

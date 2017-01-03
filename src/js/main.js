@@ -192,16 +192,21 @@ $(function() {
     }
 
     function routes() {
-        var that = this;
         // change mountain
         var mainRoute = {
             path: '#/:name',
             before: function() {
                 // if currentMountain is not === name then set dataMountain
-                if(document.body.dataset.mountain !== this.params.name) {
+                if (document.body.dataset.mountain !== this.params.name) {
                     navigate(mountainList.indexOf(this.params.name));
                 }
                 this.task.done();
+            },
+            on: function() {
+                // check if name is list and redirect if undefined
+                if (mountainList.indexOf(this.params.name) === -1) {
+                    navigate(1);
+                }
             }
         };
 
