@@ -18,8 +18,8 @@ $(function() {
         currentMountain, newMountain;
 
     // events
-    navLeft.addEventListener('click', navigateLeft);
-    navRight.addEventListener('click', navigateRight);
+    //navLeft.addEventListener('click', navigateLeft);
+    //navRight.addEventListener('click', navigateRight);
     window.addEventListener('resize', sizeshards);
     // delay image download
     window.addEventListener('load', getFlickrImages(dataMountain));
@@ -100,10 +100,12 @@ $(function() {
             '<p class="data-description"><%this.description%></p>';
 
         // set title
-        title.innerHTML = TemplateEngine('<%this.title%>', newMountainData);
-        // set data
-        data.innerHTML = TemplateEngine(template, newMountainData);
-        data.classList.remove('transparent');
+        if (title) {
+            title.innerHTML = TemplateEngine('<%this.title%>', newMountainData);
+            // set data
+            data.innerHTML = TemplateEngine(template, newMountainData);
+            data.classList.remove('transparent');
+        }
     }
 
     function sizeshards() {

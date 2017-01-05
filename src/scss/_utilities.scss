@@ -8,6 +8,9 @@ html {
 
 // trace image
 .polygon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 	margin: 100px 0 20px 100px;
 	width: $mountains-width;
 	height: $mountains-height;
