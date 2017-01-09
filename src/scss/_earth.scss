@@ -8,25 +8,45 @@ $earth-blue: #B3DEF1;
 $earth-mountain: #744690;
 
 body[data-mountain="earth"] {
-	background-color: #B0D0DE;
+	// background-color: #B0D0DE;
 	background-image:
 		linear-gradient(
 			to bottom,
-			#4D9CBE 0%,
-			#5EBBE5 16%,
-			#B0D0DE 100%
+			#0e0f13 0%,
+			#20242d 16%,
+			transparent 100%
 		);
+	background-color: #313644;
 	background-repeat: no-repeat;
+
+	// account for dark theme
+	// TODO: move to theme-dark class if more dark themes
+	.logo {
+		color: rgba(255, 255, 255, 0.9);
+	}
 
 	.title {
 		color: #fff !important;
 	}
 
-	// .data {
-	// 	opacity: 0;
-	// }
+	.data {
+		background-color: rgba(255, 255, 255, 0.7);
+	}
 
-	.mountains-wrapper {}
+	.about-block,
+	.about-title {
+		color: rgba(255,255,255,0.8);
+	}
+
+	// svg
+	#arrow-top,
+	#arrow-bottom {
+		fill: #fff;
+		opacity: 0.3;
+	}
+	#arrow-bottom {
+		opacity: 0.4;
+	}
 
 	.mountains {
 		// svg background
@@ -56,23 +76,19 @@ body[data-mountain="earth"] {
 	    }
 	}
 
-
 	.earth-outline {
-		//background-image: url('../images/triangles-bg-2.png');
-		//background-size: 83%;
-		//background-position: 20% 0;
 		animation: earth-grow 800ms;
 		//animation-delay: 200ms;
 		animation-fill-mode: forwards;
 		animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-		background-color: rgba($earth-blue, 0.70);
+		background-color: $earth-blue;
 		// note: 25 points
 		clip-path: polygon( 45.600% 11.333%, 39.200% 14.667%, 34.400% 19.333%, 31.600% 22.333%, 27.000% 31.333%, 24.400% 42.000%, 23.800% 47.333%, 25.800% 64.000%, 28.800% 72.000%, 33.400% 80.000%, 37.400% 84.333%, 46.800% 89.000%, 52.200% 89.000%, 56.800% 88.000%, 62.800% 83.333%, 70.800% 74.000%, 73.200% 68.333%, 75.000% 62.667%, 76.400% 55.000%, 76.200% 45.667%, 73.200% 32.000%, 70.800% 27.000%, 67.600% 21.333%, 62.000% 15.333%, 55.400% 12.667% );
 		width: 100%;
 		height: 100%;
 		position: absolute;
 		transition: all .2s ease-in-out;
-		transform: scale(0.1);
+		z-index: 1;
 	}
 
 	// data box position
@@ -82,7 +98,6 @@ body[data-mountain="earth"] {
 		}
 	}
 
-	// TODO: set postion of mountains
 	.earth-mtn {
 		display: block;
 		visibility: visible;
@@ -273,20 +288,6 @@ body[data-mountain="earth"] {
 		}
 	} // END .shard-wrap
 
-	@-webkit-keyframes pulsate {
-	    0% {
-	    	transform: scale(0.1);
-	    	opacity: 0;
-	    }
-	    50% {
-	    	opacity: 1;
-	    }
-	    100% {
-	    	transform: scale(1.2);
-	    	opacity: 0;
-	    }
-	}
-
 	.earth-mtn {
 		background-color: $earth-mountain;
 		cursor: pointer;
@@ -324,6 +325,89 @@ body[data-mountain="earth"] {
 			clip-path: polygon( 36.200% 44.667%, 36.600% 40.000%, 37.800% 44.333% );
 		}
 	}
-}
 
+	// n is number of stars required
+	@function multiple-box-shadow($n) {
+		$value: '#{random(2000)}px #{random(2000)}px #FFF';
 
+		@for $i from 2 through $n {
+		  $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+		}
+
+		@return unquote($value)
+	}
+
+	$shadows-small:  multiple-box-shadow(500);
+	$shadows-medium: multiple-box-shadow(200);
+	$shadows-big:    multiple-box-shadow(75);
+
+	.starfield-wrapper {
+		position: fixed;
+		height: 100vh;
+		width: 100vw;
+		overflow: hidden;
+		top: 0;
+		left: 0;
+		visibility: visible;
+	};
+
+	.starfield {
+		display: block;
+		z-index: 1;
+
+	    &:after {
+		    content: " ";
+		    position: absolute;
+		    background: transparent;
+		}
+	}
+
+	.starfield-1 {
+	    width: 1px;
+	    height: 1px;
+	    box-shadow: $shadows-small;
+	    animation: animStar 250s linear infinite;
+	    &:after {
+		    top: 500px;
+		    width: 1px;
+		    height: 1px;
+		    box-shadow: $shadows-small;
+		}
+	}
+
+	.starfield-2 {
+	    width: 2px;
+	    height: 2px;
+	    box-shadow: $shadows-medium;
+	    animation: animStar 300s linear infinite;
+	    &:after {
+		    top: 1000px;
+		    width: 2px;
+		    height: 2px;
+		    box-shadow: $shadows-medium;
+		}
+	}
+
+	.starfield-3 {
+	    width: 3px;
+	    height: 3px;
+	    box-shadow: $shadows-big;
+	    animation: animStar 350s linear infinite;
+	    &:after {
+		    top: 2000px;
+		    width: 3px;
+		    height: 3px;
+		    box-shadow: $shadows-big;
+		}
+	}
+
+	@keyframes animStar {
+		0% {
+	    	transform: translateY(0px);
+		}
+		100%	{
+	    	transform: translateY(-2000px);
+		}
+	}
+
+} // END earth.. uh oh
