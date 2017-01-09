@@ -35,7 +35,8 @@ body[data-mountain="blanca-traverse"] {
 		}
 	}
 
-	.shard {
+	// limit to animation
+	.shard:nth-child(-n+30) {
 		background-image: url('../images/img-noise.png');
 	}
 

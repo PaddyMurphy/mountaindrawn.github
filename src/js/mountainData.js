@@ -4,9 +4,9 @@ var mountainData = {
 	// "riverflow": {
 	// 	"title": "River flow"
 	// },
-	// "earth": {
-	// 	"title": "Earth"
-	// },
+	"earth": {
+		"title": ""
+	},
 	"bugaboo": {
 		"title": "Bugaboo Spire",
 		"elevation": "10,512 ft",

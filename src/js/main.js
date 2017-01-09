@@ -9,6 +9,7 @@ $(function() {
         navLeft = document.querySelector('.nav-left'),
         navRight = document.querySelector('.nav-right'),
         swipeElement = document.querySelector('.container'),
+        mtnShortcuts = document.querySelectorAll('.earth-mtn'),
         touch = new Hammer(swipeElement),
         supportsClipPath = false,
         mountainList = Object.keys(mountainData),
@@ -18,8 +19,11 @@ $(function() {
         currentMountain, newMountain;
 
     // events
-    //navLeft.addEventListener('click', navigateLeft);
-    //navRight.addEventListener('click', navigateRight);
+    if (navLeft && navRight) {
+        navLeft.addEventListener('click', navigateLeft);
+        navRight.addEventListener('click', navigateRight);
+    }
+
     window.addEventListener('resize', sizeshards);
     // delay image download
     window.addEventListener('load', getFlickrImages(dataMountain));
@@ -47,6 +51,7 @@ $(function() {
         // populate the first mountain
         setData(dataMountain);
         routes();
+        // earthSequence();
         sizeshards();
         // lightbox options
         lightbox.option({
@@ -58,6 +63,7 @@ $(function() {
             supportsClipPath = true;
             document.body.classList.remove('no-clip-path');
             document.body.classList.add('supports-clip-path');
+            setMtnClickEvents();
         }
     }
 
@@ -80,12 +86,9 @@ $(function() {
     }
 
     function navigate(newMountain) {
-        // console.log('navigate: ' + newMountain);
         document.body.dataset.mountain = mountainList[newMountain];
         setData(mountainList[newMountain]);
-        // TODO: set route
         Router.navigate('#/' + mountainList[newMountain]);
-
         getFlickrImages(mountainList[newMountain]);
     }
 
@@ -130,6 +133,68 @@ $(function() {
 
         mountains.style.width = w + 'px';
         mountains.style.height = h + 'px';
+    }
+
+    // earth sequence
+    function earthSequence() {
+        console.log('earthSequence');
+        // TODO: use svg instead... for click event
+        var container = document.getElementById('mountains'),
+            renderer = new FSS.CanvasRenderer(),
+            scene = new FSS.Scene(),
+            light = new FSS.Light('#001888', '#00ffc3'),
+            geometry = new FSS.Plane(container.offsetWidth, container.offsetHeight, 12, 12),
+            material = new FSS.Material('#555555', '#FFFFFF'),
+            mesh = new FSS.Mesh(geometry, material),
+            now, start = Date.now();
+
+        function initialise() {
+            scene.add(mesh);
+            scene.add(light);
+
+            container.appendChild(renderer.element);
+
+            window.addEventListener('resize', resizeCanvas);
+        }
+
+        function resizeCanvas() {
+            var width = container.offsetWidth, // No need to query these twice, when in an onresize they can be expensive
+                height = container.offsetHeight;
+
+            renderer.setSize(width, height);
+
+            scene.remove(mesh); // Remove the mesh and clear the canvas
+            renderer.clear();
+
+            geometry = new FSS.Plane(width, height, 12, 12); // Recreate the plane and then mesh
+            mesh = new FSS.Mesh(geometry, material);
+
+            scene.add(mesh); // Readd the mesh
+        }
+
+        function animate() {
+            now = Date.now() - start;
+
+            light.setPosition(300 * Math.sin(now * 0.001), 200 * Math.cos(now * 0.0005), 60);
+
+            renderer.render(scene);
+            requestAnimationFrame(animate);
+        }
+
+        initialise();
+        resizeCanvas();
+        animate();
+    }
+
+    // click mtn shortcut
+    function setMtnClickEvents(e) {
+        for (var i = 0; i < mtnShortcuts.length; i++) {
+          mtnShortcuts[i].addEventListener('click', clickMtnShortcut);
+        }
+    }
+
+    function clickMtnShortcut(e) {
+        console.log(e.target);
     }
 
     // flicker tag: classname + '-site'
@@ -202,6 +267,9 @@ $(function() {
                 if (document.body.dataset.mountain !== this.params.name) {
                     navigate(mountainList.indexOf(this.params.name));
                 }
+                // if (document.body.dataset.mountain === 'earth') {
+                //     earthSequence();
+                // }
                 this.task.done();
             },
             on: function() {

@@ -1,36 +1,80 @@
 // EARTH
+$earth-light: #AED180;
+$earth-shade-30: #A1C276;
+$earth-shade-60: #90B165;
+$earth-dark: #6C8649;
 
-$earth-light: #DBEBB8;
-$earth-shade-30: #9EB275;
-$earth-shade-60: #666A2F;
-$earth-dark: #353E0D;
-
+$earth-blue: #B3DEF1;
+$earth-mountain: #744690;
 
 body[data-mountain="earth"] {
-	//background-color: #FF8F5A;
+	background-color: #B0D0DE;
+	background-image:
+		linear-gradient(
+			to bottom,
+			#4D9CBE 0%,
+			#5EBBE5 16%,
+			#B0D0DE 100%
+		);
+	background-repeat: no-repeat;
 
 	.title {
 		color: $earth-dark;
 	}
 
+	.data {
+		display: none;
+		visibility: hidden;
+		//transform: translate(-69vw, -5vh) !important;
+	}
+
+	.mountains-wrapper {}
 
 	.mountains {
-		min-height: 500px;
-		//background-image: url('../images/earth-outline.svg');
-		background-size: 100% 100%;
-		background-repeat: none;
-		// background-image:
-		//     radial-gradient(
-		//       circle closest-side at 58% 40%,
-		//       #FFDE7F,
-		//       rgba(255,222,127,0.001) // safari transparent fix
-		//     );
+		// svg background
+		background-image:
+		    radial-gradient(
+		      circle closest-side at 50% 50%,
+		      #7fffff,
+		      rgba(255,222,127,0.001) // safari transparent fix
+		    );
+		background-position: center;
+		background-size: auto;
+		background-repeat: no-repeat;
 	}
 
 	.content {
 		h2 {
 			color: #fff;
 		}
+	}
+
+	@keyframes earth-grow {
+	    0% {
+	        transform: scale(0.1);
+	    }
+	    100% {
+	        transform: scale(1);
+	    }
+	}
+
+
+	.earth-outline {
+		//background-image: url('../images/triangles-bg-2.png');
+		//background-size: 83%;
+		//background-position: 20% 0;
+		animation: earth-grow 800ms;
+		//animation-delay: 200ms;
+		animation-fill-mode: forwards;
+		animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		background-color: rgba($earth-blue, 0.70);
+		// note: 25 points
+		clip-path: polygon( 45.600% 11.333%, 39.200% 14.667%, 34.400% 19.333%, 31.600% 22.333%, 27.000% 31.333%, 24.400% 42.000%, 23.800% 47.333%, 25.800% 64.000%, 28.800% 72.000%, 33.400% 80.000%, 37.400% 84.333%, 46.800% 89.000%, 52.200% 89.000%, 56.800% 88.000%, 62.800% 83.333%, 70.800% 74.000%, 73.200% 68.333%, 75.000% 62.667%, 76.400% 55.000%, 76.200% 45.667%, 73.200% 32.000%, 70.800% 27.000%, 67.600% 21.333%, 62.000% 15.333%, 55.400% 12.667% );
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		transition: all .2s ease-in-out;
+		transform: scale(0.1);
 	}
 
 	// data box position
@@ -40,192 +84,221 @@ body[data-mountain="earth"] {
 		}
 	}
 
+	// TODO: set postion of mountains
+	.earth-mtn {
+		display: block;
+		visibility: visible;
+	}
+
 	// tiles read left to right and back
 	.shard-wrap {
-		&:nth-child(30) {
+		&:nth-child(1) {
 			.shard {
 				background-color: $earth-shade-30;
-				clip-path: polygon( 39.4% 16.1%, 48.6% 22.667%, 46.4% 11.333% );
+				clip-path: polygon( 36.400% 17.000%, 39.600% 22.333%, 27.200% 39.333% );
 			}
 		}
-		&:nth-child(29) {
-			.shard {
-				background-color: $earth-shade-60;
-				clip-path: polygon( 39.200% 16.000%, 48.600% 22.667%, 45.400% 32.000% );
-			}
-		}
-		&:nth-child(28) {
+		&:nth-child(2) {
 			.shard {
 				background-color: $earth-dark;
-				clip-path: polygon( 39.400% 15.667%, 45.800% 31.333%, 39.600% 37.000% );
+				clip-path: polygon( 39.400% 22.000%, 32.800% 31.333%, 36.600% 34.333% );
 			}
 		}
-		&:nth-child(27) {
+		&:nth-child(3) {
 			.shard {
-				background-color: $earth-light;
-				clip-path: polygon( 39.600% 38.000%, 39.600% 19.000%, 31.800% 35.000% );
+				background-color: $earth-shade-60;
+				clip-path: polygon( 36.500% 34.000%, 44.000% 33.000%, 39.200% 22.667% );
 			}
 		}
-		&:nth-child(26) {
-			.shard {
-				background-color: $earth-shade-30;
-				clip-path: polygon( 31.800% 35.000%, 39.800% 37.667%, 35.800% 47.667% );
-			}
-		}
-		&:nth-child(25) {
+		&:nth-child(4) {
 			.shard {
 				background-color: $earth-dark;
-				clip-path: polygon( 35.800% 47.000%, 39.800% 38.000%, 44.800% 42.667% );
+				clip-path: polygon(39.5% 23.667%, 43.8% 32.667%, 43.8% 24.667%);
 			}
 		}
-		&:nth-child(24) {
+		&:nth-child(5) {
 			.shard {
-				background-color:$earth-shade-30;
-				clip-path: polygon( 38.800% 37.667%, 51.600% 26.000%, 48.200% 46.000% );
+				background-color: $earth-light;
+				clip-path: polygon( 33.000% 31.333%, 47.600% 41.000%, 35.400% 43.000% );
 			}
 		}
-		&:nth-child(23) {
+		&:nth-child(6) {
 			.shard {
-				// greenland
+				background-color: $earth-shade-30;
+				clip-path: polygon( 36.400% 34.000%, 47.200% 32.667%, 44.600% 39.667% );
+			}
+		}
+		&:nth-child(7) {
+			.shard {
+				background-color:$earth-light;
+				clip-path: polygon( 47.000% 33.000%, 44.600% 39.667%, 47.600% 38.333% );
+			}
+		}
+		&:nth-child(8) {
+			.shard {
+				background-color: $earth-dark;
+				clip-path: polygon( 47.000% 33.000%, 47.600% 41.667%, 53.600% 26.000% );
+			}
+		}
+		&:nth-child(9) {
+			.shard {
+				background-color: $earth-shade-30;
+				clip-path: polygon( 49.200% 31.000%, 46.400% 22.333%, 53.400% 26% );
+			}
+		}
+		&:nth-child(10) {
+			.shard {
+				background-color: $earth-light;
+				clip-path: polygon( 48.400% 23.333%, 54.400% 18.667%, 48.800% 14.667% );
+			}
+		}
+		&:nth-child(11) {
+			.shard {
+				background-color: $earth-dark;
+				clip-path: polygon( 48.000% 23.667%, 55.000% 18.000%, 58.200% 28.000% );
+			}
+		}
+		&:nth-child(12) {
+			.shard {
 				background-color: $earth-shade-60;
-				clip-path: polygon( 51.800% 21.000%, 55.000% 15.667%, 57.000% 20.333% );
+				clip-path: polygon( 53.600% 25.667%, 48.400% 39.333%, 49.400% 42.333% );
 			}
 		}
-		&:nth-child(22) {
-			.shard {
-				// greenland
-				background-color: $earth-shade-30;
-				clip-path: polygon( 52.400% 20.333%, 58.400% 20.000%, 55.600% 25.000% );
-			}
-		}
-		&:nth-child(21) {
+		&:nth-child(13) {
 			.shard {
 				background-color: $earth-light;
-				clip-path: polygon( 51.000% 25.667%, 57.200% 34.333%, 47.600% 49.000% );
+				clip-path: polygon( 53.6% 25.8%, 49.400% 42.2%, 58.800% 28.000% );
 			}
 		}
-		&:nth-child(20) {
-			.shard {
-				background-color: $earth-light;
-				clip-path: polygon( 35.6% 47.000%, 41.800% 44.000%, 48.000% 57.333% );
-			}
-		}
-		&:nth-child(19) {
-			.shard {
-				background-color: $earth-light;
-				clip-path: polygon( 48.200% 58.000%, 57.400% 59.667%, 59.600% 70.667% );
-			}
-		}
-		&:nth-child(18) {
+		&:nth-child(14) {
 			.shard {
 				background-color: $earth-shade-30;
-				clip-path: polygon( 48.000% 57.667%, 59.800% 71.000%, 51.600% 82.667% );
+				clip-path: polygon( 49.600% 42.000%, 58.000% 29.333%, 56.400% 45.667% );
+			}
+		}
+		&:nth-child(15) {
+			.shard {
+				background-color: $earth-dark;
+				clip-path: polygon( 47.600% 40.667%, 57.000% 45.333%, 49.400% 43.667% );
+			}
+		}
+		&:nth-child(16) {
+			.shard {
+				background-color: $earth-dark;
+				clip-path: polygon( 56.600% 45.000%, 58.400% 53.000%, 53.200% 47.667% );
 			}
 		}
 		&:nth-child(17) {
 			.shard {
 				background-color: $earth-shade-60;
-				clip-path: polygon( 48.200% 57.667%, 51.800% 82.667%, 43.200% 73.000% );
+				clip-path: polygon( 56.800% 45.333%, 47.000% 53.000%, 47.600% 42.333% );
 			}
 		}
-		&:nth-child(16) {
+		&:nth-child(18) {
+			.shard {
+				background-color: $earth-shade-30;
+				clip-path: polygon( 47.600% 41%, 35.400% 42.333%, 47.400% 53.1% );
+			}
+		}
+		&:nth-child(19) {
+			.shard {
+				background-color: $earth-dark;
+				clip-path: polygon( 35.400% 42.4%, 47.7% 52.333%, 40.000% 57.000% );
+			}
+		}
+		&:nth-child(20) {
+			.shard {
+				background-color: $earth-shade-60;
+				clip-path: polygon( 36.2% 45.000%, 36.600% 55.667%, 39.9% 56.667% );
+			}
+		}
+		&:nth-child(21) {
+			.shard {
+				background-color: $earth-shade-30;
+				clip-path: polygon( 36.6% 55.5%, 41.8% 66.333%, 40% 56.5% );
+			}
+		}
+		&:nth-child(22) {
 			.shard {
 				background-color: $earth-light;
-				clip-path: polygon( 59.800% 71.000%, 47.600% 88.333%, 52.600% 89.333%);
+				clip-path: polygon( 39.800% 56.667%, 48.400% 52.000%, 45.800% 67.333% );
 			}
 		}
-		&:nth-child(15) {
+		&:nth-child(23) {
 			.shard {
-				//background-color: $earth-shade-60;
-				//clip-path: polygon( 54.800% 22.000%, 39.200% 47.333%, 37.400% 31.000% );
+				background-color: $earth-shade-60;
+				clip-path: polygon( 45.600% 67.2%, 57.600% 69.667%, 47.7% 56.000% );
 			}
 		}
-		// NOTE: out of order to fix animation order
-		&:nth-child(1) {
+		&:nth-child(24) {
 			.shard {
-				//background-color: $earth-shade-30;
-				//clip-path: polygon( 1.800% 61.000%, 12.000% 57.667%, 26.600% 70.333% );
+				background-color: $earth-dark;
+				clip-path: polygon( 50.600% 60.333%, 54.800% 66.000%, 54.200% 56.333% );
 			}
 		}
-		&:nth-child(2) {
+		&:nth-child(25) {
 			.shard {
-				//background-color: $earth-dark;
-				//clip-path: polygon( 11.800% 58.000%, 22.600% 40.667%, 26.800% 70.667% );
+				// carribean
+				background-color: $earth-shade-30;
+				clip-path: polygon( 58.600% 56.333%, 62.200% 53.667%, 62.400% 57.000% );
 			}
 		}
-		&:nth-child(3) {
+		&:nth-child(26) {
 			.shard {
-				//background-color: $earth-shade-30;
-				//clip-path: polygon( 26.800% 70.667%, 22.600% 40.333%, 26.600% 38.000% );
+				background-color: $earth-light;
+				clip-path: polygon( 57.400% 69.667%, 60.400% 75.333%, 65.400% 69.333% );
 			}
 		}
-		&:nth-child(4) {
+		&:nth-child(27) {
 			.shard {
-				//background-color: $earth-shade-60;
-				//clip-path: polygon( 26.600% 70.333%, 26.400% 38.000%, 37.600% 31.000%  );
+				background-color: $earth-shade-30;
+				clip-path: polygon( 60.600% 75.667%, 56.800% 88.667%, 63.400% 85.333% );
 			}
 		}
-		&:nth-child(5) {
+		&:nth-child(28) {
 			.shard {
-				//background-color: $earth-dark;
-				//clip-path: polygon( 37.600% 31.000%, 26.600% 70.333%, 39.200% 46.667% );
+				background-color: $earth-shade-60;
+				clip-path: polygon( 60.400% 75.4%, 63.200% 85.5%, 65.600% 69.000% );
 			}
 		}
-		&:nth-child(6) {
+		&:nth-child(29) {
 			.shard {
-				//background-color: $earth-shade-60;
-				//clip-path: polygon( 26.600% 70.333%, 39.400% 46.333%, 40.000% 89.333% );
+				background-color: $earth-dark;
+				clip-path: polygon( 65.400% 69.333%, 63.200% 85.667%, 71.600% 73.333% );
 			}
 		}
-		&:nth-child(7) {
+		&:nth-child(30) {
 			.shard {
-				//background-color: $earth-shade-30;
-				//clip-path: polygon( 39.800% 89.000%, 39.200% 46.667%, 52.400% 74.667% );
-			}
-		}
-		&:nth-child(8) {
-			.shard {
-				//background-color: $earth-dark;
-				//clip-path: polygon( 39.200% 47.000%, 52.400% 75.000%, 50.400% 53.000% );
-			}
-		}
-		&:nth-child(9) {
-			.shard {
-				//background-color: $earth-shade-60;
-				//clip-path: polygon( 50.200% 53.000%, 52.400% 75.333%, 72.200% 77.333% );
-			}
-		}
-		&:nth-child(10) {
-			.shard {
-				//background-color: $earth-shade-30;
-				//clip-path: polygon( 50.400% 53.333%, 65.400% 48.333%, 72.000% 77.333% );
-			}
-		}
-		&:nth-child(11) {
-			.shard {
-				//background-color: $earth-light;
-				//clip-path: polygon( 50.400% 53.667%, 62.600% 33.000%, 65.200% 48.333% );
-			}
-		}
-		&:nth-child(12) {
-			.shard {
-				//background-color: $earth-shade-30;
-				//clip-path: polygon( 62.600% 33.333%, 50.400% 53.667%, 57.000% 24.333% );
-			}
-		}
-		&:nth-child(13) {
-			.shard {
-				//background-color: $earth-light;
-				//clip-path: polygon( 50.400% 54.000%, 57.200% 24.667%, 54.600% 22.000% );
-			}
-		}
-		&:nth-child(14) {
-			.shard {
-				//background-color: $earth-shade-30;
-				//clip-path: polygon( 50.600% 53.667%, 55.000% 21.667%, 39.400% 47.000% );
+				background-color: $earth-shade-30;
+				clip-path: polygon( 65.400% 69.4%, 71.600% 73.333%, 75.000% 63.333% );
 			}
 		}
 	} // END .shard-wrap
+
+	.earth-mtn {
+		background-color: $earth-mountain;
+		position: absolute;
+		transition: all $transition-speed;
+		width: 100%;
+		height: 100%;
+		z-index: 9;
+	}
+
+	.earth-mtn-bugaboo {
+		clip-path: polygon( 51.200% 36.333%, 52.400% 36.333%, 51.400% 32.667% );
+	}
+
+	.earth-mtn-tetons {
+		clip-path: polygon( 40.800% 44.333%, 40.600% 47.667%, 41.600% 47.667% );
+	}
+
+	.earth-mtn-blanca-traverse {
+		clip-path: polygon( 40.400% 48.333%, 41.400% 51.000%, 40.400% 51.000% );
+	}
+
+	.earth-mtn-glacier-peak {
+		clip-path: polygon( 36.600% 44.333%, 37.600% 44.333%, 36.800% 41.333% );
+	}
 }
 
 
