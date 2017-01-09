@@ -19,14 +19,12 @@ body[data-mountain="earth"] {
 	background-repeat: no-repeat;
 
 	.title {
-		color: $earth-dark;
+		color: #fff !important;
 	}
 
-	.data {
-		display: none;
-		visibility: hidden;
-		//transform: translate(-69vw, -5vh) !important;
-	}
+	// .data {
+	// 	opacity: 0;
+	// }
 
 	.mountains-wrapper {}
 
@@ -275,29 +273,56 @@ body[data-mountain="earth"] {
 		}
 	} // END .shard-wrap
 
+	@-webkit-keyframes pulsate {
+	    0% {
+	    	transform: scale(0.1);
+	    	opacity: 0;
+	    }
+	    50% {
+	    	opacity: 1;
+	    }
+	    100% {
+	    	transform: scale(1.2);
+	    	opacity: 0;
+	    }
+	}
+
 	.earth-mtn {
 		background-color: $earth-mountain;
+		cursor: pointer;
 		position: absolute;
-		transition: all $transition-speed;
+		transition: all 0.3s;
 		width: 100%;
 		height: 100%;
 		z-index: 9;
 	}
 
 	.earth-mtn-bugaboo {
-		clip-path: polygon( 51.200% 36.333%, 52.400% 36.333%, 51.400% 32.667% );
+		clip-path: polygon( 51.200% 36.333%, 52.400% 36.333%, 51.400% 32.667%);
+		&:hover {
+			clip-path: polygon( 50.600% 35.667%, 52.800% 36.000%, 51.200% 30.333% );
+		}
 	}
 
 	.earth-mtn-tetons {
 		clip-path: polygon( 40.800% 44.333%, 40.600% 47.667%, 41.600% 47.667% );
+		&:hover {
+			clip-path: polygon( 41.000% 43.333%, 40.000% 47.667%, 42.000% 47.667% );
+		}
 	}
 
 	.earth-mtn-blanca-traverse {
 		clip-path: polygon( 40.400% 48.333%, 41.400% 51.000%, 40.400% 51.000% );
+		&:hover {
+			clip-path: polygon( 40.600% 47.333%, 41.400% 51.667%, 39.600% 51.333% );
+		}
 	}
 
 	.earth-mtn-glacier-peak {
-		clip-path: polygon( 36.600% 44.333%, 37.600% 44.333%, 36.800% 41.333% );
+		clip-path: polygon( 36.600% 44.333%, 36.800% 41.333%, 37.600% 44.333% );
+		&:hover {
+			clip-path: polygon( 36.200% 44.667%, 36.600% 40.000%, 37.800% 44.333% );
+		}
 	}
 }
 

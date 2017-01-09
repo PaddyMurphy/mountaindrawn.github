@@ -30,6 +30,7 @@ $(function() {
 
     // keyboard navigation
     document.onkeydown = checkKey;
+
     // allow lightbox to launch
     $('.photos').on('click', 'a', function(e) {
         e.preventDefault();
@@ -86,14 +87,23 @@ $(function() {
     }
 
     function navigate(newMountain) {
-        document.body.dataset.mountain = mountainList[newMountain];
-        setData(mountainList[newMountain]);
-        Router.navigate('#/' + mountainList[newMountain]);
-        getFlickrImages(mountainList[newMountain]);
+        // navigate accepts string name or position in array
+        // @requires mewMountain (string)
+        // @optional mewMountain (number)
+        var mountain = newMountain;
+
+        if(typeof(newMountain) === 'number') {
+            mountain = mountainList[newMountain];
+        }
+
+        document.body.dataset.mountain = mountain;
+        setData(mountain);
+        Router.navigate('#/' + mountain);
+        getFlickrImages(mountain);
     }
 
     function setData(newMountain) {
-        // console.log('setData: ' + newMountain);
+        // @requires mewMountain (string)
         var newMountainData = mountainData[newMountain],
             title = document.querySelector('.title'),
             data = document.querySelector('.data'),
@@ -101,13 +111,16 @@ $(function() {
             '<p class="data-elevation">elevation <b><%this.elevation%></b></p>' +
             '<p class="data-prominence">prominence <%this.prominence%></p>' +
             '<p class="data-description"><%this.description%></p>';
-
         // set title
-        if (title) {
-            title.innerHTML = TemplateEngine('<%this.title%>', newMountainData);
-            // set data
-            data.innerHTML = TemplateEngine(template, newMountainData);
+        title.innerHTML = TemplateEngine('<%this.title%>', newMountainData);
+        // set data
+        data.innerHTML = TemplateEngine(template, newMountainData);
+
+        // only show if there is a title
+        if (newMountainData.title) {
             data.classList.remove('transparent');
+        } else {
+            data.classList.add('transparent');
         }
     }
 
@@ -138,63 +151,24 @@ $(function() {
     // earth sequence
     function earthSequence() {
         console.log('earthSequence');
-        // TODO: use svg instead... for click event
-        var container = document.getElementById('mountains'),
-            renderer = new FSS.CanvasRenderer(),
-            scene = new FSS.Scene(),
-            light = new FSS.Light('#001888', '#00ffc3'),
-            geometry = new FSS.Plane(container.offsetWidth, container.offsetHeight, 12, 12),
-            material = new FSS.Material('#555555', '#FFFFFF'),
-            mesh = new FSS.Mesh(geometry, material),
-            now, start = Date.now();
-
-        function initialise() {
-            scene.add(mesh);
-            scene.add(light);
-
-            container.appendChild(renderer.element);
-
-            window.addEventListener('resize', resizeCanvas);
-        }
-
-        function resizeCanvas() {
-            var width = container.offsetWidth, // No need to query these twice, when in an onresize they can be expensive
-                height = container.offsetHeight;
-
-            renderer.setSize(width, height);
-
-            scene.remove(mesh); // Remove the mesh and clear the canvas
-            renderer.clear();
-
-            geometry = new FSS.Plane(width, height, 12, 12); // Recreate the plane and then mesh
-            mesh = new FSS.Mesh(geometry, material);
-
-            scene.add(mesh); // Readd the mesh
-        }
-
-        function animate() {
-            now = Date.now() - start;
-
-            light.setPosition(300 * Math.sin(now * 0.001), 200 * Math.cos(now * 0.0005), 60);
-
-            renderer.render(scene);
-            requestAnimationFrame(animate);
-        }
-
-        initialise();
-        resizeCanvas();
-        animate();
     }
 
     // click mtn shortcut
     function setMtnClickEvents(e) {
-        for (var i = 0; i < mtnShortcuts.length; i++) {
-          mtnShortcuts[i].addEventListener('click', clickMtnShortcut);
-        }
+        mtnShortcuts.forEach(function(mtn) {
+            mtn.addEventListener('click', clickMtnShortcut);
+            mtn.addEventListener('mouseover', hoverMtnShortcut);
+        });
+    }
+
+    function hoverMtnShortcut(e) {
+        // show mountain info on hover
+        setData(e.target.dataset.mountain);
     }
 
     function clickMtnShortcut(e) {
-        console.log(e.target);
+        // navigate to the selected mountain
+        navigate(e.target.dataset.mountain);
     }
 
     // flicker tag: classname + '-site'
@@ -265,7 +239,7 @@ $(function() {
             before: function() {
                 // if currentMountain is not === name then set dataMountain
                 if (document.body.dataset.mountain !== this.params.name) {
-                    navigate(mountainList.indexOf(this.params.name));
+                    navigate(this.params.name);
                 }
                 // if (document.body.dataset.mountain === 'earth') {
                 //     earthSequence();
