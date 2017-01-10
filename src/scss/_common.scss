@@ -23,19 +23,15 @@ body {
 .container {
 	max-height: 85%;
 	margin: 0 auto;
-	// @include mquery(small) {
-	// 	background: rgba(0,0,0,0.2) !important;
-	// }
-	// @include mquery(medium) {
-	// 	background: rgba(0,0,0,0.5) !important;
-	// }
 }
 
 .starfield-wrapper {
 	visibility: hidden;
 }
 
-.riverflow-app {
+// hide stuff on load
+.riverflow-app,
+.earth-mtn {
 	display: none;
 	visibility: hidden;
 }
@@ -74,9 +70,8 @@ header {
 .title-nav {
 	display: flex;
 	justify-content: space-between;
-	margin: $default-padding 0;
 	position: absolute;
-	top: $default-padding;
+	top: $default-padding * 2;
 	right: $default-padding;
 	width: 140px;
 	z-index: 99;
@@ -310,8 +305,4 @@ header {
 		height: 100%;
 	}
 }
-// hide the earth nav mountains by default
-.earth-mtn {
-	display: none;
-	visibility: hidden;
-}
+

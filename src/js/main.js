@@ -111,13 +111,14 @@ $(function() {
             '<p class="data-elevation">elevation <b><%this.elevation%></b></p>' +
             '<p class="data-prominence">prominence <%this.prominence%></p>' +
             '<p class="data-description"><%this.description%></p>';
-        // set title
-        title.innerHTML = TemplateEngine('<%this.title%>', newMountainData);
-        // set data
-        data.innerHTML = TemplateEngine(template, newMountainData);
 
         // only show if there is a title
         if (newMountainData.title) {
+            // set title
+            title.innerHTML = TemplateEngine('<%this.title%>', newMountainData);
+            // set data
+            data.innerHTML = TemplateEngine(template, newMountainData);
+            // show the data box
             data.classList.remove('transparent');
         } else {
             data.classList.add('transparent');
@@ -151,6 +152,34 @@ $(function() {
     // earth sequence
     function earthSequence() {
         console.log('earthSequence');
+
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+        var field = document.getElementById('mountains');
+        var satellite = document.querySelector('.earth-satellite');
+        var bodyWidth = document.body.offsetWidth;
+        var bodyHeight = document.body.offsetHeight;
+
+        var maxX = field.clientWidth - satellite.offsetWidth;
+        var maxY = field.clientHeight - satellite.offsetHeight;
+
+        var duration = 7; // seconds
+        var start = null;
+
+        function step(timestamp) {
+            var progress, x, y;
+            if (start === null) {
+                start = timestamp;
+            }
+
+            progress = (timestamp - start) / duration / 1000; // percent
+            // do stuff
+
+            if (progress >= 1) start = null; // reset to start position
+            requestAnimationFrame(step);
+        }
+
+        requestAnimationFrame(step);
     }
 
     // click mtn shortcut
@@ -234,6 +263,7 @@ $(function() {
 
     function routes() {
         // change mountain
+        var timeoutID;
         var mainRoute = {
             path: '#/:name',
             before: function() {
@@ -241,9 +271,11 @@ $(function() {
                 if (document.body.dataset.mountain !== this.params.name) {
                     navigate(this.params.name);
                 }
-                // if (document.body.dataset.mountain === 'earth') {
-                //     earthSequence();
-                // }
+                if (document.body.dataset.mountain === 'earth') {
+                    // timeoutID = window.setTimeout(function() {
+                    //     earthSequence();
+                    // }, 1000);
+                }
                 this.task.done();
             },
             on: function() {

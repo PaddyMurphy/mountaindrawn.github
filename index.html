@@ -17,6 +17,7 @@
 		// DEV mode
 		if (window.location.hostname === 'localhost') {
 			resources = ["src/js/jquery-3.1.0.js",
+			"src/js/jquery.easing.js",
 			"src/js/hammer.js",
 			"src/js/hash-router.js",
 			"src/js/js-templating.js",
@@ -39,19 +40,10 @@
 	</symbol>
 </svg>
 
-<!-- <div class="clip-container">
-	<div class="clip"></div>
-</div> -->
-
 	<div class="container">
-		<!-- IMPORTANT: always center the image before tracing -->
-
-		<!-- <div class="polygon-wrap">
-			<img src="src/images/trace-bugaboo.png">
-		</div> -->
 		<div class="logo">MountainDrawn</div>
 
-		<h1 class="title">Bugaboo Spire</h1>
+		<h1 class="title"></h1>
 
 		<div class="title-nav">
 			<a href="#" class="nav-arrow nav-left">
@@ -165,6 +157,7 @@
 				<div class="shard-wrap">
 					<div class="shard"></div>
 				</div>
+
 				<!-- earth's mountains -->
 				<div class="earth-mtn earth-mtn-bugaboo" data-mountain="bugaboo"></div>
 				<div class="earth-mtn earth-mtn-tetons" data-mountain="tetons"></div>
@@ -174,6 +167,7 @@
 				<div class="earth-outline"></div>
 			</div>
 
+			<!-- no clip-path support -->
 			<div class="static-mountains">
 			    <div class="static-mountain"></div>
 			</div>
@@ -202,6 +196,9 @@
 				<div class="photos">loading...</div>
 			</div>
 		</div>
+	</div>
+	<div class="satellite-wrapper">
+		<div class="earth-satellite"></div>
 	</div>
 	<div class="starfield-wrapper">
 		<div class="starfield starfield-1"></div>

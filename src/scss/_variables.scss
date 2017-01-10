@@ -36,12 +36,3 @@ $shard-easing: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 		}
 	}
 }
-
-.test-shard {
-	transition: clip-path .37s cubic-bezier(0.785, 0.135, 0.15, 0.86) .22s,
-	background-color .37s .22s,
-	transform .37s,
-	-webkit-clip-path .37s cubic-bezier(0.785, 0.135, 0.15, 0.86) .22s,
-	-webkit-transform .37s;
-}
-

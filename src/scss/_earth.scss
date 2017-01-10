@@ -8,15 +8,21 @@ $earth-blue: #B3DEF1;
 $earth-mountain: #744690;
 
 body[data-mountain="earth"] {
+	perspective: 600px;
+
+	// show mountains
+	.earth-mtn {
+		display: block;
+		visibility: visible;
+	}
 
 	// convert to moon
 	.title-nav {
 		// background-color: rgba(255,255,255,0.8);
 		// border-radius: 50%;
-		//box-shadow: 0 0 20px rgba(255,255,255,0.8);
+		// box-shadow: 0 0 20px rgba(255,255,255,0.8);
+		//transform: translateY(20px);
 		min-height: 130px;
-		padding-top: 40px;
-		transform: translateY(-30px);
 		transition: all 0.3s;
 	}
 	// background-color: #B0D0DE;
@@ -27,6 +33,7 @@ body[data-mountain="earth"] {
 			#20242d 16%,
 			transparent 100%
 		);
+
 	background-color: #313644;
 	background-repeat: no-repeat;
 
@@ -46,7 +53,7 @@ body[data-mountain="earth"] {
 
 	.about-block,
 	.about-title {
-		color: rgba(255,255,255,0.8);
+		color: rgba(255, 255, 255, 0.8);
 	}
 
 	// svg
@@ -91,7 +98,7 @@ body[data-mountain="earth"] {
 		animation: earth-grow 800ms;
 		//animation-delay: 200ms;
 		animation-fill-mode: forwards;
-		animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); // bounce
 		background-color: $earth-blue;
 		// note: 25 points
 		clip-path: polygon( 45.600% 11.333%, 39.200% 14.667%, 34.400% 19.333%, 31.600% 22.333%, 27.000% 31.333%, 24.400% 42.000%, 23.800% 47.333%, 25.800% 64.000%, 28.800% 72.000%, 33.400% 80.000%, 37.400% 84.333%, 46.800% 89.000%, 52.200% 89.000%, 56.800% 88.000%, 62.800% 83.333%, 70.800% 74.000%, 73.200% 68.333%, 75.000% 62.667%, 76.400% 55.000%, 76.200% 45.667%, 73.200% 32.000%, 70.800% 27.000%, 67.600% 21.333%, 62.000% 15.333%, 55.400% 12.667% );
@@ -102,16 +109,65 @@ body[data-mountain="earth"] {
 		z-index: 1;
 	}
 
-	// data box position
-	.data {
-		@include mquery(small) {
-			transform: translate(-11vw, 3vh);
+	.satellite-wrapper {
+		// this rotates on an elliptical orbit
+		transform: perspective(900px) rotateY(45deg);
+		position: fixed;
+		height: 80vh;
+		top: 0;
+		left: 0;
+		width: 100vw;
+	}
+
+	@keyframes satellite-path {
+	    0% {
+	        transform: rotate(0deg);
+	    }
+	    100% {
+	        transform: rotate(360deg);
+	    }
+	}
+
+	@keyframes satellite-blink {
+	    0% {
+	        opacity: 0;
+	    }
+	    100% {
+	        opacity: 1;
+	    }
+	}
+
+	.earth-satellite {
+		animation: satellite-path 30s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+		background-color: rgba(255, 255, 255, 0.8);
+		content: '';
+		display: block;
+		height: 1px;
+		width: 1px;
+		position: absolute;
+		top: 15vh;
+		left: 50vh;
+		transform-origin: -2vh 28vh;
+		z-index: 3;
+
+		&:after {
+			animation: satellite-blink 1200ms infinite;
+			background-color: red;
+			display: block;
+			content: '';
+			width: 1px;
+			height: 1px;
+			transform: translateY(1px);
 		}
 	}
 
-	.earth-mtn {
-		display: block;
-		visibility: visible;
+	// data box position
+	.data {
+		@include mquery(small) {
+			transform: translate(-14vw, 3vh);
+		}
 	}
 
 	// tiles read left to right and back
