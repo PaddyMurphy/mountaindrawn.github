@@ -1,9 +1,6 @@
 // NOTE: the navigation cycles through the mountainData keys
 //       in the order presented
 var mountainData = {
-	// "riverflow": {
-	// 	"title": "River flow"
-	// },
 	"earth": {
 		"title": ""
 	},

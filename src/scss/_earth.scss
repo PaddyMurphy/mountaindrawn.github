@@ -8,6 +8,17 @@ $earth-blue: #B3DEF1;
 $earth-mountain: #744690;
 
 body[data-mountain="earth"] {
+
+	// convert to moon
+	.title-nav {
+		// background-color: rgba(255,255,255,0.8);
+		// border-radius: 50%;
+		//box-shadow: 0 0 20px rgba(255,255,255,0.8);
+		min-height: 130px;
+		padding-top: 40px;
+		transform: translateY(-30px);
+		transition: all 0.3s;
+	}
 	// background-color: #B0D0DE;
 	background-image:
 		linear-gradient(
@@ -326,20 +337,22 @@ body[data-mountain="earth"] {
 		}
 	}
 
+	///*** STARFIELD ***///
+
 	// n is number of stars required
-	@function multiple-box-shadow($n) {
-		$value: '#{random(2000)}px #{random(2000)}px #FFF';
+	@function box-shadows($n) {
+		$value: '#{random(1500)}px #{random(1500)}px #FFF';
 
 		@for $i from 2 through $n {
-		  $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+		  $value: '#{$value} , #{random(1500)}px #{random(1500)}px 0 #FFF';
 		}
 
 		@return unquote($value)
 	}
 
-	$shadows-small:  multiple-box-shadow(500);
-	$shadows-medium: multiple-box-shadow(200);
-	$shadows-big:    multiple-box-shadow(75);
+	$shadows-small:  box-shadows(500);
+	$shadows-medium: box-shadows(200);
+	$shadows-big:    box-shadows(75);
 
 	.starfield-wrapper {
 		position: fixed;
@@ -366,7 +379,7 @@ body[data-mountain="earth"] {
 	    width: 1px;
 	    height: 1px;
 	    box-shadow: $shadows-small;
-	    animation: animStar 250s linear infinite;
+	    animation: animStar 350s linear infinite;
 	    &:after {
 		    top: 500px;
 		    width: 1px;
@@ -392,7 +405,7 @@ body[data-mountain="earth"] {
 	    width: 3px;
 	    height: 3px;
 	    box-shadow: $shadows-big;
-	    animation: animStar 350s linear infinite;
+	    animation: animStar 250s linear infinite;
 	    &:after {
 		    top: 2000px;
 		    width: 3px;

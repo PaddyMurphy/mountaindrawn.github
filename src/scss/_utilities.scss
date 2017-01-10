@@ -1,34 +1,40 @@
 // TODO: this breaks safari clip-path transform
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
-*, *:before, *:after {
-  box-sizing: inherit;
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 
 // trace image
 .polygon-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-	margin: 100px 0 20px 100px;
-	width: $mountains-width;
-	height: $mountains-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 100px 0 20px 100px;
+    width: $mountains-width;
+    height: $mountains-height;
 }
 
 // helpers
 .hide {
-	display: none;
+    display: none;
 }
+
 .transparent {
-	opacity: 0;
+    opacity: 0;
 }
+
 .opaque {
-	opacity: 1;
+    opacity: 1;
 }
+
 .inline-svg {
-	display: inline-block;
-	width: 100%;
+    display: inline-block;
+    width: 100%;
 }
 
 // scrollbars
@@ -36,20 +42,23 @@ html {
     width: 0.7em;
 }
 
+
 /* Track */
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
+
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: rgba(0,0,0,0.2);
-   // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.2);
+    // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
+
 ::-webkit-scrollbar-thumb:window-inactive {
-	background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
 }
