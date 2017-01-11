@@ -111,7 +111,8 @@ body[data-mountain="earth"] {
 
 	.satellite-wrapper {
 		// this rotates on an elliptical orbit
-		transform: perspective(900px) rotateY(45deg);
+		transform: perspective(1000px) rotateY(55deg);
+		transform-style: preserve-3d;
 		position: fixed;
 		height: 80vh;
 		top: 0;
@@ -363,32 +364,39 @@ body[data-mountain="earth"] {
 		width: 100%;
 		height: 100%;
 		z-index: 9;
+		&.hover {
+			background-color: darken($earth-mountain, 15%);
+		}
 	}
 
 	.earth-mtn-bugaboo {
-		clip-path: polygon( 51.200% 36.333%, 52.400% 36.333%, 51.400% 32.667%);
-		&:hover {
+		clip-path: polygon( 51.200% 36.333%, 52.400% 36.333%, 51.400% 32.667% );
+		&:hover,
+		&.hover {
 			clip-path: polygon( 50.600% 35.667%, 52.800% 36.000%, 51.200% 30.333% );
 		}
 	}
 
 	.earth-mtn-tetons {
 		clip-path: polygon( 40.800% 44.333%, 40.600% 47.667%, 41.600% 47.667% );
-		&:hover {
+		&:hover,
+		&.hover {
 			clip-path: polygon( 41.000% 43.333%, 40.000% 47.667%, 42.000% 47.667% );
 		}
 	}
 
 	.earth-mtn-blanca-traverse {
 		clip-path: polygon( 40.400% 48.333%, 41.400% 51.000%, 40.400% 51.000% );
-		&:hover {
+		&:hover,
+		&.hover {
 			clip-path: polygon( 40.600% 47.333%, 41.400% 51.667%, 39.600% 51.333% );
 		}
 	}
 
 	.earth-mtn-glacier-peak {
 		clip-path: polygon( 36.600% 44.333%, 36.800% 41.333%, 37.600% 44.333% );
-		&:hover {
+		&:hover,
+		&.hover {
 			clip-path: polygon( 36.200% 44.667%, 36.600% 40.000%, 37.800% 44.333% );
 		}
 	}

@@ -152,34 +152,6 @@ $(function() {
     // earth sequence
     function earthSequence() {
         console.log('earthSequence');
-
-        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-
-        var field = document.getElementById('mountains');
-        var satellite = document.querySelector('.earth-satellite');
-        var bodyWidth = document.body.offsetWidth;
-        var bodyHeight = document.body.offsetHeight;
-
-        var maxX = field.clientWidth - satellite.offsetWidth;
-        var maxY = field.clientHeight - satellite.offsetHeight;
-
-        var duration = 7; // seconds
-        var start = null;
-
-        function step(timestamp) {
-            var progress, x, y;
-            if (start === null) {
-                start = timestamp;
-            }
-
-            progress = (timestamp - start) / duration / 1000; // percent
-            // do stuff
-
-            if (progress >= 1) start = null; // reset to start position
-            requestAnimationFrame(step);
-        }
-
-        requestAnimationFrame(step);
     }
 
     // click mtn shortcut
@@ -193,6 +165,12 @@ $(function() {
     function hoverMtnShortcut(e) {
         // show mountain info on hover
         setData(e.target.dataset.mountain);
+        // keep selected until another hover
+        mtnShortcuts.forEach(function(mtn) {
+            mtn.classList.remove('hover');
+        });
+
+        e.target.classList.add('hover');
     }
 
     function clickMtnShortcut(e) {
@@ -272,9 +250,10 @@ $(function() {
                     navigate(this.params.name);
                 }
                 if (document.body.dataset.mountain === 'earth') {
+                    // debounce
                     // timeoutID = window.setTimeout(function() {
                     //     earthSequence();
-                    // }, 1000);
+                    // }, 0);
                 }
                 this.task.done();
             },
