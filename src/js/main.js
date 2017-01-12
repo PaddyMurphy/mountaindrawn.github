@@ -26,7 +26,7 @@ $(function() {
 
     window.addEventListener('resize', sizeshards);
     // delay image download
-    window.addEventListener('load', getFlickrImages(dataMountain));
+    window.addEventListener('load', getMountainImages(dataMountain));
 
     // keyboard navigation
     document.onkeydown = checkKey;
@@ -99,7 +99,7 @@ $(function() {
         document.body.dataset.mountain = mountain;
         setData(mountain);
         Router.navigate('#/' + mountain);
-        getFlickrImages(mountain);
+        getMountainImages(mountain);
     }
 
     function setData(newMountain) {
@@ -178,56 +178,24 @@ $(function() {
         navigate(e.target.dataset.mountain);
     }
 
-    // flicker tag: classname + '-site'
+    // get related mountain photos
+    // tag: classname + '-site'
     // i.e bugaboo-site
-    function getFlickrImages(mountain) {
+    function getMountainImages(mountain) {
+        // @ requires mountain (string)
+        // TODO: remove flickr call and replace with static images
+
         // create document fragment to add all at once
-        var apiKey = '6c6069e831fb567b86c7d9b75c82624f',
-            baseURL = 'https://api.flickr.com/services/rest/?&method=flickr.photos.search',
-            docFrag = document.createDocumentFragment(),
+        var docFrag = document.createDocumentFragment(),
             images = document.querySelector('.photos'),
-            flickrTag = mountain + '-site';
+            tag = mountain + '-site';
 
-        // get the new ones
-        $.getJSON(baseURL +
-                '&api_key=' + apiKey +
-                '&tags=' + flickrTag +
-                '&per_page=' + 6 +
-                '&tag_mode=' + 'all' +
-                '&sort=' + 'interestingness-asc' +
-                '&format=' + 'json' +
-                '&jsoncallback=' + '?',
-                function(data) {})
-            .done(function(data) {
-                //loop through the results with the following function
-                $.each(data.photos.photo, function(i, item) {
 
-                    var photoURL = '//farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.id + '_' + item.secret,
-                        square = photoURL + '_q.jpg', // q = 150sq
-                        photoLarge = photoURL + '_b.jpg', // b = 1024 on longest side,
-                        // set the photo href for larger views
-                        photoHref = '//www.flickr.com/photos/' + item.owner + '/' + item.id,
-                        photo = '<img src="' + square + '" />';
-                    // add photo to the docFrag
-                    $("<a/>").attr('href', photoLarge)
-                        .attr('rel', 'prefetch')
-                        .attr('data-photohref', photoHref)
-                        .attr('data-lightbox', 'mountaindrawn')
-                        .appendTo(docFrag).append(photo);
 
-                }); // END $.each
+        // append once
+        // images.append(docFrag);
 
-                // append once
-                // TODO: why does this insert [object DocumentFragment]
-                //flowApp.config.images.innerHTML = docFrag;
-                $(images).html(docFrag);
-
-            })
-            .fail(function(msg) {
-                // TODO: load something else?
-                console.log(msg);
-            });
-    } // END getFlickrImages
+    } // END getMountainImages
 
     function checkKey(e) {
         if (e.keyCode == '37') {

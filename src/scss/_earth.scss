@@ -8,7 +8,7 @@ $earth-blue: #B3DEF1;
 $earth-mountain: #744690;
 
 body[data-mountain="earth"] {
-	perspective: 600px;
+	background-color: #313644;
 
 	// show mountains
 	.earth-mtn {
@@ -16,8 +16,8 @@ body[data-mountain="earth"] {
 		visibility: visible;
 	}
 
-	// convert to moon
 	.title-nav {
+		// convert to moon?
 		// background-color: rgba(255,255,255,0.8);
 		// border-radius: 50%;
 		// box-shadow: 0 0 20px rgba(255,255,255,0.8);
@@ -25,17 +25,6 @@ body[data-mountain="earth"] {
 		min-height: 130px;
 		transition: all 0.3s;
 	}
-	// background-color: #B0D0DE;
-	background-image:
-		linear-gradient(
-			to bottom,
-			#0e0f13 0%,
-			#20242d 16%,
-			transparent 100%
-		);
-
-	background-color: #313644;
-	background-repeat: no-repeat;
 
 	// account for dark theme
 	// TODO: move to theme-dark class if more dark themes
@@ -100,6 +89,10 @@ body[data-mountain="earth"] {
 		animation-fill-mode: forwards;
 		animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); // bounce
 		background-color: $earth-blue;
+		background-image:
+			radial-gradient(
+				circle at 64% 39%, #B3DEF1, #9bcbe0 45%, #fff 100%
+			);
 		// note: 25 points
 		clip-path: polygon( 45.600% 11.333%, 39.200% 14.667%, 34.400% 19.333%, 31.600% 22.333%, 27.000% 31.333%, 24.400% 42.000%, 23.800% 47.333%, 25.800% 64.000%, 28.800% 72.000%, 33.400% 80.000%, 37.400% 84.333%, 46.800% 89.000%, 52.200% 89.000%, 56.800% 88.000%, 62.800% 83.333%, 70.800% 74.000%, 73.200% 68.333%, 75.000% 62.667%, 76.400% 55.000%, 76.200% 45.667%, 73.200% 32.000%, 70.800% 27.000%, 67.600% 21.333%, 62.000% 15.333%, 55.400% 12.667% );
 		width: 100%;
@@ -107,6 +100,18 @@ body[data-mountain="earth"] {
 		position: absolute;
 		transition: all .2s ease-in-out;
 		z-index: 1;
+
+		&:after {
+			background: url('../images/img-noise.png');
+			content: '';
+			display: block;
+			height: 100%;
+			width: 100%;
+			opacity: 0.4;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
 	}
 
 	.satellite-wrapper {
@@ -199,6 +204,7 @@ body[data-mountain="earth"] {
 		}
 		&:nth-child(5) {
 			.shard {
+				background-image: url('../images/img-noise.png');
 				background-color: $earth-light;
 				clip-path: polygon( 33.000% 31.333%, 47.600% 41.000%, 35.400% 43.000% );
 			}
@@ -211,6 +217,7 @@ body[data-mountain="earth"] {
 		}
 		&:nth-child(7) {
 			.shard {
+				background-image: url('../images/img-noise.png');
 				background-color:$earth-light;
 				clip-path: polygon( 47.000% 33.000%, 44.600% 39.667%, 47.600% 38.333% );
 			}
@@ -229,6 +236,7 @@ body[data-mountain="earth"] {
 		}
 		&:nth-child(10) {
 			.shard {
+				background-image: url('../images/img-noise.png');
 				background-color: $earth-light;
 				clip-path: polygon( 48.400% 23.333%, 54.400% 18.667%, 48.800% 14.667% );
 			}
@@ -247,6 +255,7 @@ body[data-mountain="earth"] {
 		}
 		&:nth-child(13) {
 			.shard {
+				background-image: url('../images/img-noise.png');
 				background-color: $earth-light;
 				clip-path: polygon( 53.6% 25.8%, 49.400% 42.2%, 58.800% 28.000% );
 			}
@@ -301,6 +310,7 @@ body[data-mountain="earth"] {
 		}
 		&:nth-child(22) {
 			.shard {
+				background-image: url('../images/img-noise.png');
 				background-color: $earth-light;
 				clip-path: polygon( 39.800% 56.667%, 48.400% 52.000%, 45.800% 67.333% );
 			}
@@ -326,6 +336,7 @@ body[data-mountain="earth"] {
 		}
 		&:nth-child(26) {
 			.shard {
+				background-image: url('../images/img-noise.png');
 				background-color: $earth-light;
 				clip-path: polygon( 57.400% 69.667%, 60.400% 75.333%, 65.400% 69.333% );
 			}
@@ -333,7 +344,7 @@ body[data-mountain="earth"] {
 		&:nth-child(27) {
 			.shard {
 				background-color: $earth-shade-30;
-				clip-path: polygon( 60.600% 75.667%, 56.800% 88.667%, 63.400% 85.333% );
+				clip-path: polygon( 60.600% 75.667%, 56.800% 87.9%, 63.400% 85.333% );
 			}
 		}
 		&:nth-child(28) {
@@ -443,7 +454,7 @@ body[data-mountain="earth"] {
 	    width: 1px;
 	    height: 1px;
 	    box-shadow: $shadows-small;
-	    animation: animStar 350s linear infinite;
+	    animation: starfield 350s linear infinite;
 	    &:after {
 		    top: 500px;
 		    width: 1px;
@@ -456,7 +467,7 @@ body[data-mountain="earth"] {
 	    width: 2px;
 	    height: 2px;
 	    box-shadow: $shadows-medium;
-	    animation: animStar 300s linear infinite;
+	    animation: starfield 300s linear infinite;
 	    &:after {
 		    top: 1000px;
 		    width: 2px;
@@ -469,7 +480,7 @@ body[data-mountain="earth"] {
 	    width: 3px;
 	    height: 3px;
 	    box-shadow: $shadows-big;
-	    animation: animStar 250s linear infinite;
+	    animation: starfield 250s linear infinite;
 	    &:after {
 		    top: 2000px;
 		    width: 3px;
@@ -478,7 +489,7 @@ body[data-mountain="earth"] {
 		}
 	}
 
-	@keyframes animStar {
+	@keyframes starfield {
 		0% {
 	    	transform: translateY(0px);
 		}
