@@ -25,8 +25,6 @@ $(function() {
     }
 
     window.addEventListener('resize', sizeshards);
-    // delay image download
-    window.addEventListener('load', getMountainImages(dataMountain));
 
     // keyboard navigation
     document.onkeydown = checkKey;
@@ -184,20 +182,48 @@ $(function() {
         navigate(e.target.dataset.mountain);
     }
 
-    // get related mountain photos
-    // tag: classname + '-site'
-    // i.e bugaboo-site
+
     function getMountainImages(mountain) {
         // @ requires mountain (string)
-        // TODO: remove flickr call and replace with static images
-
-        // create document fragment to add all at once
-        var docFrag = document.createDocumentFragment(),
+        // format: mtn-lg-bugaboo-1.jpg
+        var baseURL = '../dist/images/photos/mtn-',
+            docFrag = document.createDocumentFragment(),
             images = document.querySelector('.photos'),
-            tag = mountain + '-site';
+            exclude = ['earth', 'blanca-traverse'],
+            photo = '',
+            photoHref = '';
+            photoSmall = baseURL + 'sm-',
+            photoLarge = baseURL + 'lg-';
 
-        // append once
-        // images.append(docFrag);
+        // clear photos
+        images.innerHTML = '';
+
+        // skip earth and anything else without photos
+        if(!mountain || exclude.indexOf(mountain) !== -1) {
+            return false;
+        }
+
+        // load 4 photos
+        for (var i = 0; i < 4; i++) {
+            photoHref =  mountain + '-' + (i + 1) + '.jpg';
+            photo = '<img src="' + photoSmall + photoHref + '"' + 'alt="' + mountain + '"' + ' />';
+            // TODO: remove jquery
+            $("<a/>").attr('href', photoLarge + photoHref)
+                .attr('rel', 'prefetch')
+                .attr('data-photohref', photoLarge + photoHref)
+                .attr('data-lightbox', 'mountaindrawn')
+                .appendTo(docFrag).append(photo);
+
+            // var a = document.createElement('a');
+            // a.href = photoLarge + photoHref;
+            // a.rel = 'prefetch';
+            // a.dataset.photohref = photoLarge + photoHref;
+            // a.dataset.lightbox = 'mountaindrawn';
+
+        } // END for photo loop
+
+        // append images
+        images.appendChild(docFrag);
 
     } // END getMountainImages
 
