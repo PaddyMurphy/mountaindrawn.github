@@ -111,7 +111,7 @@ $(function() {
             '<p class="data-description"><%this.description%></p>';
 
         // only show if there is a title
-        if (newMountainData.title) {
+        if (newMountainData.title.length) {
             // set title
             title.innerHTML = TemplateEngine('<%this.title%>', newMountainData);
             // set data
@@ -120,6 +120,7 @@ $(function() {
             data.classList.remove('transparent');
         } else {
             data.classList.add('transparent');
+            title.innerHTML = '';
         }
     }
 
