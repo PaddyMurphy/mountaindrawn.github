@@ -115,61 +115,6 @@ body[data-mountain="earth"] {
 		}
 	}
 
-	.satellite-wrapper {
-		// this rotates on an elliptical orbit
-		transform: perspective(1000px) rotateY(55deg);
-		transform-style: preserve-3d;
-		position: fixed;
-		height: 80vh;
-		top: 0;
-		left: 0;
-		width: 100vw;
-	}
-
-	@keyframes satellite-path {
-	    0% {
-	        transform: rotate(0deg);
-	    }
-	    100% {
-	        transform: rotate(360deg);
-	    }
-	}
-
-	@keyframes satellite-blink {
-	    0% {
-	        opacity: 0;
-	    }
-	    100% {
-	        opacity: 1;
-	    }
-	}
-
-	.earth-satellite {
-		animation: satellite-path 30s;
-		animation-iteration-count: infinite;
-		animation-timing-function: linear;
-		background-color: rgba(255, 255, 255, 0.8);
-		content: '';
-		display: block;
-		height: 1px;
-		width: 1px;
-		position: absolute;
-		top: 15vh;
-		left: 50vh;
-		transform-origin: -2vh 28vh;
-		z-index: 3;
-
-		&:after {
-			animation: satellite-blink 1200ms infinite;
-			background-color: red;
-			display: block;
-			content: '';
-			width: 1px;
-			height: 1px;
-			transform: translateY(1px);
-		}
-	}
-
 	// data box position
 	.data {
 		// TODO: pointer
@@ -513,6 +458,71 @@ body[data-mountain="earth"] {
 		100%	{
 	    	transform: translateY(-2000px);
 		}
+	}
+
+	// SATELLITES
+	.satellite-wrapper {
+		// this rotates on an elliptical orbit
+		transform: perspective(1000px) rotateY(55deg);
+		transform-style: preserve-3d;
+		position: fixed;
+		height: 80vh;
+		top: 0;
+		left: 0;
+		width: 100vw;
+	}
+
+	@keyframes satellite-path {
+	    0% {
+	        transform: rotate(0deg);
+	    }
+	    100% {
+	        transform: rotate(360deg);
+	    }
+	}
+
+	@keyframes satellite-blink {
+	    0% {
+	        opacity: 0;
+	    }
+	    100% {
+	        opacity: 1;
+	    }
+	}
+	// shared styles
+	.earth-satellite {
+		animation: satellite-path 30s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+		background-color: rgba(255, 255, 255, 0.8);
+		content: '';
+		display: block;
+		height: 1px;
+		width: 1px;
+		position: absolute;
+
+		&:after {
+			animation: satellite-blink 1200ms infinite;
+			background-color: red;
+			display: block;
+			content: '';
+			width: 1px;
+			height: 1px;
+			transform: translateY(1px);
+		}
+	}
+
+	.earth-satellite-1 {
+		top: 15vh;
+		left: 50vh;
+		transform-origin: -2vw 28vh;
+	}
+
+	.earth-satellite-2 {
+		animation-direction: reverse;
+		top: 10vh;
+		left: 30vh;
+		transform-origin: 8vw 22vh;
 	}
 
 } // END earth.. uh oh
