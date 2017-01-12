@@ -56,17 +56,67 @@ body[data-mountain="earth"] {
 		opacity: 0.4;
 	}
 
+	// alternate earthshine
+	@keyframes earth-shine-out {
+	    0% {
+	        opacity: 1;
+	    }
+	    50% {
+	        opacity: 0;
+	    }
+	    100% {
+	        opacity: 1;
+	    }
+	}
+
+	@keyframes earth-shine-in {
+	    0% {
+	        opacity: 0;
+	    }
+	    50% {
+	        opacity: 1;
+	    }
+	    100% {
+	        opacity: 0;
+	    }
+	}
+
 	.mountains {
-		// svg background
-		background-image:
-		    radial-gradient(
-		      circle closest-side at 50% 50%,
-		      #7fffff,
-		      rgba(255,222,127,0.001) // safari transparent fix
-		    );
-		background-position: center;
-		background-size: auto;
-		background-repeat: no-repeat;
+		background-image: none;
+
+		&:before,
+		&:after {
+			background-position: center;
+			background-size: auto;
+			background-repeat: no-repeat;
+			content: '';
+			display: block;
+			height: 100%;
+			width: 100%;
+			position: absolute;
+		}
+
+		&:before {
+			animation: earth-shine-out 30s infinite;
+			background-image:
+			    radial-gradient(
+			      circle closest-side at 50% 50%,
+			      #7fffff,
+			      rgba(255,222,127,0.001) // safari transparent fix
+			    );
+			opacity: 1;
+		}
+
+		&:after {
+			animation: earth-shine-in 30s infinite;
+			opacity: 0;
+			background-image:
+			    radial-gradient(
+			      circle closest-side at 50% 50%,
+			      #ff6306,
+			      rgba(255,222,127,0.001) // safari transparent fix
+			    );
+		}
 	}
 
 	.content {
