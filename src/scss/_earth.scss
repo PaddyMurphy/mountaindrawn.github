@@ -171,8 +171,24 @@ body[data-mountain="earth"] {
 
 	// data box position
 	.data {
+		// TODO: pointer
+		// &:after {
+		// 	background: rgba(255,255,255,0.7);
+		// 	clip-path: polygon( 61.800% 15.333%, 52.400% 32.333%, 61.600% 19.000% );
+		// 	content: '';
+		// 	display: none;
+		// 	max-width: 25vw;
+		// 	position: absolute;
+		// 	width: 100%;
+		// 	height: 100%;
+		// 	transform: translate(-70%, -70%);
+		// }
+
 		@include mquery(small) {
 			transform: translate(-14vw, 3vh);
+			&:after {
+				display: block;
+			}
 		}
 	}
 
@@ -181,7 +197,7 @@ body[data-mountain="earth"] {
 		&:nth-child(1) {
 			.shard {
 				background-color: $earth-shade-30;
-				clip-path: polygon( 36.400% 17.000%, 39.600% 22.333%, 27.200% 39.333% );
+				clip-path: polygon( 36.400% 17.300%, 39.600% 22.333%, 27.200% 39.333% );
 			}
 		}
 		&:nth-child(2) {
@@ -362,7 +378,7 @@ body[data-mountain="earth"] {
 		&:nth-child(30) {
 			.shard {
 				background-color: $earth-shade-30;
-				clip-path: polygon( 65.400% 69.4%, 71.600% 73.333%, 75.000% 63.333% );
+				clip-path: polygon( 65.4% 69.4%, 71.6% 73.333%, 74.8% 63.333% );
 			}
 		}
 	} // END .shard-wrap

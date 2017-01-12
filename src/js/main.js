@@ -151,7 +151,8 @@ $(function() {
 
     // earth sequence
     function earthSequence() {
-        console.log('earthSequence');
+        // console.log('earthSequence');
+        mtnShortcutReset();
     }
 
     // click mtn shortcut
@@ -162,13 +163,18 @@ $(function() {
         });
     }
 
-    function hoverMtnShortcut(e) {
-        // show mountain info on hover
-        setData(e.target.dataset.mountain);
-        // keep selected until another hover
+    function mtnShortcutReset() {
         mtnShortcuts.forEach(function(mtn) {
             mtn.classList.remove('hover');
         });
+    }
+
+    function hoverMtnShortcut(e) {
+        // show mountain info on hover
+        // TODO: clear hover on return
+        setData(e.target.dataset.mountain);
+        // keep selected until another hover
+        mtnShortcutReset();
 
         e.target.classList.add('hover');
     }
@@ -189,8 +195,6 @@ $(function() {
         var docFrag = document.createDocumentFragment(),
             images = document.querySelector('.photos'),
             tag = mountain + '-site';
-
-
 
         // append once
         // images.append(docFrag);
@@ -219,9 +223,9 @@ $(function() {
                 }
                 if (document.body.dataset.mountain === 'earth') {
                     // debounce
-                    // timeoutID = window.setTimeout(function() {
-                    //     earthSequence();
-                    // }, 0);
+                    timeoutID = window.setTimeout(function() {
+                        earthSequence();
+                    }, 0);
                 }
                 this.task.done();
             },
