@@ -191,7 +191,7 @@ $(function() {
             images = document.querySelector('.photos'),
             exclude = ['earth', 'blanca-traverse'],
             photo = '',
-            photoHref = '';
+            photoHref = '',
             photoSmall = baseURL + 'sm-',
             photoLarge = baseURL + 'lg-';
 
