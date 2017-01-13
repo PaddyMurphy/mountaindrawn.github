@@ -168,13 +168,13 @@ body[data-mountain="blanca-traverse"] {
 			z-index: 1;
 			.shard {
 				background-color: $shade-60;
-				clip-path: polygon( 71.000% 10.333%, 73.600% 15.000%, 67.000% 17.667% );
+				clip-path: polygon( 71.000% 10.333%, 73.600% 15.9%, 67.000% 17.667% );
 			}
 		}
 		&:nth-child(21) {
 			.shard {
 				background-color: $dark;
-				clip-path: polygon( 73.4% 14.9%, 73.2% 34%, 67% 17.667% );
+				clip-path: polygon( 73.4% 15.3%, 73.2% 34%, 67% 17.667% );
 			}
 		}
 		&:nth-child(22) {

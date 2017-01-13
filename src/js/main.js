@@ -8,6 +8,7 @@ $(function() {
     var dataMountain = document.body.dataset.mountain,
         navLeft = document.querySelector('.nav-left'),
         navRight = document.querySelector('.nav-right'),
+        navEarth = document.querySelector('.nav-earth'),
         swipeElement = document.querySelector('.container'),
         mtnShortcuts = document.querySelectorAll('.earth-mtn'),
         touch = new Hammer(swipeElement),
@@ -22,6 +23,7 @@ $(function() {
     if (navLeft && navRight) {
         navLeft.addEventListener('click', navigateLeft);
         navRight.addEventListener('click', navigateRight);
+        navEarth.addEventListener('click', navigateEarth);
     }
 
     window.addEventListener('resize', sizeshards);
@@ -82,6 +84,12 @@ $(function() {
         newMountain = (currentMountain === 0) ? nLength : (currentMountain - 1);
         // change mountain
         navigate(newMountain);
+    }
+
+    function navigateEarth(e) {
+        e.preventDefault();
+        // go back to earth
+        navigate('earth');
     }
 
     function navigate(newMountain) {

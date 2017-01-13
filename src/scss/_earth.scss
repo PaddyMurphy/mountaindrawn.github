@@ -4,7 +4,6 @@ $earth-shade-30: #A1C276;
 $earth-shade-60: #90B165;
 $earth-dark: #6C8649;
 
-$earth-blue: #B3DEF1;
 $earth-mountain: #744690;
 
 body[data-mountain="earth"] {
@@ -24,6 +23,11 @@ body[data-mountain="earth"] {
 		//transform: translateY(20px);
 		min-height: 130px;
 		transition: all 0.3s;
+	}
+
+	.nav-earth {
+		background: rgba(255, 255, 255, 0.1);
+		pointer-events: none;
 	}
 
 	// account for dark theme
@@ -86,14 +90,10 @@ body[data-mountain="earth"] {
 
 		&:before,
 		&:after {
+			@extend .psuedo-element;
 			background-position: center;
 			background-size: auto;
 			background-repeat: no-repeat;
-			content: '';
-			display: block;
-			height: 100%;
-			width: 100%;
-			position: absolute;
 		}
 
 		&:before {
@@ -135,6 +135,7 @@ body[data-mountain="earth"] {
 	}
 
 	.earth-outline {
+		@extend .earth-clip-path;
 		animation: earth-grow 800ms;
 		//animation-delay: 200ms;
 		animation-fill-mode: forwards;
@@ -144,42 +145,20 @@ body[data-mountain="earth"] {
 			radial-gradient(
 				circle at 64% 39%, #B3DEF1, #9bcbe0 45%, #fff 100%
 			);
-		// note: 25 points
-		clip-path: polygon( 45.600% 11.333%, 39.200% 14.667%, 34.400% 19.333%, 31.600% 22.333%, 27.000% 31.333%, 24.400% 42.000%, 23.800% 47.333%, 25.800% 64.000%, 28.800% 72.000%, 33.400% 80.000%, 37.400% 84.333%, 46.800% 89.000%, 52.200% 89.000%, 56.800% 88.000%, 62.800% 83.333%, 70.800% 74.000%, 73.200% 68.333%, 75.000% 62.667%, 76.400% 55.000%, 76.200% 45.667%, 73.200% 32.000%, 70.800% 27.000%, 67.600% 21.333%, 62.000% 15.333%, 55.400% 12.667% );
 		width: 100%;
 		height: 100%;
 		position: absolute;
-		transition: all .2s ease-in-out;
 		z-index: 1;
 
 		&:after {
 			background: url('../images/img-noise.png');
-			content: '';
-			display: block;
-			height: 100%;
-			width: 100%;
 			opacity: 0.4;
-			position: absolute;
-			top: 0;
-			left: 0;
+			@extend .psuedo-element;
 		}
 	}
 
 	// data box position
 	.data {
-		// TODO: pointer
-		// &:after {
-		// 	background: rgba(255,255,255,0.7);
-		// 	clip-path: polygon( 61.800% 15.333%, 52.400% 32.333%, 61.600% 19.000% );
-		// 	content: '';
-		// 	display: none;
-		// 	max-width: 25vw;
-		// 	position: absolute;
-		// 	width: 100%;
-		// 	height: 100%;
-		// 	transform: translate(-70%, -70%);
-		// }
-
 		@include mquery(small) {
 			transform: translate(-14vw, 3vh);
 			&:after {
@@ -456,7 +435,7 @@ body[data-mountain="earth"] {
 		z-index: 1;
 
 	    &:after {
-		    content: " ";
+		    content: '';
 		    position: absolute;
 		    background: transparent;
 		}
@@ -541,15 +520,13 @@ body[data-mountain="earth"] {
 	}
 	// shared styles
 	.earth-satellite {
+		@extend .psuedo-element;
 		animation: satellite-path 30s;
 		animation-iteration-count: infinite;
 		animation-timing-function: linear;
 		background-color: rgba(255, 255, 255, 0.8);
-		content: '';
-		display: block;
 		height: 1px;
 		width: 1px;
-		position: absolute;
 
 		&:after {
 			animation: satellite-blink 1200ms infinite;
