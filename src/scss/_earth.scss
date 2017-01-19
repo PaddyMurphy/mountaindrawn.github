@@ -4,8 +4,6 @@ $earth-shade-30: #A1C276;
 $earth-shade-60: #90B165;
 $earth-dark: #6C8649;
 
-$earth-mountain: #744690;
-
 body[data-mountain="earth"] {
 	background-color: #313644;
 
@@ -16,13 +14,14 @@ body[data-mountain="earth"] {
 	}
 
 	.title-nav {
+		transition: all 0.3s;
+
 		// convert to moon?
 		// background-color: rgba(255,255,255,0.8);
 		// border-radius: 50%;
 		// box-shadow: 0 0 20px rgba(255,255,255,0.8);
-		//transform: translateY(20px);
-		min-height: 130px;
-		transition: all 0.3s;
+		// transform: translateY(20px);
+		// min-height: 130px;
 	}
 
 	.nav-earth {
@@ -43,6 +42,10 @@ body[data-mountain="earth"] {
 	.data {
 		background-color: rgba(255, 255, 255, 0.7);
 		transition: 0.30s $shard-easing;
+	}
+
+	.data-close {
+		visibility: visible;
 	}
 
 	.about-block,
@@ -442,9 +445,13 @@ body[data-mountain="earth"] {
 		visibility: visible;
 
 		// milky way
+		&:before,
+		&:after {
+			@extend .psuedo-element;
+		}
+
 		&:before {
 			animation: earth-shine-in 20s infinite;
-			@extend .psuedo-element;
 			opacity: 0;
 			background: linear-gradient(
 				to left top,
@@ -461,7 +468,6 @@ body[data-mountain="earth"] {
 
 		&:after {
 			animation: earth-shine-out 20s infinite;
-			@extend .psuedo-element;
 			opacity: 1;
 			background: linear-gradient(
 				to left top,
@@ -478,7 +484,7 @@ body[data-mountain="earth"] {
 
 	.starfield {
 		display: block;
-		transition: all 0.25s;
+		transition: all 0.8s;
 		z-index: 1;
 
 	    &:after {
@@ -568,9 +574,8 @@ body[data-mountain="earth"] {
 	// shared styles
 	.earth-satellite {
 		@extend .psuedo-element;
-		animation: satellite-path 30s;
-		animation-iteration-count: infinite;
-		animation-timing-function: linear;
+		animation: satellite-path 30s linear infinite;
+		animation-delay: 1s;
 		background-color: rgba(255, 255, 255, 0.8);
 		// TODO: test this
 		transform: translate3d(0, 0, 0);

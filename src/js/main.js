@@ -1,14 +1,21 @@
+// eslint settings
+/* global areClipPathShapesSupported, lightbox, mountainData, $, TemplateEngine, Router */
+
 // TODO: test for clip-path support
 // deliver svg illustrations instead? or png
 
-var mountainData = mountainData || {};
+//var mountainData = mountainData || {};
 
 // mountaindrawn
-$(function() {
+$(function () {
     var dataMountain = document.body.dataset.mountain,
         navLeft = document.querySelector('.nav-left'),
         navRight = document.querySelector('.nav-right'),
         navEarth = document.querySelector('.nav-earth'),
+        dataClose = document.querySelector('.data-close'),
+        title = document.querySelector('.title'),
+        data = document.querySelector('.data'),
+        dataContent = data.querySelector('.data-content'),
         swipeElement = document.querySelector('.container'),
         mtnShortcuts = document.querySelectorAll('.earth-mtn'),
         touch = new Hammer(swipeElement),
@@ -16,7 +23,6 @@ $(function() {
         mountainList = Object.keys(mountainData),
         length = mountainList.length,
         nLength = length - 1, // normalized length
-        route = {},
         currentMountain, newMountain;
 
     // events
@@ -25,6 +31,8 @@ $(function() {
         navRight.addEventListener('click', navigateRight);
         navEarth.addEventListener('click', navigateEarth);
     }
+
+    dataClose.addEventListener('click', closeDateBox);
 
     window.addEventListener('resize', sizeshards);
 
@@ -92,13 +100,20 @@ $(function() {
         navigate('earth');
     }
 
+    function closeDateBox(e) {
+        e.preventDefault();
+        // go back to earth
+        e.target.parentElement.classList.add('transparent');
+        e.target.parentElement.classList.remove('animate');
+    }
+
     function navigate(newMountain) {
         // navigate accepts string name or position in array
         // @requires mewMountain (string)
         // @optional mewMountain (number)
         var mountain = newMountain;
 
-        if(typeof(newMountain) === 'number') {
+        if (typeof (newMountain) === 'number') {
             mountain = mountainList[newMountain];
         }
 
@@ -111,8 +126,6 @@ $(function() {
     function setData(newMountain) {
         // @requires mewMountain (string)
         var newMountainData = mountainData[newMountain],
-            title = document.querySelector('.title'),
-            data = document.querySelector('.data'),
             template = '<h2 class="data-title"><%this.title%></h2>' +
             '<p class="data-elevation">elevation <b><%this.elevation%></b></p>' +
             '<p class="data-prominence">prominence <%this.prominence%></p>' +
@@ -123,9 +136,9 @@ $(function() {
             // set title
             title.innerHTML = TemplateEngine('<%this.title%>', newMountainData);
             // set data
-            data.innerHTML = TemplateEngine(template, newMountainData);
+            dataContent.innerHTML = TemplateEngine(template, newMountainData);
             // show the data box
-            data.classList.remove('transparent');
+            data.classList.remove('transparent','animate');
         } else {
             data.classList.add('transparent');
             title.innerHTML = '';
@@ -184,6 +197,7 @@ $(function() {
         mtnShortcutReset();
 
         e.target.classList.add('hover');
+        data.classList.add('animate');
     }
 
     function clickMtnShortcut(e) {
@@ -208,16 +222,16 @@ $(function() {
         images.innerHTML = '';
 
         // skip earth and anything else without photos
-        if(!mountain || exclude.indexOf(mountain) !== -1) {
+        if (!mountain || exclude.indexOf(mountain) !== -1) {
             return false;
         }
 
         // load 4 photos
         for (var i = 0; i < 4; i++) {
-            photoHref =  mountain + '-' + (i + 1) + '.jpg';
+            photoHref = mountain + '-' + (i + 1) + '.jpg';
             photo = '<img src="' + photoSmall + photoHref + '"' + 'alt="' + mountain + '"' + ' />';
             // TODO: remove jquery
-            $("<a/>").attr('href', photoLarge + photoHref)
+            $('<a/>').attr('href', photoLarge + photoHref)
                 .attr('rel', 'prefetch')
                 .attr('data-photohref', photoLarge + photoHref)
                 .attr('data-lightbox', 'mountaindrawn')
@@ -237,10 +251,10 @@ $(function() {
     } // END getMountainImages
 
     function checkKey(e) {
-        if (e.keyCode == '37') {
+        if (e.keyCode === '37') {
             // left arrow
             navigateLeft(e);
-        } else if (e.keyCode == '39') {
+        } else if (e.keyCode === '39') {
             // right arrow
             navigateRight(e);
         }
@@ -272,9 +286,9 @@ $(function() {
             }
         };
 
-        var onRouteNotFound =  function(route) {
+        var onRouteNotFound = function(route) {
             // suppress notfound error
-        }
+        };
 
         Router.add(mainRoute);
         Router.init(null, onRouteNotFound);
