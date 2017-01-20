@@ -25,6 +25,8 @@ html {
 }
 
 .transparent {
+    // disable click events on hidden elements
+    pointer-events: none;
     opacity: 0;
 }
 

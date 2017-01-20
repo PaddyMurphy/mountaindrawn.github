@@ -154,41 +154,28 @@ header {
 .data-close {
 	cursor: pointer;
 	display: none;
-	width: $default-padding;
-	height: $default-padding;
+	font: 18px/100% arial, sans-serif;
+	width: 15px;
+	height: 15px;
 	position: absolute;
 	top: $default-padding / 2;
 	right: $default-padding / 2;
 	visibility: hidden;
 
+	&:after {
+		content: '✖'; /* UTF-8 symbol */
+		color: rgba(#2D3044, 0.3);
+		transition: all 0.25s;
+	}
+
+	&:hover:after {
+		color: #2D3044;
+		font-size: 20px;
+	}
+
 	@include mquery(small) {
 		display: block;
 	}
-
-	&:before,
-	&:after {
-		@extend .psuedo-element;
-		background-color: $earth-mountain;
-		height: $default-padding;
-		width: $default-padding;
-		transition: clip-path 0.8s;
-		transition-delay: 0.5s;
-	}
-	// left side of mountain start
-	&:before {
-		clip-path: polygon(51% 100%, 47% 0, 0 100%);
-	}
-	&:after {
-		clip-path: polygon(100% 100%, 47% 0, 48% 100%);
-	}
-}
-
-// X
-.animate .data-close:before {
-	clip-path: polygon(100% 0, 33% 48%, 0 100%);
-}
-.animate .data-close:after {
-	clip-path: polygon(0 0, 30% 45%, 100% 100%);
 }
 
 .data-title {
