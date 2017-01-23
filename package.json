@@ -26,7 +26,7 @@
     "serve": "browser-sync start --server --files 'dist/css/*.css, dist/js/*.js, dist/archived/**, **/*.html, !node_modules/**/*.html'",
     "build:css": "npm run scss && npm run autoprefixer",
     "build:lint": "npm run lint",
-    "build:js": "npm run uglify",
+    "build:js": "npm run build:lint && npm run uglify",
     "build:archived": "cp -R src/archived/ dist/archived",
     "build:images": "npm run imagemin",
     "build:html": "html-minifier --input-dir ./ --output-dir dist/ --collapse-whitespace --file-ext html",

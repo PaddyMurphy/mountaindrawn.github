@@ -10,6 +10,8 @@ module.exports = {
     "rules": {
     	"indent": [2, "tab"],
 		"no-tabs": 0,
-     	"semi": [1, "always"]
+     	"semi": [1, "always"],
+     	"space-before-function-paren": ["error", "never"],
+     	"one-var": [0, "error"]
     }
 };
