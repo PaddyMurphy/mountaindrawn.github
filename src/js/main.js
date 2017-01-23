@@ -9,8 +9,7 @@ var Hammer = Hammer || {};
 
 // mountaindrawn
 $(function() {
-	var dataMountain = document.body.dataset.mountain,
-		navLeft = document.querySelector('.nav-left'),
+	var navLeft = document.querySelector('.nav-left'),
 		navRight = document.querySelector('.nav-right'),
 		navEarth = document.querySelector('.nav-earth'),
 		dataClose = document.querySelector('.data-close'),
@@ -33,6 +32,7 @@ $(function() {
 	}
 
 	dataClose.addEventListener('click', closeDateBox);
+	data.addEventListener('click', viewMountain);
 
 	window.addEventListener('resize', sizeshards);
 
@@ -58,7 +58,7 @@ $(function() {
 
 	function initialize() {
 		// populate the first mountain
-		setData(dataMountain);
+		setData(document.body.dataset.mountain);
 		routes();
 		// earthSequence();
 		sizeshards();
@@ -122,6 +122,12 @@ $(function() {
 		getMountainImages(mountain);
 	}
 
+	function viewMountain(e) {
+		if (document.body.dataset.mountain === 'earth') {
+			navigate(e.currentTarget.dataset.mountain);
+		}
+	}
+
 	function setData(newMountain) {
 		// @requires mewMountain (string)
 		var newMountainData = mountainData[newMountain],
@@ -138,6 +144,7 @@ $(function() {
 			dataContent.innerHTML = TemplateEngine(template, newMountainData);
 			// show the data box
 			data.classList.remove('transparent', 'animate');
+			data.dataset.mountain = newMountain;
 		} else {
 			data.classList.add('transparent');
 			title.innerHTML = '';
@@ -260,7 +267,7 @@ $(function() {
 		var mainRoute = {
 			path: '#/:name',
 			before: function() {
-				// if currentMountain is not === name then set dataMountain
+				// if currentMountain is not === name then set mountain
 				if (document.body.dataset.mountain !== this.params.name) {
 					navigate(this.params.name);
 				}
@@ -268,7 +275,6 @@ $(function() {
 					// debounce
 					window.setTimeout(function() {
 						earthSequence();
-						console.log('timeout');
 					}, 0);
 				}
 				this.task.done();
