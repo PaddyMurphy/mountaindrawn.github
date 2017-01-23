@@ -209,7 +209,7 @@ $(function() {
 		var baseURL = '../dist/images/photos/mtn-',
 			docFrag = document.createDocumentFragment(),
 			images = document.querySelector('.photos'),
-			exclude = ['earth', 'blanca-traverse'],
+			exclude = ['earth'],
 			photo = '',
 			photoHref = '',
 			photoSmall = baseURL + 'sm-',
