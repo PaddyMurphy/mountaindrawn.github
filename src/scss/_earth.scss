@@ -545,11 +545,12 @@ body[data-mountain="earth"] {
 			rgba(254,254,254,1) 100%);
 
 		height: 1px;
-		width: 200px;
 		opacity: 0.3;
 		position: relative;
+		// top, left, and width get overridden in js
 		top: 1vh;
 		left: 40vw;
+		width: 200px;
 		// do not transition visibility
 		transition: opacity 0.8s, transform 0.8s;
 		transform: rotate(45deg) translate(0);

@@ -28,7 +28,7 @@ $(function() {
 
 	dataClose.addEventListener('click', closeDateBox);
 	data.addEventListener('click', viewMountain);
-
+	shootingStar.addEventListener('transitionend', shootingStarEnd);
 	window.addEventListener('resize', sizeshards);
 
 	// keyboard navigation
@@ -55,7 +55,6 @@ $(function() {
 		// populate the first mountain
 		setData(document.body.dataset.mountain);
 		routes();
-		// earthSequence();
 		sizeshards();
 		// lightbox options
 		lightbox.option({
@@ -184,27 +183,23 @@ $(function() {
 		shootingStar.classList.add('animate');
 	}
 
+	function shootingStarEnd() {
+		// remove animation class
+		shootingStar.classList.remove('animate');
+	}
+
 	// earth sequence
 	function earthSequence() {
-		// console.log('earthSequence');
-		// NOTE: ensure timing exceeds transition timing
-		var timing = 10000,
-			rand;
-
-		shootingStar.addEventListener('transitionend', function(event) {
-			// remove animation class
-			shootingStar.classList.remove('animate');
-		}, false);
-
+		// reset the mountain shortcuts
 		mtnShortcutReset();
-
+		// animate the shooting star
+		// NOTE: ensure timing exceeds transition timing
 		(function loop() {
-			rand = Math.round(Math.random() * timing) + (Math.random() * (timing / 2));
 			// activate shooting star at random interval
 			setTimeout(function() {
 				animateShootingStar();
 				loop();
-			}, Math.floor(rand));
+			}, getRandomInRange(4000, 12000));
 		}());
 	}
 
