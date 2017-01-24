@@ -1,11 +1,5 @@
 // eslint settings
-/* global areClipPathShapesSupported, lightbox, mountainData, $, TemplateEngine, Router */
-
-// TODO: test for clip-path support
-// deliver svg illustrations instead? or png
-
-// var mountainData = mountainData || {};
-var Hammer = Hammer || {};
+/* global areClipPathShapesSupported, lightbox, Hammer, mountainData, $, TemplateEngine, Router */
 
 // mountaindrawn
 $(function() {
@@ -18,6 +12,7 @@ $(function() {
 		dataContent = data.querySelector('.data-content'),
 		swipeElement = document.querySelector('.container'),
 		mtnShortcuts = document.querySelectorAll('.earth-mtn'),
+		shootingStar = document.querySelector('.shooting-star'),
 		touch = new Hammer(swipeElement),
 		mountainList = Object.keys(mountainData),
 		length = mountainList.length,
@@ -174,10 +169,43 @@ $(function() {
 		mountains.style.height = h + 'px';
 	}
 
+	function getRandomInRange(min, max) {
+		// return an interger from a range
+		return Math.round((Math.random() * (max - min) + min));
+	}
+
+	function animateShootingStar() {
+		// keep at top half of screen
+		// set new top, left, and width
+		shootingStar.style.top = getRandomInRange(-10, 30) + 'vh';
+		shootingStar.style.left = getRandomInRange(-20, 70) + 'vw';
+		shootingStar.style.width = getRandomInRange(100, 350) + 'px';
+		// start animation
+		shootingStar.classList.add('animate');
+	}
+
 	// earth sequence
 	function earthSequence() {
 		// console.log('earthSequence');
+		// NOTE: ensure timing exceeds transition timing
+		var timing = 10000,
+			rand;
+
+		shootingStar.addEventListener('transitionend', function(event) {
+			// remove animation class
+			shootingStar.classList.remove('animate');
+		}, false);
+
 		mtnShortcutReset();
+
+		(function loop() {
+			rand = Math.round(Math.random() * timing) + (Math.random() * (timing / 2));
+			// activate shooting star at random interval
+			setTimeout(function() {
+				animateShootingStar();
+				loop();
+			}, Math.floor(rand));
+		}());
 	}
 
 	// click mtn shortcut
