@@ -35,7 +35,12 @@ body[data-mountain="earth"] {
 	.data {
 		background-color: rgba(255, 255, 255, 0.7);
 		cursor: pointer;
+		position: relative;
 		transition: 0.30s $shard-easing;
+
+		@include mquery(small) {
+			position: absolute;
+		}
 
 		&:before {
 			@extend .psuedo-element;
@@ -548,8 +553,8 @@ body[data-mountain="earth"] {
 		opacity: 0.3;
 		position: relative;
 		// top, left, and width get overridden in js
-		top: 1vh;
-		left: 40vw;
+		top: 0;
+		left: 0;
 		width: 200px;
 		// do not transition visibility
 		transition: opacity 0.8s, transform 0.8s;

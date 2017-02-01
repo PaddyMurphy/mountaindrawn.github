@@ -61,6 +61,10 @@ $(function() {
 			'resizeDuration': 250,
 			'wrapAround': true
 		});
+		// init earth sequence
+		if (document.body.dataset.mountain === 'earth') {
+			earthSequence();
+		}
 		// test for clip-path support
 		if (areClipPathShapesSupported()) {
 			document.body.classList.remove('no-clip-path');
@@ -178,7 +182,7 @@ $(function() {
 		// set new top, left, and width
 		shootingStar.style.top = getRandomInRange(-10, 30) + 'vh';
 		shootingStar.style.left = getRandomInRange(-20, 70) + 'vw';
-		shootingStar.style.width = getRandomInRange(100, 350) + 'px';
+		shootingStar.style.width = getRandomInRange(10, 35) + 'vw';
 		// start animation
 		shootingStar.classList.add('animate');
 	}
@@ -191,6 +195,7 @@ $(function() {
 	// earth sequence
 	function earthSequence() {
 		// reset the mountain shortcuts
+		console.log('earthSequence');
 		mtnShortcutReset();
 		// animate the shooting star
 		// NOTE: ensure timing exceeds transition timing
