@@ -41,217 +41,185 @@ body[data-mountain="bugaboo"] {
 	}
 
 	// tiles read left to right and back
-	.shard-wrap {
+	.mountains > .rock {
 		&:nth-child(1) {
-			.shard {
-				background-color: $bugaboo-shade-30;
-				background-image: url('../images/img-noise.png');
-				clip-path: polygon( 33.800% 61.000%, 38.200% 73.667%, 14.000% 90.333% );
-			}
+		    background-color: $bugaboo-shade-30;
+		    background-image: url('../images/img-noise.png');
+		    clip-path: polygon( 33.800% 61.000%, 38.200% 73.667%, 14.000% 90.333%);
 		}
+
 		&:nth-child(2) {
-			.shard {
-				background-color: $bugaboo-shade-60;
-				clip-path: polygon( 38.200% 73.333%, 23.400% 89.000%, 13.800% 90.667% );
-			}
+		    background-color: $bugaboo-shade-60;
+		    clip-path: polygon( 38.200% 73.333%, 23.400% 89.000%, 13.800% 90.667%);
 		}
+
 		&:nth-child(3) {
-			.shard {
-				background-color: $bugaboo-shade-30;
-				background-image: url('../images/img-noise.png');
-				clip-path: polygon(21.9% 89.2%, 55.6% 56.333%, 40.2% 89.333%);
-			}
+		    background-color: $bugaboo-shade-30;
+		    background-image: url('../images/img-noise.png');
+		    clip-path: polygon(21.9% 89.2%, 55.6% 56.333%, 40.2% 89.333%);
 		}
+
 		&:nth-child(4) {
-			.shard {
-				background-color: $bugaboo-shade-60;
-				clip-path: polygon( 55.200% 56.667%, 40.000% 89.333%, 61.000% 60.333% );
-			}
+		    background-color: $bugaboo-shade-60;
+		    clip-path: polygon( 55.200% 56.667%, 40.000% 89.333%, 61.000% 60.333%);
 		}
+
 		&:nth-child(5) {
-			.shard {
-				background-color: $bugaboo-dark;
-				clip-path: polygon( 60.800% 60.333%, 40.000% 89.333%, 61.200% 83.667% );
-			}
+		    background-color: $bugaboo-dark;
+		    clip-path: polygon( 60.800% 60.333%, 40.000% 89.333%, 61.200% 83.667%);
 		}
+
 		&:nth-child(6) {
-			.shard {
-				background-color: $bugaboo-shade-60;
-				clip-path: polygon( 60.600% 60.333%, 61.000% 83.667%, 87.600% 98.000% );
-			}
+		    background-color: $bugaboo-shade-60;
+		    clip-path: polygon( 60.600% 60.333%, 61.000% 83.667%, 87.600% 98.000%);
 		}
+
 		&:nth-child(7) {
-			.shard {
-				background-color: $bugaboo-shade-30;
-				background-image: url('../images/img-noise.png');
-				clip-path: polygon( 73.000% 77.667%, 78.000% 72.667%, 87.200% 97.333% );
-			}
+		    background-color: $bugaboo-shade-30;
+		    background-image: url('../images/img-noise.png');
+		    clip-path: polygon( 73.000% 77.667%, 78.000% 72.667%, 87.200% 97.333%);
 		}
+
 		&:nth-child(8) {
-			.shard {
-				background-color: $bugaboo-light;
-				clip-path: polygon(60.6% 60.333%, 73% 77.667%, 78.2% 72.667%);
-			}
+		    background-color: $bugaboo-light;
+		    clip-path: polygon(60.6% 60.333%, 73% 77.667%, 78.2% 72.667%);
 		}
+
 		&:nth-child(9) {
-			.shard {
-				background-color: $bugaboo-shade-60;
-				clip-path: polygon( 55.400% 56.667%, 38.000% 74.000%, 50.800% 28.667%  );
-			}
+		    background-color: $bugaboo-shade-60;
+		    clip-path: polygon( 55.400% 56.667%, 38.000% 74.000%, 50.800% 28.667%);
 		}
+
 		&:nth-child(10) {
-			.shard {
-				background-color: $bugaboo-dark;
-				clip-path: polygon( 38.100% 73.667%, 44.600% 51.000%, 39.200% 42.333% );
-			}
+		    background-color: $bugaboo-dark;
+		    clip-path: polygon( 38.100% 73.667%, 44.600% 51.000%, 39.200% 42.333%);
 		}
+
 		&:nth-child(11) {
-			.shard {
-				background-color: $bugaboo-shade-60;
-				clip-path: polygon( 38.200% 73.333%, 39.200% 49.000%, 33.000% 62.000% );
-			}
+		    background-color: $bugaboo-shade-60;
+		    clip-path: polygon( 38.200% 73.333%, 39.200% 49.000%, 33.000% 62.000%);
 		}
+
 		&:nth-child(12) {
-			.shard {
-				background-color: $bugaboo-shade-30;
-				background-image: url('../images/img-noise.png');
-				clip-path: polygon( 55.400% 58.300%, 48.200% 16.000%, 53.200% 21.333% );
-			}
+		    background-color: $bugaboo-shade-30;
+		    background-image: url('../images/img-noise.png');
+		    clip-path: polygon( 55.400% 58.300%, 48.200% 16.000%, 53.200% 21.333%);
 		}
+
 		&:nth-child(13) {
-			.shard {
-				background-color: $bugaboo-dark;
-				clip-path: polygon( 53.200% 22.333%, 55.200% 56.333%, 55.400% 22.333% );
-			}
+		    background-color: $bugaboo-dark;
+		    clip-path: polygon( 53.200% 22.333%, 55.200% 56.333%, 55.400% 22.333%);
 		}
+
 		&:nth-child(14) {
-			.shard {
-				background-color: $bugaboo-shade-30;
-				background-image: url('../images/img-noise.png');
-				clip-path: polygon( 55.200% 57.333%, 55.200% 23.667%, 60.600% 60.000% );
-			}
+		    background-color: $bugaboo-shade-30;
+		    background-image: url('../images/img-noise.png');
+		    clip-path: polygon( 55.200% 57.333%, 55.200% 23.667%, 60.600% 60.000%);
 		}
+
 		&:nth-child(15) {
-			.shard {
-				background-color: $bugaboo-light;
-				clip-path: polygon( 55.200% 24.333%, 60.800% 60.667%, 70.000% 52.000% );
-			}
+		    background-color: $bugaboo-light;
+		    clip-path: polygon( 55.200% 24.333%, 60.800% 60.667%, 70.000% 52.000%);
 		}
+
 		&:nth-child(16) {
-			.shard {
-				background-color: $bugaboo-shade-30;
-				background-image: url('../images/img-noise.png');
-				clip-path: polygon( 60.400% 60.333%, 70.000% 52.000%, 73.200% 69.000% );
-			}
+		    background-color: $bugaboo-shade-30;
+		    background-image: url('../images/img-noise.png');
+		    clip-path: polygon( 60.400% 60.333%, 70.000% 52.000%, 73.200% 69.000%);
 		}
+
 		&:nth-child(17) {
-			.shard {
-				background-color: $bugaboo-dark;
-				clip-path: polygon( 44.200% 23.333%, 50.680% 29.000%, 44.400% 51.333%  );
-			}
+		    background-color: $bugaboo-dark;
+		    clip-path: polygon( 44.200% 23.333%, 50.680% 29.000%, 44.400% 51.333%);
 		}
+
 		&:nth-child(18) {
-			.shard {
-				background-color: $bugaboo-shade-60;
-				clip-path: polygon( 40.000% 44.000%, 44.600% 51.000%, 44.400% 23.667% );
-			}
+		    background-color: $bugaboo-shade-60;
+		    clip-path: polygon( 40.000% 44.000%, 44.600% 51.000%, 44.400% 23.667%);
 		}
+
 		&:nth-child(19) {
-			.shard {
-				background-color: $bugaboo-shade-60;
-				clip-path: polygon( 44.200% 23.667%, 46.200% 25.333%, 45.400% 14.333% );
-			}
+		    background-color: $bugaboo-shade-60;
+		    clip-path: polygon( 44.200% 23.667%, 46.200% 25.333%, 45.400% 14.333%);
 		}
+
 		&:nth-child(20) {
-			.shard {
-				background-color: $bugaboo-light;
-				clip-path: polygon( 45.000% 11.000%, 46.200% 25.667%, 47.400% 15.333% );
-			}
+		    background-color: $bugaboo-light;
+		    clip-path: polygon( 45.000% 11.000%, 46.200% 25.667%, 47.400% 15.333%);
 		}
+
 		&:nth-child(21) {
-			.shard {
-				background-color: $bugaboo-shade-30;
-				background-image: url('../images/img-noise.png');
-				clip-path: polygon( 47.000% 14.667%, 46.400% 25.333%, 50.800% 29.333% );
-			}
+		    background-color: $bugaboo-shade-30;
+		    background-image: url('../images/img-noise.png');
+		    clip-path: polygon( 47.000% 14.667%, 46.400% 25.333%, 50.800% 29.333%);
 		}
+
 		&:nth-child(22) {
-			.shard {
-				background-color: $bugaboo-shade-60;
-				clip-path: polygon( 47.200% 15.000%, 50.600% 29.333%, 49.600% 16.000% );
-			}
+		    background-color: $bugaboo-shade-60;
+		    clip-path: polygon( 47.200% 15.000%, 50.600% 29.333%, 49.600% 16.000%);
 		}
+
 		&:nth-child(23) {
-			// snow
-			animation: drift 7s 2s ease infinite;
-			z-index: 0;
-			.shard {
-				background-color: #fff;
-				clip-path: polygon( 45.000% 11.667%, 45.600% 14.000%, 45.600% 13.333%  );
-			}
+		    // snow
+		    animation: drift 7s 2s ease infinite;
+		    z-index: 0;
+		    background-color: #fff;
+		    clip-path: polygon( 45.000% 11.667%, 45.600% 14.000%, 45.600% 13.333%);
 		}
+
 		&:nth-child(24) {
-			// snow
-			animation: drift 4s 3s ease infinite;
-			z-index: 0;
-			.shard {
-				background-color: #fff;
-				clip-path: polygon( 46.400% 14.333%, 45.600% 16.000%, 46.600% 16.667% );
-			}
+		    // snow
+		    animation: drift 4s 3s ease infinite;
+		    z-index: 0;
+		    background-color: #fff;
+		    clip-path: polygon( 46.400% 14.333%, 45.600% 16.000%, 46.600% 16.667%);
 		}
+
 		&:nth-child(25) {
-			// snow
-			animation: drift 6s 3s ease infinite;
-			z-index: 0;
-			.shard {
-				background-color: #fff;
-				clip-path: polygon( 45.800% 15.000%, 46.600% 16.000%, 46.000% 16.667% );
-			}
+		    // snow
+		    animation: drift 6s 3s ease infinite;
+		    z-index: 0;
+		    background-color: #fff;
+		    clip-path: polygon( 45.800% 15.000%, 46.600% 16.000%, 46.000% 16.667%);
 		}
+
 		&:nth-child(26) {
-			// person
-			animation: hike 13s 5s forwards;
-			.shard {
-				background-color: #4180AB;
-				clip-path: polygon( 30.400% 93.333%, 31.200% 97.667%, 31.600% 93.333% );
-			}
+		    // person
+		    animation: hike 13s 5s forwards;
+		    background-color: #4180AB;
+		    clip-path: polygon( 30.400% 93.333%, 31.200% 97.667%, 31.600% 93.333%);
 		}
+
 		&:nth-child(27) {
-			// person
-			animation: hike 13s 5.4s forwards;
-			.shard {
-				background-color: #ef4f4f;
-				clip-path: polygon( 34.200% 91.000%, 34.600% 96.667%, 34.800% 91.667% );
-			}
+		    // person
+		    animation: hike 13s 5.4s forwards;
+		    background-color: #ef4f4f;
+		    clip-path: polygon( 34.200% 91.000%, 34.600% 96.667%, 34.800% 91.667%);
 		}
+
 		&:nth-child(28) {
-			// person
-			animation: hike 13s 5.6s forwards;
-			.shard {
-				background-color: #259224;
-				clip-path: polygon( 31.400% 93.667%, 32.600% 93.667%, 32.000% 98.667% );
-			}
+		    // person
+		    animation: hike 13s 5.6s forwards;
+		    background-color: #259224;
+		    clip-path: polygon( 31.400% 93.667%, 32.600% 93.667%, 32.000% 98.667%);
 		}
+
 		&:nth-child(29) {
-			// rock
-			animation: rockfall 1200ms 13s ease-out forwards;
-			.shard {
-				animation: colorRocks 150ms 13s forwards;
-				background-color: $bugaboo-shade-60;
-				clip-path: polygon( 48.800% 20.000%, 49.400% 22.667%, 49.800% 20.667% );
-			}
+		    // rock
+		    animation: rockfall 1200ms 13s ease-out forwards;
+		    animation: colorRocks 150ms 13s forwards;
+		    background-color: $bugaboo-shade-60;
+		    clip-path: polygon( 48.800% 20.000%, 49.400% 22.667%, 49.800% 20.667%);
 		}
+
 		&:nth-child(30) {
-			// rock
-			animation: rockfall 1300ms 13.2s ease-out forwards;
-			.shard {
-				animation: colorRocks 150ms 13s forwards;
-				background-color: $bugaboo-shade-60;
-				clip-path: polygon( 49.000% 20.333%, 49.800% 20.333%, 49.200% 21.000% );
-			}
+		    // rock
+		    animation: rockfall 1300ms 13.2s ease-out forwards;
+		    animation: colorRocks 150ms 13s forwards;
+		    background-color: $bugaboo-shade-60;
+		    clip-path: polygon( 49.000% 20.333%, 49.800% 20.333%, 49.200% 21.000%);
 		}
-		//
-	} // END .shard-wrap
+	} // END .mountains
 }
 // TODO: figure out scaling and rotating? 100% widths
 

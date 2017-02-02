@@ -193,9 +193,9 @@ $(function() {
 	}
 
 	// earth sequence
+	// TODO: executes twice on /#/earth bookmarked route
 	function earthSequence() {
 		// reset the mountain shortcuts
-		console.log('earthSequence');
 		mtnShortcutReset();
 		// animate the shooting star
 		// NOTE: ensure timing exceeds transition timing
@@ -204,7 +204,7 @@ $(function() {
 			setTimeout(function() {
 				animateShootingStar();
 				loop();
-			}, getRandomInRange(4000, 12000));
+			}, getRandomInRange(5000, 12000));
 		}());
 	}
 

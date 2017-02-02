@@ -36,201 +36,141 @@ body[data-mountain="tetons"] {
 	}
 
 	// tiles read left to right and back
-	.shard-wrap {
+	.mountains > .rock {
 		&:nth-child(30) {
-			.shard {
 				background-color: #8B644C;
 				clip-path: polygon( 10.800% 85.000%, 10.200% 84.000%, 10.600% 86.000% );
-			}
 		}
 		&:nth-child(29) {
-			.shard {
 				background-color: #AE704A;
 				clip-path: polygon( 10.800% 84.667%, 14.800% 83.333%, 15.200% 84.667% );
-			}
 		}
 		&:nth-child(28) {
-			.shard {
 				background-color: $tetons-shade-60;
 				clip-path: polygon( 29.200% 91.333%, 32.600% 91.667%, 30.600% 82.333% );
-			}
 		}
 		&:nth-child(27) {
-			.shard {
 				background-color: $tetons-dark;
 				clip-path: polygon( 22.400% 75.000%, 25.400% 74.667%, 23.800% 68.000% );
-			}
 		}
 		&:nth-child(26) {
 			// tree
-			.shard {
 				background-color: $tetons-shade-60;
 				clip-path: polygon( 5.200% 70.667%, 8.600% 70.667%, 6.800% 63.667% );
-			}
 		}
 		&:nth-child(25) {
 			// tree
-			.shard {
 				background-color: $tetons-dark;
 				clip-path: polygon( 6.800% 67.667%, 9.800% 68.333%, 8.200% 61.000% );
-			}
 		}
 		&:nth-child(24) {
 			// lake
-			.shard {
 				background-color: #7CA3E7;
 				clip-path: polygon( 0.000% 71.333%, 31.400% 88.667%, 26.000% 76.333% );
-			}
 		}
 		&:nth-child(23) {
 			// lake
-			.shard {
 				background-color: #98B9F3;
 				clip-path: polygon( 0.400% 71.333%, 8.000% 92.333%, 28.200% 86.667% );
-			}
 		}
 		&:nth-child(22) {
-			.shard {
 				background-color: $tetons-shade-30;
 				background-image: url('../images/img-noise.png');
 				clip-path: polygon( 47.600% 3.000%, 53.200% 11.000%, 52.600% 0.000% );
-			}
 		}
 		&:nth-child(21) {
-			.shard {
 				background-color: $tetons-light;
 				clip-path: polygon( 40.000% 11.667%, 54.800% 13.000%, 47.800% 2.667% );
-			}
 		}
 		&:nth-child(20) {
-			.shard {
 				background-color: $tetons-light;
 				clip-path: polygon( 41.900% 28.500%, 54.600% 12.333%, 54.600% 22.000% );
-			}
 		}
 		&:nth-child(19) {
-			.shard {
 				background-color: $tetons-shade-30;
 				background-image: url('../images/img-noise.png');
 				clip-path: polygon( 40.000% 11.667%, 42.000% 28.667%, 54.800% 12.667% );
-			}
 		}
 		&:nth-child(18) {
-			.shard {
 				background-color: $tetons-shade-60;
 				clip-path: polygon( 35.400% 20.000%, 40.200% 11.000%, 42.000% 28.000% );
-			}
 		}
 		&:nth-child(17) {
-			.shard {
 				background-color: $tetons-shade-30;
 				background-image: url('../images/img-noise.png');
 				clip-path: polygon( 31.600% 23.000%, 35.600% 20.000%, 42.600% 28.333% );
-			}
 		}
 		&:nth-child(16) {
-			.shard {
 				background-color: $tetons-dark;
 				clip-path: polygon( 26.400% 38.000%, 31.800% 22.667%, 42.400% 28.333%);
-			}
 		}
 		&:nth-child(15) {
-			.shard {
 				background-color: $tetons-shade-60;
 				clip-path: polygon( 54.800% 22.000%, 39.200% 47.333%, 37.400% 31.000% );
-			}
 		}
 		// NOTE: out of order to fix animation order
 		&:nth-child(1) {
-			.shard {
 				background-color: $tetons-shade-30;
 				clip-path: polygon( 1.800% 61.000%, 12.000% 57.667%, 26.600% 70.333% );
-			}
 		}
 		&:nth-child(2) {
-			.shard {
 				background-color: $tetons-dark;
 				clip-path: polygon( 11.800% 58.000%, 22.600% 40.667%, 26.800% 70.667% );
-			}
 		}
 		&:nth-child(3) {
-			.shard {
 				background-color: $tetons-shade-30;
 				background-image: url('../images/img-noise.png');
 				clip-path: polygon( 26.800% 70.667%, 22.600% 40.333%, 26.600% 38.000% );
-			}
 		}
 		&:nth-child(4) {
-			.shard {
 				background-color: $tetons-shade-60;
 				clip-path: polygon( 26.600% 70.333%, 26.400% 38.000%, 37.600% 31.000%  );
-			}
 		}
 		&:nth-child(5) {
-			.shard {
 				background-color: $tetons-dark;
 				clip-path: polygon( 37.600% 31.000%, 26.600% 70.333%, 39.200% 46.667% );
-			}
 		}
 		&:nth-child(6) {
-			.shard {
 				background-color: $tetons-shade-60;
 				clip-path: polygon( 26.600% 70.333%, 39.400% 46.333%, 40.000% 89.333% );
-			}
 		}
 		&:nth-child(7) {
-			.shard {
 				background-color: $tetons-shade-30;
 				background-image: url('../images/img-noise.png');
 				clip-path: polygon( 39.800% 89.000%, 39.200% 46.667%, 52.400% 74.667% );
-			}
 		}
 		&:nth-child(8) {
-			.shard {
 				background-color: $tetons-dark;
 				clip-path: polygon( 39.200% 47.000%, 52.400% 75.000%, 50.400% 53.000% );
-			}
 		}
 		&:nth-child(9) {
-			.shard {
 				background-color: $tetons-shade-60;
 				clip-path: polygon( 50.200% 53.000%, 52.400% 75.333%, 72.200% 77.333% );
-			}
 		}
 		&:nth-child(10) {
-			.shard {
 				background-color: $tetons-shade-30;
 				background-image: url('../images/img-noise.png');
 				clip-path: polygon( 50.400% 53.333%, 65.400% 48.333%, 72.000% 77.333% );
-			}
 		}
 		&:nth-child(11) {
-			.shard {
 				background-color: $tetons-light;
 				clip-path: polygon( 50.400% 53.667%, 62.600% 33.000%, 65.200% 48.333% );
-			}
 		}
 		&:nth-child(12) {
-			.shard {
 				background-color: $tetons-shade-30;
 				background-image: url('../images/img-noise.png');
 				clip-path: polygon( 62.600% 33.333%, 50.400% 53.667%, 57.000% 24.333% );
-			}
 		}
 		&:nth-child(13) {
-			.shard {
 				background-color: $tetons-light;
 				clip-path: polygon( 50.400% 54.000%, 57.200% 24.667%, 54.600% 22.000% );
-			}
 		}
 		&:nth-child(14) {
-			.shard {
 				background-color: $tetons-shade-30;
 				background-image: url('../images/img-noise.png');
 				clip-path: polygon( 50.600% 53.667%, 55.000% 21.667%, 39.400% 47.000% );
-			}
 		}
-	} // END .shard-wrap
+	} // END .mountains
 }
 
 

@@ -13,10 +13,10 @@ $earth-mountain: #744690;
 
 $data-width: 25vw;
 
-$number-shards: 30;
+$number-rocks: 30;
 $transition-speed: 1.3s;
 // http://easings.net/#easeInOutCirc
-$shard-easing: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$rock-easing: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
 // media queries
 @mixin mquery($size) {
