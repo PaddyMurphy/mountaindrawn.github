@@ -88,6 +88,7 @@ $(function() {
 		// start at end again if at beginning
 		newMountain = (currentMountain === 0) ? nLength : (currentMountain - 1);
 		// change mountain
+		console.log(newMountain);
 		navigate(newMountain);
 	}
 
@@ -281,10 +282,10 @@ $(function() {
 	} // END getMountainImages
 
 	function checkKey(e) {
-		if (e.keyCode === '37') {
+		if (e.keyCode === 37) {
 			// left arrow
 			navigateLeft(e);
-		} else if (e.keyCode === '39') {
+		} else if (e.keyCode === 39) {
 			// right arrow
 			navigateRight(e);
 		}
