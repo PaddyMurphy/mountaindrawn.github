@@ -62,7 +62,7 @@ body[data-mountain="earth"] {
 	}
 
 	.about-block,
-	.about-title {
+	.about-container h3 {
 		color: rgba(255, 255, 255, 0.8);
 	}
 
@@ -79,10 +79,6 @@ body[data-mountain="earth"] {
 	// earth only photos
 	.earth-photos {
 		@extend .show;
-
-		img {
-			cursor: pointer;
-		}
 	}
 
 	// alternate earthshine

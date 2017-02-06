@@ -1,5 +1,5 @@
 // eslint settings
-/* global areClipPathShapesSupported, LazyLoad, lightbox, Hammer, mountainData, $, TemplateEngine, Router */
+/* global areClipPathShapesSupported, LazyLoad, lightbox, mountainData, $, TemplateEngine, Router */
 
 // mountaindrawn
 $(function() {
@@ -10,10 +10,8 @@ $(function() {
 		title = document.querySelector('.title'),
 		data = document.querySelector('.data'),
 		dataContent = data.querySelector('.data-content'),
-		swipeElement = document.querySelector('.container'),
 		mtnShortcuts = document.querySelectorAll('.earth-mtn'),
 		shootingStar = document.querySelector('.shooting-star'),
-		touch = new Hammer(swipeElement),
 		mountainList = Object.keys(mountainData),
 		length = mountainList.length,
 		nLength = length - 1, // normalized length
@@ -39,18 +37,6 @@ $(function() {
 	// allow lightbox to launch
 	$('.photos').on('click', 'a', function(e) {
 		e.preventDefault();
-	});
-
-	// listen to swipe events...
-	// TODO: fix swipe events
-	touch.on('swipeleft', function(e) {
-		console.log('swipeleft');
-		navigateLeft(e);
-	});
-
-	touch.on('swipeRight', function(e) {
-		console.log('swipeRight');
-		navigateRight(e);
 	});
 
 	function initialize() {
@@ -251,6 +237,7 @@ $(function() {
 			docFrag = document.createDocumentFragment(),
 			images = document.querySelector('.photos'),
 			exclude = ['earth'],
+			title = document.createElement('h3'),
 			photo = '',
 			photoHref = '',
 			photoSmall = baseURL + 'sm-',
@@ -263,6 +250,10 @@ $(function() {
 		if (!mountain || exclude.indexOf(mountain) !== -1) {
 			return false;
 		}
+
+		// add title
+		title.textContent = mountainData[mountain].title + ' photos';
+		docFrag.append(title);
 
 		// load 4 photos
 		for (var i = 0; i < 4; i++) {
