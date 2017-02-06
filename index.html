@@ -62,37 +62,31 @@
 
 		<div class="mountains-wrapper">
 			<div class="mountains">
-				<!-- 1 - 5 -->
 				<div class="rock"></div>
 				<div class="rock"></div>
 				<div class="rock"></div>
 				<div class="rock"></div>
 				<div class="rock"></div>
-				<!-- 6 - 10 -->
 				<div class="rock"></div>
 				<div class="rock"></div>
 				<div class="rock"></div>
 				<div class="rock"></div>
 				<div class="rock"></div>
-				<!-- 11 - 15 -->
 				<div class="rock"></div>
 				<div class="rock"></div>
 				<div class="rock"></div>
 				<div class="rock"></div>
 				<div class="rock"></div>
-				<!-- 16 - 20 -->
 				<div class="rock"></div>
 				<div class="rock"></div>
 				<div class="rock"></div>
 				<div class="rock"></div>
 				<div class="rock"></div>
-				<!-- 21 - 25 -->
 				<div class="rock"></div>
 				<div class="rock"></div>
 				<div class="rock"></div>
 				<div class="rock"></div>
 				<div class="rock"></div>
-				<!-- 26 - 30 -->
 				<div class="rock"></div>
 				<div class="rock"></div>
 				<div class="rock"></div>
@@ -136,28 +130,33 @@
 				<h3>About</h3>
 				<p>Mountaindrawn is the personal site of UI/UX developer Patrick Lewis. The original site  built 7 years ago was a challenge for myself to create a hand drawn website featuring climbing trips (I kept an <a href="/dist/archived/blog/index.html">archived version</a>).</p>
 
-				<p>The current revision of mountaindrawn illustrates climbing trips using more recent technology than the pen & ink and watercolor used to create the original.</p>
+				<p>The current revision of mountaindrawn illustrates climbing trips using more recent technology than the pen & ink and watercolor used to create the original. The original idea was to use all svg but after reading the <a href="https://www.html5rocks.com/en/tutorials/masking/adobe/">htmlrocks article on clipping</a> and seeing the amazingly simple <a href="http://species-in-pieces.com/">species-in-pieces</a> project I went with css clip-path. Svg illustrations are displayed if clip-path is not supported. (see <a href="http://caniuse.com/#search=clip-path">current support</a>)</p>
+
+				<p>The main purpose for doing this project was to learn some new technologies and techniques. Much of what I learned came from other blog posts, articles and examples on codepen. Feel free to learn from and use the <a href="https://github.com/PaddyMurphy/paddymurphy.github.io">source of this project.</a></p>
+
+				<p>The <a href="/dist/archived/apps/riverflow/index.html">Texas Riverflow app</a> is still available.</p>
 			</div>
 
 			<div class="photos-container">
 				<div class="photos"></div>
 				<div class="earth-photos">
 					<h3>The Mountains</h3>
-					<a href="#/bugaboo">
-						<img data-original="dist/images/photos/mtn-sm-bugaboo-1.jpg" width="150" height="150">
+					<a href="#/bugaboo" class="earth-mtn-hover" data-mountain="bugaboo">
+						<img data-original="dist/images/photos/mtn-sm-bugaboo-1.jpg" width="150" height="150" title="The Bugaboos">
 					</a>
-					<a href="#/blanca-traverse">
-						<img data-original="dist/images/photos/mtn-sm-blanca-traverse-1.jpg" width="150" height="150">
+					<a href="#/blanca-traverse" class="earth-mtn-hover" data-mountain="blanca-traverse">
+						<img data-original="dist/images/photos/mtn-sm-blanca-traverse-1.jpg" width="150" height="150" title="Little Bear - Blanca Traverse">
 					</a>
-					<a href="#/tetons">
-						<img data-original="dist/images/photos/mtn-sm-tetons-1.jpg" width="150" height="150">
+					<a href="#/tetons" class="earth-mtn-hover" data-mountain="tetons">
+						<img data-original="dist/images/photos/mtn-sm-tetons-1.jpg" width="150" height="150" title="The Grand Teton">
 					</a>
-					<a href="#/glacier-peak">
-						<img data-original="dist/images/photos/mtn-sm-glacier-peak-1.jpg" width="150" height="150">
+					<a href="#/glacier-peak" class="earth-mtn-hover" data-mountain="glacier-peak">
+						<img data-original="dist/images/photos/mtn-sm-glacier-peak-1.jpg" width="150" height="150" title="Glacier peak">
 					</a>
 				</div>
 			</div>
 		</div>
+		<footer>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike</a>. Take what you need and share.</footer>
 	</div>
 	<div class="satellite-wrapper">
 		<div class="earth-satellite earth-satellite-1"></div>

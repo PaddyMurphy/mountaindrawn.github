@@ -1,3 +1,7 @@
+# Mountaindrawn.com
+
+Personal website of UI/UX developer Patrick Lewis. Feel free to take and use anything you find useful. Build system based off the npm-build-boilerplate
+
 # npm-build-boilerplate
 
 A collection of packages that build a website using `npm scripts`.
@@ -52,11 +56,6 @@ You're ready to go! Run any task by typing `npm run task` (where "task" is the n
   `imagemin src/images/* -o dist/images`
 
   Compress all types of images
-
-### `icons`
-  `svgo -f src/images/icons && mkdir -p dist/images && svg-sprite-generate -d src/images/icons -o dist/images/icons.svg`
-
-  Compress separate SVG files and combine them into one SVG "sprite"
 
 ### `serve`
   `browser-sync start --server --files 'dist/css/*.css, dist/js/*.js, **/*.html, !node_modules/**/*.html'`
