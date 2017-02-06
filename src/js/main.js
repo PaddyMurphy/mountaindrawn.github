@@ -1,6 +1,6 @@
 // eslint settings
 /* global areClipPathShapesSupported, LazyLoad, lightbox, mountainData, $, TemplateEngine, Router */
-
+'use strict';
 // mountaindrawn
 $(function() {
 	var navLeft = document.querySelector('.nav-left'),
@@ -20,12 +20,9 @@ $(function() {
 		newMountain;
 
 	// events
-	if (navLeft && navRight) {
-		navLeft.addEventListener('click', navigateLeft);
-		navRight.addEventListener('click', navigateRight);
-		navEarth.addEventListener('click', navigateEarth);
-	}
-
+	navLeft.addEventListener('click', navigateLeft);
+	navRight.addEventListener('click', navigateRight);
+	navEarth.addEventListener('click', navigateEarth);
 	dataClose.addEventListener('click', closeDateBox);
 	data.addEventListener('click', viewMountain);
 	shootingStar.addEventListener('transitionend', shootingStarEnd);

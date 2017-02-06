@@ -26,6 +26,18 @@ body[data-mountain="earth"] {
 		color: #fff !important;
 	}
 
+	a:link {
+		color: $earth-blue;
+	}
+
+	a:visited {
+		color: darken($earth-blue, 10%);
+	}
+
+	a:hover {
+		color: lighten($earth-blue, 10%);
+	}
+
 	.data {
 		background-color: rgba(255, 255, 255, 0.7);
 		cursor: pointer;

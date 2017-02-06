@@ -14,6 +14,18 @@ body {
 	transition: background-color $transition-speed;
 }
 
+a:link {
+	color: $link-dark;
+}
+
+a:visited {
+	color: darken($link-dark, 10%);
+}
+
+a:hover {
+	color: lighten($link-dark, 10%);
+}
+
 .logo, h1, h2, h3, h4 {
 	color: rgba(0,0,0,0.8);
 	font-family: 'Amatic SC', serif;
@@ -312,7 +324,15 @@ h3 {
 	flex: 0 0 $photo-column-width;
 
 	img {
-		margin-bottom: 5px;
+		display: block;
+		margin-bottom: $default-padding / 2;
+		vertical-align: bottom;
+		height: $photo-width;
+		width: $photo-width;
+	}
+
+	a {
+		float: left;
 	}
 
 	a:nth-child(even) {
