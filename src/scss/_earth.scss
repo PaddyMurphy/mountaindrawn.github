@@ -7,12 +7,6 @@ $earth-dark: #6C8649;
 body[data-mountain="earth"] {
 	background-color: #313644;
 
-	// show mountains
-	.earth-mtn {
-		display: block;
-		visibility: visible;
-	}
-
 	.title-nav {
 		transition: all 0.3s;
 	}
@@ -80,6 +74,15 @@ body[data-mountain="earth"] {
 	}
 	#arrow-bottom {
 		opacity: 0.4;
+	}
+
+	// earth only photos
+	.earth-photos {
+		@extend .show;
+
+		img {
+			cursor: pointer;
+		}
 	}
 
 	// alternate earthshine
@@ -339,7 +342,12 @@ body[data-mountain="earth"] {
 	} // END .mountains
 
 	.earth-mtn {
+		// show mountains
+		display: block;
+		visibility: visible;
+		// style
 		background-color: $earth-mountain;
+		//background: linear-gradient(to right, rgba(116,70,144,1) 30%,rgba(230,221,236,1) 50%,rgba(116,70,144,1) 100%);
 		cursor: pointer;
 		position: absolute;
 		transition: all 0.3s;
@@ -349,6 +357,8 @@ body[data-mountain="earth"] {
 		&.hover {
 			background-color: darken($earth-mountain, 15%);
 		}
+		// snow effect to indicate clickable
+
 	}
 
 	.earth-mtn-bugaboo {
@@ -376,6 +386,7 @@ body[data-mountain="earth"] {
 	}
 
 	.earth-mtn-glacier-peak {
+		animation: snow 9s 8s ease infinite;
 		clip-path: polygon( 36.600% 44.333%, 36.800% 41.333%, 37.600% 44.333% );
 		&:hover,
 		&.hover {

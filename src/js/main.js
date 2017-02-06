@@ -1,5 +1,5 @@
 // eslint settings
-/* global areClipPathShapesSupported, lightbox, Hammer, mountainData, $, TemplateEngine, Router */
+/* global areClipPathShapesSupported, LazyLoad, lightbox, Hammer, mountainData, $, TemplateEngine, Router */
 
 // mountaindrawn
 $(function() {
@@ -17,7 +17,9 @@ $(function() {
 		mountainList = Object.keys(mountainData),
 		length = mountainList.length,
 		nLength = length - 1, // normalized length
-		currentMountain, newMountain;
+		currentMountain,
+		lazyload, // eslint-disable-line no-unused-vars
+		newMountain;
 
 	// events
 	if (navLeft && navRight) {
@@ -56,6 +58,10 @@ $(function() {
 		setData(document.body.dataset.mountain);
 		routes();
 		sizeshards();
+		// don't show images until scroll up
+		lazyload = new LazyLoad({
+			threshold: -50
+		});
 		// lightbox options
 		lightbox.option({
 			'resizeDuration': 250,
@@ -88,7 +94,6 @@ $(function() {
 		// start at end again if at beginning
 		newMountain = (currentMountain === 0) ? nLength : (currentMountain - 1);
 		// change mountain
-		console.log(newMountain);
 		navigate(newMountain);
 	}
 
