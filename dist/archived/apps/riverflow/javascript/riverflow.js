@@ -26,7 +26,7 @@ var flowApp = {
         flickrTags : "",
         flickrURL : "",
         resizeStyle : "",
-        baseURL : "http://waterservices.usgs.gov/nwis/iv/?format=json&sites=",
+        baseURL : "//waterservices.usgs.gov/nwis/iv/?format=json&sites=",
         params : "&parameterCd=00060",
         form : document.getElementById('formRiver'),
         selectRiver : document.getElementById('selectRiver'),
@@ -35,8 +35,8 @@ var flowApp = {
         images : document.querySelector('.image-wrapper'),
         loading : document.querySelector('.loading-message'),
         graphPeriod : 7,
-        baseGraphURL : "http://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&parm_cd=00060",
-        baseMapURL : "http://maps.google.com/?q=",
+        baseGraphURL : "//waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&parm_cd=00060",
+        baseMapURL : "//maps.google.com/?q=",
         apiKey: '6c6069e831fb567b86c7d9b75c82624f',
         flow0 : 'Sorry but this river is bone dry. Try a spring fed river like the San Marcos til we get more rain.',
         flow1 : 'The river is pretty much just a trickle right. Not much good for floating at the moment but a good rain should bring it up',
@@ -82,7 +82,7 @@ var flowApp = {
     },
 
     getCompleteRiverData: function() {
-        // http://waterservices.usgs.gov/nwis/iv/?format=json&sites=08155200,08155240,08155300,08155400&parameterCd=00060
+        // //waterservices.usgs.gov/nwis/iv/?format=json&sites=08155200,08155240,08155300,08155400&parameterCd=00060
     },
 
     formatRiverName: function(name) {
@@ -283,7 +283,7 @@ var flowApp = {
                 //loop through the results with the following function
                 $.each(data.photos.photo, function(i,item){
 
-                    var photoURL = 'http://farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.id + '_' + item.secret;
+                    var photoURL = '//farm' + item.farm + '.static.flickr.com/' + item.server + '/' + item.id + '_' + item.secret;
                     var square = photoURL  + '_q.jpg'; // q = 150sq
                     var photoMedium = photoURL  + '_m.jpg'; // m = 240long
                     var photoLarge = photoURL  + '_b.jpg'; // b = 1024 on longest side,
