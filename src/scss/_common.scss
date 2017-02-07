@@ -305,11 +305,19 @@ h3 {
 .about-container {
 	display: flex;
 	flex-flow: row wrap;
+
+	@include mquery(small) {
+		justify-content: space-around;
+	}
 }
 
 .about-block {
 	flex: 1 0;
 	padding: 0 $default-padding 0 0;
+
+	@include mquery(small) {
+		max-width: 40vw;
+	}
 }
 
 // Photo album
