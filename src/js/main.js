@@ -232,9 +232,9 @@ $(function() {
 		// format: mtn-lg-bugaboo-1.jpg
 		var baseURL = '../dist/images/photos/mtn-',
 			docFrag = document.createDocumentFragment(),
-			images = document.querySelector('.photos'),
+			images = document.querySelector('.data-photos'),
 			exclude = ['earth'],
-			title = document.createElement('h3'),
+			// title = document.createElement('h3'),
 			photo = '',
 			photoHref = '',
 			photoSmall = baseURL + 'sm-',
@@ -249,8 +249,8 @@ $(function() {
 		}
 
 		// add title
-		title.textContent = mountainData[mountain].title + ' photos';
-		docFrag.append(title);
+		// title.textContent = mountainData[mountain].title + ' photos';
+		// docFrag.append(title);
 
 		// load 4 photos
 		for (var i = 0; i < 4; i++) {

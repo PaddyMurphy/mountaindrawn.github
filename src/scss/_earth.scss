@@ -92,11 +92,6 @@ body[data-mountain="earth"] {
 		opacity: 0.4;
 	}
 
-	// earth only photos
-	.earth-photos {
-		@extend .show;
-	}
-
 	// alternate earthshine
 	@keyframes earth-shine-out {
 	    0% {
