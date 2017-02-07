@@ -2,6 +2,13 @@
 
 Personal website of UI/UX developer Patrick Lewis. Feel free to take and use anything you find useful. Build system based off the npm-build-boilerplate
 
+To seamlessly deploy both master and gh-pages branch with 'git push'. Add this to your .git config [remote "origin"]
+
+```
+push = +refs/heads/master:refs/heads/gh-pages
+push = +refs/heads/master:refs/heads/master
+```
+
 # npm-build-boilerplate
 
 A collection of packages that build a website using `npm scripts`.
