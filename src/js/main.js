@@ -110,7 +110,9 @@ $(function() {
 	}
 
 	function viewMountain(e) {
-		if (document.body.dataset.mountain === 'earth') {
+		// navigate to the mountain if it's not the close btn
+		if (document.body.dataset.mountain === 'earth' &&
+			!e.target.classList.contains('data-close')) {
 			navigate(e.currentTarget.dataset.mountain);
 		}
 	}
