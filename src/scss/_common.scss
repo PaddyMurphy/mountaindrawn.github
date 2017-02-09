@@ -140,11 +140,7 @@ h3 {
 	max-height: 400px;
 	overflow-y: auto;
 	font-size: 130%;
-	// account for photos margin
-	padding-top: $default-padding;
-	padding-right: $default-padding / 2;
-	padding-bottom: $default-padding / 2;
-	padding-left: $default-padding;
+	padding: $default-padding;
 	width: 100%;
 	z-index: 5;
 
@@ -349,7 +345,10 @@ h3 {
 
 // photos in data container
 .data-photos {
-	margin-top: $default-padding;
+	display: flex;
+	flex-wrap: wrap;
+	margin: -5px;
+	margin-top: $default-padding / 2;
 
 	img {
 		vertical-align: bottom;
@@ -374,9 +373,8 @@ h3 {
 	}
 
 	a {
-		display: inline-block;
-		margin-bottom: $default-padding / 2;
-		margin-right: $default-padding / 2;
+		margin: 5px;
+		// flex: 0 0;
 	}
 }
 

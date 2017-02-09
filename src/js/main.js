@@ -20,13 +20,13 @@ $(function() {
 		newMountain;
 
 	// events
-	navLeft.addEventListener('click', navigateLeft);
-	navRight.addEventListener('click', navigateRight);
-	navEarth.addEventListener('click', navigateEarth);
-	dataClose.addEventListener('click', closeDateBox);
-	data.addEventListener('click', viewMountain);
-	shootingStar.addEventListener('transitionend', shootingStarEnd);
-	window.addEventListener('resize', sizeshards);
+	navLeft.addEventListener('click', navigateLeft, false);
+	navRight.addEventListener('click', navigateRight, false);
+	navEarth.addEventListener('click', navigateEarth, false);
+	dataClose.addEventListener('click', closeDateBox, false);
+	data.addEventListener('click', viewMountain, false);
+	shootingStar.addEventListener('transitionend', shootingStarEnd, false);
+	window.addEventListener('resize', sizeshards, false);
 
 	// keyboard navigation
 	document.onkeydown = checkKey;
@@ -110,9 +110,10 @@ $(function() {
 	}
 
 	function viewMountain(e) {
-		// navigate to the mountain if it's not the close btn
+		// navigate to the mountain if it's not the close btn or img
 		if (document.body.dataset.mountain === 'earth' &&
-			!e.target.classList.contains('data-close')) {
+			!e.target.classList.contains('data-close') &&
+			e.target.tagName !== 'IMG') {
 			navigate(e.currentTarget.dataset.mountain);
 		}
 	}
@@ -219,6 +220,8 @@ $(function() {
 		setData(e.target.dataset.mountain);
 		// keep selected until another hover
 		mtnShortcutReset();
+		// show the photos
+		getMountainImages(e.target.dataset.mountain);
 
 		e.target.classList.add('hover');
 		data.classList.add('animate');
@@ -287,6 +290,7 @@ $(function() {
 	}
 
 	function routes() {
+		// TODO: use hashChange event to remove hash-router.js
 		// change mountain
 		var mainRoute = {
 			path: '#/:name',
