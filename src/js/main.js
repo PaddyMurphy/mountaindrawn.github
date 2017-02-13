@@ -193,12 +193,12 @@ $(function() {
 
 	// earth sequence
 	function earthSequence() {
+		// reset the mountain shortcuts
+		mtnShortcutReset();
 		// only execute once - occurs on /#/earth bookmarked route
 		if (earthStarted) {
 			return;
 		}
-		// reset the mountain shortcuts
-		mtnShortcutReset();
 		// animate the shooting star
 		// NOTE: ensure timing exceeds transition timing
 		(function loop() {
