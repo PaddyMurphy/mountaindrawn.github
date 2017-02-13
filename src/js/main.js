@@ -16,6 +16,7 @@ $(function() {
 		length = mountainList.length,
 		nLength = length - 1, // normalized length
 		currentMountain,
+		earthStarted = false,
 		lazyload, // eslint-disable-line no-unused-vars
 		newMountain;
 
@@ -37,8 +38,7 @@ $(function() {
 	});
 
 	function initialize() {
-		// populate the first mountain
-		setData(document.body.dataset.mountain);
+		// set up routes and mountain
 		routes();
 		sizeshards();
 		// don't show images until scroll up
@@ -126,7 +126,13 @@ $(function() {
 			'<p class="data-prominence">prominence <%this.prominence%></p>' +
 			'<p class="data-description"><%this.description%></p>';
 
+		if (typeof newMountainData === 'undefined') {
+			// set to earth
+			newMountainData = mountainData['earth'];
+		}
+
 		// only show if there is a title
+		// earth is blank so hide it
 		if (newMountainData.title.length) {
 			// set title
 			title.innerHTML = TemplateEngine('<%this.title%>', newMountainData);
@@ -136,6 +142,7 @@ $(function() {
 			data.classList.remove('transparent', 'animate');
 			data.dataset.mountain = newMountain;
 		} else {
+			// default to earth
 			data.classList.add('transparent');
 			title.innerHTML = '';
 		}
@@ -185,8 +192,11 @@ $(function() {
 	}
 
 	// earth sequence
-	// TODO: executes twice on /#/earth bookmarked route
 	function earthSequence() {
+		// only execute once - occurs on /#/earth bookmarked route
+		if (earthStarted) {
+			return;
+		}
 		// reset the mountain shortcuts
 		mtnShortcutReset();
 		// animate the shooting star
@@ -198,6 +208,8 @@ $(function() {
 				loop();
 			}, getRandomInRange(5000, 12000));
 		}());
+
+		earthStarted = true;
 	}
 
 	// click mtn shortcut
@@ -310,7 +322,8 @@ $(function() {
 			on: function() {
 				// check if name is list and redirect if undefined
 				if (mountainList.indexOf(this.params.name) === -1) {
-					navigate(1);
+					// default to earth
+					navigate(0);
 				}
 			}
 		};
