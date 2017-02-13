@@ -325,21 +325,23 @@ h3 {
 // Photo album
 .photos-container {
 	flex: 0 0 $photo-column-width;
-
-	img {
-		display: block;
-		margin-bottom: $default-padding / 2;
-		vertical-align: bottom;
-		height: $photo-width;
-		width: $photo-width;
-	}
+	flex-wrap: wrap;
 
 	a {
-		float: left;
+		background-color: rgba(0,0,0,0.3);
+		display: inline-block;
+		margin-bottom: $default-padding / 2;
 	}
 
 	a:nth-child(even) {
 		margin-right: $default-padding / 2;
+	}
+
+	img {
+		display: block;
+		vertical-align: bottom;
+		height: $photo-width;
+		width: $photo-width;
 	}
 }
 

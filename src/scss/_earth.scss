@@ -45,6 +45,9 @@ body[data-mountain="earth"] {
 	.data {
 		background-color: rgba(255, 255, 255, 0.7);
 		cursor: pointer;
+		max-height: none;
+		// allow tooltip hover
+		overflow-y: visible;
 		position: relative;
 		transition: 0.30s $rock-easing;
 
