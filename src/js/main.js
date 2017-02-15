@@ -64,7 +64,7 @@ $(function() {
 
 	function navigateRight(e) {
 		e.preventDefault();
-		currentMountain = mountainList.indexOf($('body').attr('data-mountain'));
+		currentMountain = mountainList.indexOf(document.body.dataset.mountain);
 		// start at beginning again if at end
 		newMountain = (currentMountain === nLength) ? 0 : (currentMountain + 1);
 		// change mountain
@@ -73,7 +73,7 @@ $(function() {
 
 	function navigateLeft(e) {
 		e.preventDefault();
-		currentMountain = mountainList.indexOf($('body').attr('data-mountain'));
+		currentMountain = mountainList.indexOf(document.body.dataset.mountain);
 		// start at end again if at beginning
 		newMountain = (currentMountain === 0) ? nLength : (currentMountain - 1);
 		// change mountain
@@ -142,7 +142,7 @@ $(function() {
 			data.classList.remove('transparent', 'animate');
 			data.dataset.mountain = newMountain;
 		} else {
-			// default to earth
+			// hide data for earth
 			data.classList.add('transparent');
 			title.innerHTML = '';
 		}
@@ -172,7 +172,7 @@ $(function() {
 	}
 
 	function getRandomInRange(min, max) {
-		// return an interger from a range
+		// return an integer from a range
 		return Math.round((Math.random() * (max - min) + min));
 	}
 
@@ -228,7 +228,6 @@ $(function() {
 
 	function hoverMtnShortcut(e) {
 		// show mountain info on hover
-		// TODO: clear hover on return
 		setData(e.target.dataset.mountain);
 		// keep selected until another hover
 		mtnShortcutReset();
