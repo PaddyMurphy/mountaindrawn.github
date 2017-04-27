@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel><generator>http://textpattern.com/?v=4.0.8</generator>
+<title>Mountain Drawn : Personal site and photo blog of Patrick Lewis - Blog</title>
+<link>http://www.mountaindrawn.com/</link>
+<atom:link href="http://www.mountaindrawn.com/rss/?section=blog" rel="self" type="application/rss+xml" />
+<description>biking, climbing, paddling, illustration, Austin...</description>
+<pubDate>Tue, 13 Sep 2016 17:47:44 GMT</pubDate>
+
+<item><title>Employee travel guides on HomeAway</title>
+<description>
+<![CDATA[<p class="img-caption-center"><a href="http://www.flickr.com/photos/paddymurphy/7383497356/in/set-72157630153623680">Original photo of Diving in Jacob&#8217;s Well on Flicker</a> </p>
+
+	<p>I recently contributed a couple of employee travel guides / trips reports to HomeAway.com. The travel guides were lacking in outdoor adventures. One is titled <a href="http://www.homeaway.com/info/travelers/travel-ideas/employee-destination-guides/austin-tx-outdoor-adventures">Austin, TX Outdoor Adventures</a> and covers all of the rock climbing walls on the Greenbelt, kayaking &amp; tubing Barton Creek, and a few more activities and places. A second article titled <a href="http://www.homeaway.com/info/travelers/travel-ideas/employee-destination-guides/climbing-washington-mountains">Climbing Mountains Around Seattle, WA</a> covers Mount Rainier, Mount Adams, Mount Baker, Mount Shuksan, and Glacier Peak. </p>]]>
+</description>
+<link>http://www.mountaindrawn.com/blog/employee-travel-guides-on-homeaway</link>
+<pubDate>Thu, 26 Sep 2013 06:57:14 GMT</pubDate>
+<dc:creator>Patrick</dc:creator>
+<guid isPermaLink="false">tag:www.mountaindrawn.com,2013-09-26:6c320b138e642732c1f44cfd92b663c3/9daf163631c16f4230553af489658693</guid>
+</item>
+<item><title>Texas River Flow, my 10k contest entry</title>
+<description>
+<![CDATA[<p><a href="http://mountaindrawn.com/apps/riverflow/">Texas River Flow App</a></p>
+
+	<p>Part of the app is currently broken due to a change in the <span class="caps">USGS</span> api. </p>
+
+	<p>My entry in the <a href="http://10k.aneventapart.com/">aneventapart10k contest</a> is a little application that lets you check the river flow (cfs) of Texas rivers. The application gets it&#8217;s data from the &#8220;<span class="caps">USGS</span> water data service&#8220;http://waterdata.usgs.gov/nwis along with related photos from flickr.</p>]]>
+</description>
+<link>http://www.mountaindrawn.com/blog/texas-river-flow-my-10k-contest-entry</link>
+<pubDate>Wed, 25 Aug 2010 13:07:15 GMT</pubDate>
+<dc:creator>Patrick</dc:creator>
+<guid isPermaLink="false">tag:www.mountaindrawn.com,2010-08-25:6c320b138e642732c1f44cfd92b663c3/cbffa545db4a4662649c4babee077ae1</guid>
+</item>
+<item><title>The Devils River, Memorial Day 2010</title>
+<description>
+<![CDATA[<p>Put in at Baker&#8217;s Crossing on Friday, May 28th and paddled to The Indian Head Ranch 40 miles down river.</p>]]>
+</description>
+<link>http://www.mountaindrawn.com/blog/the-devils-river-memorial-day-2010</link>
+<pubDate>Mon, 21 Jun 2010 07:08:01 GMT</pubDate>
+<dc:creator>Patrick</dc:creator>
+<guid isPermaLink="false">tag:www.mountaindrawn.com,2010-06-21:6c320b138e642732c1f44cfd92b663c3/fe9d7aad9c537a5487cb4dfedaa2e40e</guid>
+</item>
+<item><title>Adam&#39;s Glacier Route, Mount Adams</title>
+<description>
+<![CDATA[<p>With seven of us on the climb this year it felt more like an expedition.</p>]]>
+</description>
+<link>http://www.mountaindrawn.com/blog/adam-s-glacier-route-mount-adams</link>
+<pubDate>Wed, 16 Jun 2010 14:50:51 GMT</pubDate>
+<dc:creator>Patrick</dc:creator>
+<guid isPermaLink="false">tag:www.mountaindrawn.com,2009-07-31:6c320b138e642732c1f44cfd92b663c3/83d5c2bd592d31f7d529cb767465ace1</guid>
+</item>
+<item><title>Devils River Kayaking, July 4th 2009</title>
+<description>
+<![CDATA[<p>We put in the kayaks at Bakers Crossing on Friday, July 3rd. The next 2 days we covered 23 miles to our take out at Gerald Baily&#8217;s place, Devils River Outfitters.</p>]]>
+</description>
+<link>http://www.mountaindrawn.com/blog/devils-river-kayaking-july-4th-2009</link>
+<pubDate>Wed, 22 Jul 2009 18:00:45 GMT</pubDate>
+<dc:creator>Patrick</dc:creator>
+<guid isPermaLink="false">tag:www.mountaindrawn.com,2010-06-22:6c320b138e642732c1f44cfd92b663c3/c54a665cb37a14bd19cec784d6eed513</guid>
+</item></channel>
+</rss>

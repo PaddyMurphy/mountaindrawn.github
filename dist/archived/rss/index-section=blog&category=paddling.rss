@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel><generator>http://textpattern.com/?v=4.0.8</generator>
+<title>Mountain Drawn : Personal site and photo blog of Patrick Lewis - Blog - Paddling</title>
+<link>http://www.mountaindrawn.com/</link>
+<atom:link href="http://www.mountaindrawn.com/rss/?section=blog&amp;category=paddling" rel="self" type="application/rss+xml" />
+<description>biking, climbing, paddling, illustration, Austin...</description>
+<pubDate>Tue, 13 Sep 2016 17:47:44 GMT</pubDate>
+
+<item><title>The Devils River, Memorial Day 2010</title>
+<description>
+<![CDATA[<p>Put in at Baker&#8217;s Crossing on Friday, May 28th and paddled to The Indian Head Ranch 40 miles down river.</p>]]>
+</description>
+<link>http://www.mountaindrawn.com/blog/the-devils-river-memorial-day-2010</link>
+<pubDate>Mon, 21 Jun 2010 07:08:01 GMT</pubDate>
+<dc:creator>Patrick</dc:creator>
+<guid isPermaLink="false">tag:www.mountaindrawn.com,2010-06-21:6c320b138e642732c1f44cfd92b663c3/fe9d7aad9c537a5487cb4dfedaa2e40e</guid>
+</item>
+<item><title>Devils River Kayaking, July 4th 2009</title>
+<description>
+<![CDATA[<p>We put in the kayaks at Bakers Crossing on Friday, July 3rd. The next 2 days we covered 23 miles to our take out at Gerald Baily&#8217;s place, Devils River Outfitters.</p>]]>
+</description>
+<link>http://www.mountaindrawn.com/blog/devils-river-kayaking-july-4th-2009</link>
+<pubDate>Wed, 22 Jul 2009 18:00:45 GMT</pubDate>
+<dc:creator>Patrick</dc:creator>
+<guid isPermaLink="false">tag:www.mountaindrawn.com,2010-06-22:6c320b138e642732c1f44cfd92b663c3/c54a665cb37a14bd19cec784d6eed513</guid>
+</item></channel>
+</rss>

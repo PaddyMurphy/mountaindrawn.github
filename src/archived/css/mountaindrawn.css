@@ -1,0 +1,439 @@
+/*
+Description: MountainDrawn.com layout
+Author: Patrick
+Date: March 2009
+Version: 1
+*/
+
+/* MEYER RESET */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}
+body {line-height:160%;}
+table {border-collapse:separate;border-spacing:0;}
+caption, th, td {text-align:left;font-weight:normal;}
+table, td, th {vertical-align:middle;}
+blockquote:before, blockquote:after, q:before, q:after {content:"";}
+blockquote, q {quotes:"" "";}
+a img {border:none;}
+
+/* BASIC TYPOGRAPHY */
+html { font-size: 85%; font-family: Arial, Helvetica, sans-serif; color:#000; }
+strong, th, thead td, h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+cite, em, dfn { font-style: italic; }
+code, kbd, samp, pre, tt, var, input[type='text'], input[type='password'], textarea { font-size: 92%; font-family: monaco, "Lucida Console", courier, monospace; }
+del { text-decoration: line-through; color: #666; }
+small, sup, sub { font-size: 85%; }
+abbr, acronym { text-transform: uppercase; font-size: 85%; letter-spacing: .1em; }
+a abbr, a acronym { border: none; }
+abbr[title], acronym[title], dfn[title] { cursor: help; border-bottom: 1px solid #ccc; }
+sup { vertical-align: super; }
+sub { vertical-align: sub; }
+p {margin:8px 10px; text-align:left;}
+
+/* BASE SIZES */
+
+h1 {color:#000; font:180% Georgia, "Times New Roman", Times, serif; margin:5px 0 5px 10px;}
+h1 a:link, h1 a:visited {color:#000; text-decoration:none; border-bottom:2px solid #CFC7B5; margin-bottom:2px;}
+h1 a:hover { border-bottom:none;}
+
+h2 {color:#000; font:150% Georgia, "Times New Roman", Times, serif; margin:15px 0 5px 10px;}
+
+h3 {color:#000; font:130% Georgia, "Times New Roman", Times, serif; margin:5px 0 5px 0;}
+
+
+/* LAYOUT */
+.accessibility {text-indent:-9999px; float: left; height:1px;}
+html {
+background:url("../images/tile-drawing-paper.png") repeat;
+height:100%;
+}
+body {
+background: url("../images/tile-sky-color.jpg") repeat-x;
+/*background: url("../images/tile-sky-sunset.jpg") repeat-x;*/
+height:100%;
+}
+
+#container {
+/*background:green;*/
+height:100%;
+min-height: 100%;
+width:100%;
+margin:0 auto;
+text-align:left;
+}
+
+#header {
+position:relative; /* to absolutely position everything inside */
+background: url("../images/top-mt-baker.png") no-repeat 69% 114px;
+height:338px;
+overflow:visible;
+z-index:90;
+} 
+#logo-container {
+position:absolute;
+top:20px;
+left:10%;
+width:360px;
+min-height: 100%;
+}
+#logo { 
+width:360px;
+height:87px;
+}
+#logo a:link, #logo a:visited {
+display:block;
+background:url("../images/mountaindrawn.png") no-repeat;
+display:block;
+width:360px;
+height:87px;
+text-indent:-9999px; 
+}
+.cat-austin, .cat-illustration, .cat-climbing, .cat-web, .cat-biking, .cat-paddling, .comma, .ellipsis {display:block; float:left; height:46px; text-indent:-9999em; padding:0 3px 0 0;}
+.comma {
+background:url("../images/comma.png") 0 25px no-repeat;
+width:6px;
+}
+.ellipsis {
+background:url("../images/ellipsis.png") 0 20px no-repeat;
+width:23px;
+}
+.cat-austin {
+background:url("../images/cat-austin.png") no-repeat;
+width:61px;
+}
+.cat-illustration {
+background:url("../images/cat-illustration.png") no-repeat;
+width:74px;
+}
+.cat-climbing {
+background:url("../images/cat-climbing.png") no-repeat;
+width:75px;
+}
+.cat-web {
+background:url("../images/cat-web.png") no-repeat;
+width:137px;
+}
+.cat-biking {
+background:url("../images/cat-biking.png") no-repeat;
+width:54px;
+}
+.cat-paddling {
+background:url("../images/cat-paddling.png") no-repeat;
+width:96px;
+}
+#logo-categories a:hover {background-position:0 -46px;}
+
+#top-personal-site {
+position:absolute;
+top:-70px;
+right:2%;
+height:70px;
+width:344px;
+}
+.nojs #top-personal-site {
+top:0;
+}
+
+#top-personal-site a:link, #top-personal-site a:visited {
+display:block;
+height:70px;
+width:344px;
+background:url("../images/top-personal-site.png");
+text-indent:-9999em;
+}
+/*#top-personal-site a:hover {
+display:block;
+height:70px;
+width:344px;
+background:url("../images/top-personal-site_f2.png");
+}*/
+
+#cloud, #cloud-behind {
+background:url("../images/cloud.png") no-repeat;
+width:209px;
+height:65px;
+text-indent:-9999em;
+position:absolute;
+top:120px;
+right:20%;
+z-index:98;
+opacity:0.8;
+}
+#cloud-behind {
+top:145px;
+right:45%;
+z-index:10;
+opacity:0.4;
+}
+
+ul#mainnav {
+position:absolute;
+top:228px;
+left:14%;
+z-index:0;
+}
+ul#mainnav li {
+float:left;
+display:inline;
+}
+/*ul#mainnav li.nav-home a, ul#mainnav li.nav-home a:visited {
+background-image: url("../images/nav-home.png");
+display:block;
+width:70px;
+height:47px;
+text-indent:-9999em;
+}*/
+ul#mainnav li.nav-blog a, ul#mainnav li.nav-blog a:visited {
+background-image: url("../images/nav-blog.png");
+display:block;
+width:68px;
+height:47px;
+text-indent:-9999em;
+}
+
+ul#mainnav li.nav-about a, ul#mainnav li.nav-about a:visited {
+background-image: url("../images/nav-about.png");
+display:block;
+width:80px;
+height:47px;
+text-indent:-9999em;
+}
+/*ul#mainnav li.nav-play a, ul#mainnav li.nav-play a:visited {
+background-image: url("../images/nav-play.png");
+display:block;
+width:66px;
+height:47px;
+text-indent:-9999em;
+}*/
+ul#mainnav li a:hover { background-position:1px 1px; background-repeat:no-repeat}
+
+
+#col-wrapper {
+background: url("../images/waterfall-tile-2.png") 722px 50px repeat-y;
+min-height: 100%;
+height: auto !important;
+height:100%;
+margin:0 auto -225px auto;
+overflow:visible;
+position:relative;
+width:980px;
+}
+.col-1 {
+height:100%;
+padding:0 20px;
+float:left;
+width:675px;
+}
+.article-excerpt {position:relative;}
+.article-full {position:relative; overflow:hidden; height:auto;}
+.col-2 {
+height:100%;
+float:right;
+padding:0 5px 0 15px;
+width:245px;
+z-index:100;
+}
+
+h2#waterfall-top {
+background:  url("../images/waterfall-top-2.png") no-repeat;
+float:right;
+margin:-64px 20px 0 0;
+height:150px;
+width:238px;
+}
+#waterfall-top span {
+position:relative;
+display:block;
+margin:130px 0 0 18px;
+z-index:1;
+}
+
+.push {height: 225px; clear:both;}
+
+#footer-container {
+background: url("../images/footer-tile-waves.png") bottom repeat-x;
+height:225px;
+position:relative;
+bottom:0;
+right:0;
+text-align:center;
+min-width:980px;
+}
+#footer-info {
+background: url("../images/waterfall-bottom.jpg") right top no-repeat;
+margin:0 auto;
+text-align:left;
+height:225px;
+width:980px;
+margin:0 auto 0 auto;
+}
+#footer-info p {margin:0 0 5px 0; font-size:80%;}
+#footer-info h3 {color:#407377;}
+#footer-info p a, #footer-info p a:visited {font-size:100%;}
+#footer-about, #footer-blog, #footer-comments {
+float:left;
+height:160px;
+margin:45px 10px 0 0;
+}
+#footer-about, #footer-blog {
+width:200px;
+}
+#footer-comments {
+width:260px;
+}
+.copyright {
+color:#4F8D93;
+position:absolute;
+bottom:0;
+left:10px;
+}
+
+ul.list-links {
+margin:0 0 0 10px;
+}
+ul.list-links li {
+list-style:none;
+padding:2px 0;
+}
+ul.list-links li a, ul.list-links li a:visited, span.categories-list a, span.categories-list a:visited, #footer-info a, #footer-info a:visited {
+border-bottom:1px solid #9BC9CF;
+color:#DF5900;
+font-size:110%;
+text-decoration:none;
+padding:0 0 1px 0;
+}
+ul.list-links li a:active, ul.list-links li a:hover, span.categories-list a:hover, #footer-info a:hover {
+border-bottom:1px solid #83B8BF;
+color:#BF4C00;
+}
+
+.more-link {
+background: url("../images/more-btn.png") no-repeat;
+display:block;
+float:right;
+margin:0 20px 0 0;
+height:52px;
+width:140px;
+text-indent:-9999em;
+}
+.more-link a, .more-link a:visited {
+display:block;
+height:52px;
+width:140px;
+}
+.date-posted {
+/*display:block;*/
+font:90% Georgia, "Times New Roman", Times, serif;
+margin:5px 0 2px 10px;
+}
+
+span.categories-list {
+display:block;
+margin:0 0 0 10px;
+width:210px;
+}
+span.categories-list a {white-space:nowrap;}
+
+.link-to-next-prev a, .link-to-next-prev a:visited, .link-to-old-new a, .link-to-old-new a:visited {
+font:130% Georgia, "Times New Roman", Times, serif;
+color:#30626F;
+border-bottom:1px solid #DFA47D;
+text-decoration:none;
+padding:0 0 1px 0;
+}
+.link-to-next-prev a:hover, .link-to-old-new a:hover {
+color:#244B55;
+border-bottom:1px solid #CF814D;
+text-decoration:none;
+}
+
+/* COMMENTS */
+div.comments-wrapper table, form#txpCommentInputForm {width:380px;}
+form#txpCommentInputForm {margin:20px 0	;}
+
+ul.comment {
+font-size:.9em;
+margin:20px 0 0 0;
+padding:10px;
+}
+ul.comment li {
+border-bottom:1px solid #CFC7B5;
+list-style:none outside none;
+margin:0;
+padding:0 0 5px;
+}
+ul.comment li p {
+padding:0;
+margin:0;
+}
+.comment-invite {
+margin:3px 0 0 0;
+font-size:.8em;
+}
+/* flickr badge */
+#flickr {
+overflow:hidden;
+width:220px;
+}
+#flickr a img {
+float:left;
+margin:0 0 12px 12px;
+background: url("../images/flickr-bg.png") no-repeat;
+padding:8px 9px 9px 9px;
+width:75px;
+height:75px;
+}
+
+.tags {
+clear:both;
+font:90% Georgia, "Times New Roman", Times, serif;
+padding:5px;
+margin:15px 0 0 10px;
+background:#CEE8ED;
+}
+/* common classes */
+.clear {clear:both;}
+.img-right {float:right; margin:3px 6px 3px 5px;}
+.img-left {float:left; margin:3px 6px 3px 0;}
+.img-center {
+display:block;
+margin:3px auto;
+}
+.img-caption-center {
+display:block;
+width:500px;
+margin:3px auto 10px auto;
+font-size:90%;
+text-align:center;
+color:#604932;
+}
+.img-caption-right, .img-caption-right-400wide, .img-caption-right-281wide { /* for right side images */
+display:block;
+float:right;
+margin:3px 6px 3px 5px;
+font-size:90%;
+text-align:center;
+color:#604932;
+}
+.img-caption-right { /* for regular 500px wide flickr images */
+width:500px;
+}
+.img-caption-right-400wide { /* for 400px wide flickr images */
+width:400px;
+}
+
+.img-caption-right-281wide { /* for vertical 281px wide flickr images */
+width:281px;
+}
+
+.nice-list {margin:5px 0 5px 30px;}
+.nice-list li {padding:0 0 3px 0;}
+
+
+h1.article-title {}
+
+ul.sociallist {margin:10px 0 10px 10px;}
+ul.sociallist li {padding:0 4px 0 0; display:inline; list-style:none;}
+ul.sociallist li a:link, ul.sociallist li a:link {
+font-size:90%;
+margin:0;
+}
