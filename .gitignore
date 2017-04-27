@@ -1,4 +1,6 @@
 .DS_Store
-node_modules
+node_modules/
+dist/
 npm-debug.log
-.sass-cache
+yarn-error.log
+test/unit/coverage

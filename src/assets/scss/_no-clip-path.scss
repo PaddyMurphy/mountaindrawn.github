@@ -1,0 +1,73 @@
+// no clip path support
+.static-mountains {
+	display: none;
+	height: 100%;
+	visibility: hidden;
+	width: 100%;
+}
+.no-clip-path {
+	.mountains {
+		display: none;
+		visibility: hidden;
+	}
+
+	.static-mountains {
+		display: block;
+		visibility: visible;
+	}
+}
+
+// common to all svgs
+.static-mountain {
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 0;
+	margin: 0 auto;
+	padding-top: 68%;
+	position: relative;
+	width: 90%;
+}
+// maintain aspect ratio
+// padding-top: (svg height / svg width) * width-value;
+
+// duplicate classname for svg.html
+.earth,
+[data-mountain="earth"] {
+	.static-mountain {
+		background-image: url('../assets/images/earth.svg');
+		padding-top: 63%;
+		width: 70% !important;
+	}
+}
+
+.bugaboo,
+[data-mountain="bugaboo"] {
+	.static-mountain {
+		background-image: url('../assets/images/bugaboo.svg');
+		padding-top: 62%;
+	}
+}
+
+.tetons,
+[data-mountain="tetons"] {
+	.static-mountain {
+		background-image: url('../assets/images/tetons.svg');
+		padding-top: 65%;
+	}
+}
+
+.blanca-traverse,
+[data-mountain="blanca-traverse"] {
+	.static-mountain {
+		background-image: url('../assets/images/blanca-traverse.svg');
+		padding-top: 55%;
+	}
+}
+
+.glacier-peak,
+[data-mountain="glacier-peak"] {
+	.static-mountain {
+		background-image: url('../assets/images/tetons.svg');
+		padding-top: 65%;
+	}
+}

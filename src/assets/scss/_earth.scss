@@ -1,0 +1,614 @@
+// EARTH
+$earth-light: #AED180;
+$earth-shade-30: #A1C276;
+$earth-shade-60: #90B165;
+$earth-dark: #6C8649;
+
+body[data-mountain="earth"] {
+	background-color: #313644;
+
+	.title-nav {
+		transition: all 0.3s;
+	}
+
+	.nav-earth {
+		background: rgba(255, 255, 255, 0.1);
+		pointer-events: none;
+	}
+
+	// account for dark theme
+	// TODO: move to theme-dark class if more dark themes
+	.logo {
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	footer {
+		color: rgba(255, 255, 255, 0.5);
+	}
+
+	.title {
+		color: #fff !important;
+	}
+
+	a:link {
+		color: $earth-blue;
+	}
+
+	a:visited {
+		color: darken($earth-blue, 10%);
+	}
+
+	a:hover {
+		color: lighten($earth-blue, 10%);
+	}
+
+	.data {
+		background-color: rgba(255, 255, 255, 0.7);
+		cursor: pointer;
+		max-height: none;
+		// allow tooltip hover
+		overflow-y: visible;
+		position: relative;
+		transition: 0.30s $rock-easing;
+
+		@include mquery(small) {
+			position: absolute;
+		}
+
+		&:before {
+			@extend .psuedo-element;
+			content: "view mountain...";
+			color: rgba(255,255,255,0.8);
+			opacity: 0;
+			transition: opacity 0.25s;
+			top: -30px;
+			left: $default-padding;
+			height: auto;
+			width: auto;
+		}
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.9);
+
+			&:before {
+				opacity: 1;
+			}
+		}
+	}
+
+	.data-close {
+		visibility: visible;
+	}
+
+	.about-block,
+	.about-container h3 {
+		color: rgba(255, 255, 255, 0.8);
+	}
+
+	// svg
+	#arrow-top,
+	#arrow-bottom {
+		fill: #fff;
+		opacity: 0.3;
+	}
+	#arrow-bottom {
+		opacity: 0.4;
+	}
+
+	// alternate earthshine
+	@keyframes earth-shine-out {
+	    0% {
+	        opacity: 1;
+	    }
+	    50% {
+	        opacity: 0;
+	    }
+	    100% {
+	        opacity: 1;
+	    }
+	}
+
+	@keyframes earth-shine-in {
+	    0% {
+	        opacity: 0;
+	    }
+	    50% {
+	        opacity: 1;
+	    }
+	    100% {
+	        opacity: 0;
+	    }
+	}
+
+	.mountains {
+		background-image: none;
+
+		&:before,
+		&:after {
+			@extend .psuedo-element;
+			background-position: center;
+			background-size: auto;
+			background-repeat: no-repeat;
+		}
+
+		&:before {
+			animation: earth-shine-out 30s infinite;
+			background-image:
+			    radial-gradient(
+			      circle closest-side at 50% 50%,
+			      #7fffff,
+			      rgba(255,222,127,0.001) // safari transparent fix
+			    );
+			opacity: 1;
+		}
+
+		&:after {
+			animation: earth-shine-in 30s infinite;
+			opacity: 0;
+			background-image:
+			    radial-gradient(
+			      circle closest-side at 50% 50%,
+			      #ff6306,
+			      rgba(255,222,127,0.001) // safari transparent fix
+			    );
+		}
+	}
+
+	.content {
+		h2 {
+			color: #fff;
+		}
+	}
+
+	@keyframes earth-grow {
+	    0% {
+	        transform: scale(0.1);
+	    }
+	    100% {
+	        transform: scale(1);
+	    }
+	}
+
+	.earth-outline {
+		@extend .earth-clip-path;
+		animation: earth-grow 800ms;
+		//animation-delay: 200ms;
+		animation-fill-mode: forwards;
+		animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); // bounce
+		background-color: $earth-blue;
+		background-image:
+			radial-gradient(
+				circle at 64% 39%, #B3DEF1, #9bcbe0 45%, #fff 100%
+			);
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 1;
+
+		&:after {
+			background: url('../assets/images/img-noise.png');
+			opacity: 0.4;
+			@extend .psuedo-element;
+		}
+	}
+
+	// data box position
+	.data {
+		@include mquery(small) {
+			transform: translate(-14vw, 3vh);
+			&:after {
+				display: block;
+			}
+		}
+	}
+
+	// tiles read left to right and back
+	.mountains > .rock {
+		&:nth-child(1) {
+			background-color: $earth-shade-30;
+			clip-path: polygon( 36.400% 17.300%, 39.600% 22.333%, 27.200% 39.333% );
+		}
+		&:nth-child(2) {
+			background-color: $earth-dark;
+			clip-path: polygon( 39.400% 22.000%, 32.800% 31.333%, 36.600% 34.333% );
+		}
+		&:nth-child(3) {
+			background-color: $earth-shade-60;
+			clip-path: polygon( 36.500% 34.000%, 44.000% 33.000%, 39.200% 22.667% );
+		}
+		&:nth-child(4) {
+			background-color: $earth-dark;
+			clip-path: polygon(39.5% 23.667%, 43.8% 32.667%, 43.8% 24.667%);
+		}
+		&:nth-child(5) {
+			kground-image: url('../assets/images/img-noise.png');
+			background-color: $earth-light;
+			clip-path: polygon( 33.000% 31.333%, 47.600% 41.000%, 35.400% 43.000% );
+		}
+		&:nth-child(6) {
+			background-color: $earth-shade-30;
+			clip-path: polygon( 36.400% 34.000%, 47.200% 32.667%, 44.600% 39.667% );
+		}
+		&:nth-child(7) {
+			background-image: url('../assets/images/img-noise.png');
+			background-color:$earth-light;
+			clip-path: polygon( 47.000% 33.000%, 44.600% 39.667%, 47.600% 38.333% );
+		}
+		&:nth-child(8) {
+			background-color: $earth-dark;
+			clip-path: polygon( 47.000% 33.000%, 47.600% 41.667%, 53.600% 26.000% );
+		}
+		&:nth-child(9) {
+			background-color: $earth-shade-30;
+			clip-path: polygon( 49.200% 31.000%, 46.400% 22.333%, 53.400% 26% );
+		}
+		&:nth-child(10) {
+			background-image: url('../assets/images/img-noise.png');
+			background-color: $earth-light;
+			clip-path: polygon( 48.400% 23.333%, 54.400% 18.667%, 48.800% 14.667% );
+		}
+		&:nth-child(11) {
+			background-color: $earth-dark;
+			clip-path: polygon( 48.000% 23.667%, 55.000% 18.000%, 58.200% 28.000% );
+		}
+		&:nth-child(12) {
+			background-color: $earth-shade-60;
+			clip-path: polygon( 53.600% 25.667%, 48.400% 39.333%, 49.400% 42.333% );
+		}
+		&:nth-child(13) {
+		    background-image: url('../assets/images/img-noise.png');
+		    background-color: $earth-light;
+		    clip-path: polygon( 53.6% 25.8%, 49.400% 42.2%, 58.800% 28.000%);
+		}
+
+		&:nth-child(14) {
+		    background-color: $earth-shade-30;
+		    clip-path: polygon( 49.600% 42.000%, 58.000% 29.333%, 56.400% 45.667%);
+		}
+
+		&:nth-child(15) {
+		    background-color: $earth-dark;
+		    clip-path: polygon( 47.600% 40.667%, 57.000% 45.333%, 49.400% 43.667%);
+		}
+
+		&:nth-child(16) {
+		    background-color: $earth-dark;
+		    clip-path: polygon( 56.600% 45.000%, 58.400% 53.000%, 53.200% 47.667%);
+		}
+
+		&:nth-child(17) {
+		    background-color: $earth-shade-60;
+		    clip-path: polygon( 56.800% 45.333%, 47.000% 53.000%, 47.600% 42.333%);
+		}
+
+		&:nth-child(18) {
+		    background-color: $earth-shade-30;
+		    clip-path: polygon( 47.600% 41%, 35.400% 42.333%, 47.400% 53.1%);
+		}
+
+		&:nth-child(19) {
+		    background-color: $earth-dark;
+		    clip-path: polygon( 35.400% 42.4%, 47.7% 52.333%, 40.000% 57.000%);
+		}
+
+		&:nth-child(20) {
+		    background-color: $earth-shade-60;
+		    clip-path: polygon( 36.2% 45.000%, 36.600% 55.667%, 39.9% 56.667%);
+		}
+
+		&:nth-child(21) {
+		    background-color: $earth-shade-30;
+		    clip-path: polygon( 36.6% 55.5%, 41.8% 66.333%, 40% 56.5%);
+		}
+
+		&:nth-child(22) {
+		    background-image: url('../assets/images/img-noise.png');
+		    background-color: $earth-light;
+		    clip-path: polygon( 39.800% 56.667%, 48.400% 52.000%, 45.800% 67.333%);
+		}
+
+		&:nth-child(23) {
+		    background-color: $earth-shade-60;
+		    clip-path: polygon( 45.600% 67.2%, 57.600% 69.667%, 47.7% 56.000%);
+		}
+
+		&:nth-child(24) {
+		    background-color: $earth-dark;
+		    clip-path: polygon( 50.600% 60.333%, 54.800% 66.000%, 54.200% 56.333%);
+		}
+
+		&:nth-child(25) {
+		    // carribean
+		    background-color: $earth-shade-30;
+		    clip-path: polygon( 58.600% 56.333%, 62.200% 53.667%, 62.400% 57.000%);
+		}
+
+		&:nth-child(26) {
+		    // background-image: url('../images/img-noise.png');
+		    background-color: $earth-light;
+		    clip-path: polygon( 57.400% 69.667%, 60.400% 75.333%, 65.400% 69.333%);
+		}
+
+		&:nth-child(27) {
+		    background-color: $earth-shade-30;
+		    clip-path: polygon( 60.600% 75.667%, 56.800% 87.9%, 63.400% 85.333%);
+		}
+
+		&:nth-child(28) {
+		    background-color: $earth-shade-60;
+		    clip-path: polygon( 60.400% 75.4%, 63.200% 85.5%, 65.600% 69.000%);
+		}
+
+		&:nth-child(29) {
+		    background-color: $earth-dark;
+		    clip-path: polygon( 65.400% 69.333%, 63.200% 85.667%, 71.600% 73.333%);
+		}
+
+		&:nth-child(30) {
+		    background-color: $earth-shade-30;
+		    clip-path: polygon( 65.4% 69.4%, 71.6% 73.333%, 74.8% 63.333%);
+		}
+
+	} // END .mountains
+
+	.earth-mtn {
+		// show mountains
+		display: block;
+		visibility: visible;
+		// style
+		background-color: $earth-mountain;
+		//background: linear-gradient(to right, rgba(116,70,144,1) 30%,rgba(230,221,236,1) 50%,rgba(116,70,144,1) 100%);
+		cursor: pointer;
+		position: absolute;
+		transition: all 0.3s;
+		width: 100%;
+		height: 100%;
+		z-index: 9;
+		&.hover {
+			background-color: darken($earth-mountain, 15%);
+		}
+		// snow effect to indicate clickable
+
+	}
+
+	.earth-mtn-bugaboo {
+		clip-path: polygon( 51.200% 36.333%, 52.400% 36.333%, 51.400% 32.667% );
+		&:hover,
+		&.hover {
+			clip-path: polygon( 50.600% 35.667%, 52.800% 36.000%, 51.200% 30.333% );
+		}
+	}
+
+	.earth-mtn-tetons {
+		clip-path: polygon( 40.800% 44.333%, 40.600% 47.667%, 41.600% 47.667% );
+		&:hover,
+		&.hover {
+			clip-path: polygon( 41.000% 43.333%, 40.000% 47.667%, 42.000% 47.667% );
+		}
+	}
+
+	.earth-mtn-blanca-traverse {
+		clip-path: polygon( 40.400% 48.333%, 41.400% 51.000%, 40.400% 51.000% );
+		&:hover,
+		&.hover {
+			clip-path: polygon( 40.600% 47.333%, 41.400% 51.667%, 39.600% 51.333% );
+		}
+	}
+
+	.earth-mtn-glacier-peak {
+		animation: snow 9s 8s ease infinite;
+		clip-path: polygon( 36.600% 44.333%, 36.800% 41.333%, 37.600% 44.333% );
+		&:hover,
+		&.hover {
+			clip-path: polygon( 36.200% 44.667%, 36.600% 40.000%, 37.800% 44.333% );
+		}
+	}
+
+	///*** STARFIELD ***///
+
+	// n is number of stars required
+	@function box-shadows($n) {
+		$value: '#{random(1500)}px #{random(1500)}px #FFF';
+
+		@for $i from 2 through $n {
+		  $value: '#{$value} , #{random(1500)}px #{random(1500)}px 0 #FFF';
+		}
+
+		@return unquote($value)
+	}
+
+	$shadows-small:  box-shadows(500);
+	$shadows-medium: box-shadows(200);
+	$shadows-big:    box-shadows(75);
+
+	@keyframes milkyway {
+	    0% {
+	        opacity: 0;
+	    }
+	    50% {
+	        opacity: 1;
+	    }
+	    100% {
+	        opacity: 0;
+	    }
+	}
+
+	.starfield-wrapper {
+		position: fixed;
+		height: 100vh;
+		width: 100vw;
+		overflow: hidden;
+		top: 0;
+		left: 0;
+		visibility: visible;
+
+		// milky way
+		&:before,
+		&:after {
+			@extend .psuedo-element;
+		}
+
+		&:before {
+			animation: earth-shine-in 20s infinite;
+			opacity: 0;
+			background: linear-gradient(
+				to left top,
+				rgba(30,87,153,0) 0%,
+				rgba(30, 87, 153, 0.14) 19%,
+				rgba(30, 85, 153, 0.2) 20%,
+				rgba(25, 17, 56, 0.19) 50%,
+				rgba(11, 20, 53, 0.18) 51%,
+				rgba(30,87,153,0.15) 80%,
+				rgba(30, 61, 153, 0.12) 81%,
+				rgba(30,87,153,0) 100%
+			);
+		}
+
+		&:after {
+			animation: earth-shine-out 20s infinite;
+			opacity: 1;
+			background: linear-gradient(
+				to left top,
+				rgba(30,87,153,0) 0%,
+				rgba(25, 123, 92, 0.14) 29%,
+				rgba(26, 109, 78, 0.2) 30%,
+				rgba(13, 43, 32, 0.19) 50%,
+				rgba(10, 47, 44, 0.18) 51%,
+				rgba(15, 72, 72, 0.15) 80%,
+				rgba(18, 93, 89, 0.12) 81%,
+				rgba(30,87,153,0) 100%);
+		}
+	};
+
+	.starfield {
+		display: block;
+		transition: all 0.8s;
+		z-index: 1;
+	}
+
+	.starfield-1 {
+	    animation: starfield 200s linear infinite;
+	    box-shadow: $shadows-small;
+	    height: 1px;
+	    opacity: 0.5;
+	    width: 1px;
+
+	}
+
+	.starfield-2 {
+	    animation: starfield 150s linear infinite;
+	    box-shadow: $shadows-medium;
+	    height: 2px;
+	    opacity: 0.7;
+	    width: 2px;
+	}
+
+	.starfield-3 {
+	    animation: starfield 100s linear infinite;
+	    box-shadow: $shadows-big;
+	    height: 3px;
+	    opacity: 0.8;
+	    width: 3px;
+	}
+
+	@keyframes starfield {
+		0% {
+	    	transform: translateY(0px);
+		}
+		100%	{
+	    	transform: translateY(-100vh);
+		}
+	}
+
+	// SHOOTING STAR
+	.shooting-star {
+		background: linear-gradient(
+			to right,
+			rgba(0,0,0,0) 0%,
+			rgba(254,254,254,0.98) 98%,
+			rgba(254,254,254,1) 100%);
+
+		height: 1px;
+		opacity: 0.3;
+		position: relative;
+		// top, left, and width get overridden in js
+		top: 0;
+		left: 0;
+		width: 200px;
+    // do not transition visibility
+    transition: opacity 0.8s, transform 0.8s;
+    transform: rotate(45deg) translate(0);
+    visibility: hidden;
+
+    &.animate {
+      opacity: 0;
+      transform: rotate(45deg) translate(50vw);
+      visibility: visible;
+    }
+	}
+
+	// SATELLITES
+	.satellite-wrapper {
+		// this rotates on an elliptical orbit
+		transform: perspective(1000px) rotateY(55deg);
+		transform-style: preserve-3d;
+		position: fixed;
+		height: 80vh;
+		top: 0;
+		left: 0;
+		width: 100vw;
+	}
+
+	@keyframes satellite-path {
+	    0% {
+	        transform: rotate(0deg);
+	    }
+	    100% {
+	        transform: rotate(360deg);
+	    }
+	}
+
+	@keyframes satellite-blink {
+	    0% {
+	        opacity: 0;
+	    }
+	    100% {
+	        opacity: 1;
+	    }
+	}
+	// shared styles
+	.earth-satellite {
+		@extend .psuedo-element;
+		animation: satellite-path 30s linear infinite;
+		animation-delay: 1s;
+		background-color: rgba(255, 255, 255, 0.8);
+		// TODO: test this
+		transform: translate3d(0, 0, 0);
+		height: 1px;
+		width: 1px;
+
+		&:after {
+			animation: satellite-blink 1200ms infinite;
+			background-color: red;
+			display: block;
+			content: '';
+			width: 1px;
+			height: 1px;
+			transform: translateY(1px);
+		}
+	}
+
+	.earth-satellite-1 {
+		top: 15vh;
+		left: 50vh;
+		transform-origin: -2vw 28vh;
+	}
+
+	.earth-satellite-2 {
+		animation-direction: reverse;
+		top: 10vh;
+		left: 30vh;
+		transform-origin: 8vw 22vh;
+	}
+
+} // END earth.. uh oh
