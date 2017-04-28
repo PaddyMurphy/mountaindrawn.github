@@ -1,29 +1,17 @@
-// http://eslint.org/docs/user-guide/configuring
-
 module.exports = {
-  root: true,
-  parser: 'babel-eslint',
-  parserOptions: {
-    sourceType: 'module'
-  },
-  env: {
-    browser: true,
-  },
-  // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
-  extends: 'standard',
-  // required to lint *.vue files
-  plugins: [
-    'html'
-  ],
-  // add your custom rules here
-  'rules': {
-    // allow paren-less arrow functions
-    'arrow-parens': 0,
-    // allow async-await
-    'generator-star-spacing': 0,
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
-    // I just can't let go of semicolons yet
-    'semi': 0
-  }
-}
+    "extends": "standard",
+    "plugins": [
+        "standard"
+    ],
+    "env": {
+        "browser": 1,
+        "node": 1
+    },
+    "rules": {
+    	"indent": [2, "tab"],
+		"no-tabs": 0,
+     	"semi": [1, "always"],
+     	"space-before-function-paren": ["error", "never"],
+     	"one-var": [0, "error"]
+    }
+};
